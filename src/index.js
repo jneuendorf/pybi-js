@@ -76,6 +76,10 @@ const install = (namespace, options={}) => {
 
     for (const moduleName of moduleNames) {
         const module = require(`./${moduleName}`)
+        if (!module) {
+            continue
+        }
+
         if (typeof(module) === 'function') {
             injections[moduleName] = module
         }
@@ -108,25 +112,5 @@ module.exports = {
 export const reversed = function(iterable) {
     return list(iterable).reverse()
 }
-
-// Constructs an object from an iterable of (key, value) - pairs.
-// Alternatively an array of non-pair items can be given.
-// In that case each dictionary entry is constructed using str(item) as key and item as value
-export const dict = function(iterable) {
-    const result = {}
-    for (const item of iterable) {
-        if (is_array(item)) {
-            const [key, val] = item
-            result[key] = val
-        }
-        else {
-            result[`${item}`] = item
-        }
-    }
-    return result
-}
-
-
-
 
 */

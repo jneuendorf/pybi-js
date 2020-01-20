@@ -43,11 +43,14 @@ install()
 - [x] `bytes()`
 - [x] `callable()`
 - [x] `chr()`
-- `classmethod()`
-- `compile()`
-- `complex()`
-- `delattr()`
-- `dict()`
+- [x] `classmethod()`
+- [ ] :stop_sign: `compile()`
+    - I guess I could do that using babylon but not for now. :wink:
+- [ ] :x: `complex()`
+    - There is no JS built-in equivalent (or something similar) that I am aware of.
+      We don't want to pollute whole libraries (like [math.js](https://mathjs.org/docs/datatypes/complex_numbers.html)) into somewhere. :wink:
+- [x] `delattr()`
+- [x] `dict()`
 - `dir()`
 - `divmod()`
 - [x] `enumerate()`
@@ -82,9 +85,10 @@ install()
 - `open()`
 - [x] `ord()`
 - `pow()`
-- `print()`
-    - `kwargs` can be passed by passing an object with the following shape as the last argument:
-      `{__kwargs__, end='-------'}`
+- [x] `print()`
+    - `kwargs` can be passed by passing an object with the following shape as
+      the last argument, for example:
+      `{__kwargs__, end='-------'}`.
       `__kwargs__` is a named export of `pyllute`.
       Note that the `end` keyword argument is prepended to the default line break. This means it behaves differently than in python.
 - `property()`
@@ -99,7 +103,7 @@ install()
 - `staticmethod()`
 - `str()`
 - `sum()`
-- :x: `super()` (keyword)
+- [ ] :x: `super()` (keyword)
 - `tuple()`
 - `type()`
 - `vars()`
