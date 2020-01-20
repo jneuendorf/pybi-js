@@ -1,0 +1,9 @@
+{
+  "name": "pyllute",
+  "version": "0.0.1",
+  "description": "Pollute a namespace (global, window supported) with JS implementation of (most of) Python's built-in functions",
+  "main": "src/index.js",
+  "repository": "https://github.com/jneuendorf/pyllute.git",
+  "author": "Jim Neuendorf <jim.neuendorf@gmx.de>",
+  "license": "MIT"
+}
