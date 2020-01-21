@@ -114,7 +114,7 @@ install()
 - `slice()`
 - `sorted()`
 - `staticmethod()`
-- `str()`
+- [x] `str()`
 - `sum()`
 - [ ] :x: `super()` (keyword)
 - `tuple()`
