@@ -5,5 +5,8 @@
   "main": "src/index.js",
   "repository": "https://github.com/jneuendorf/pyllute.git",
   "author": "Jim Neuendorf <jim.neuendorf@gmx.de>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+      "test": "node test.js"
+  }
 }

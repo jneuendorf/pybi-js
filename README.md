@@ -73,7 +73,7 @@ install()
       may be a better idea than an own implementation.
 - [ ] :x: `help()`
 - [x] `hex()`
-- `id()`
+- [x] `id()`
 - `input()`
 - `int()`
 - `isinstance()`

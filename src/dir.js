@@ -25,7 +25,7 @@ module.exports = object => {
     // TODO: This is currently non-recursive.
     attrs.push(...Object.keys(cls))
     if (prototype) {
-        attrs.push(...Object.keysprototypecls))
+        attrs.push(...Object.keysprototypecls)
     }
     return attrs
 }
