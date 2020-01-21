@@ -1,7 +1,7 @@
 module.exports = x => {
     if (Number.isInteger(x)) {
         if (x >= 0) {
-            return `$0b{x.toString(2)}`
+            return `0b${x.toString(2)}`
         }
         return `-0b${(-x).toString(2)}`
     }

@@ -35,7 +35,8 @@ install()
 - [x] `abs()`
 - [x] `all()`
 - [x] `any()`
-- :ok_hand: `ascii()`
+- [x] `ascii()`
+    - This lib's implementation should be :ok_hand:.
 - [x] `bin()`
 - [x] `bool()`
 - [x] `breakpoint()`
@@ -51,21 +52,27 @@ install()
       We don't want to pollute whole libraries (like [math.js](https://mathjs.org/docs/datatypes/complex_numbers.html)) into somewhere. :wink:
 - [x] `delattr()`
 - [x] `dict()`
-- `dir()`
-- `divmod()`
+- [x] `dir()`
+- [x] `divmod()`
 - [x] `enumerate()`
-- `eval()`
-- `exec()`
-- `filter()`
-- `float()`
+- [x] `eval()` :triangular_flag_on_post:
+    - There already is a global `eval` function in JS. :earth_africa:
+      But this lib's version wraps the passed expression string in parentheses
+      so that its value is returned.
+- [x] `exec()`
+- [x] `filter()`
+- [x] `float()`
 - `format()`
-- `frozenset()`
-- `getattr()`
-- `globals()`
-- `hasattr()`
-- `hash()`
-- `help()`
-- `hex()`
+- [x] `frozenset()`
+- [x] `getattr()`
+- [ ] :x: `globals()`
+    - Just use `window` or `global` please. :wink:
+- [x] `hasattr()`
+- [ ] `hash()`
+    - Looks like using [`hash-sum`](https://www.npmjs.com/package/hash-sum)
+      may be a better idea than an own implementation.
+- [ ] :x: `help()`
+- [x] `hex()`
 - `id()`
 - `input()`
 - `int()`

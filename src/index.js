@@ -36,7 +36,13 @@ const union = (setA, setB) => {
 
 
 const install = (namespace, options={}) => {
-    const {literals=true, extended=true, whitelist=[], blacklist=[]} = options
+    const {
+        literals=true,
+        extended=true,
+        whitelist=[],
+        blacklist=[],
+        overrideExisting=false,
+    } = options
 
     // NOTE: 'whitelist' has precedence.
     let moduleNames
@@ -75,6 +81,10 @@ const install = (namespace, options={}) => {
     }
 
     for (const moduleName of moduleNames) {
+        if (namespace.hasOwnProperty(moduleName) && !overrideExisting) {
+            continue
+        }
+        
         const module = require(`./${moduleName}`)
         if (!module) {
             continue
