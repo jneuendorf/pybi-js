@@ -77,13 +77,14 @@ install()
 - [x] `input()` :triangular_flag_on_post:
     - :exclamation: Asynchronous
 - [x] `int()`
-- `isinstance()`
-- `issubclass()`
-- `iter()`
+- [x] `isinstance()`
+- [x] `issubclass()`
+- [ ] `iter()`
 - [x] `len()`
 - [x] `list()`
-- `locals()`
-- `map()`
+- [ ] :x: `locals()`
+    - There seems to be no way in JavaScript to get the local scope and its variables.
+- [x] `map()`
 - `max()`
 - `memoryview()`
 - `min()`

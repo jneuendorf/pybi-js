@@ -1,3 +1,5 @@
+const {AttributeError} = require('./_errors')
+
 module.exports = (...args) => {
     // object, name, defaultVal
     const [object, name, ...rest] = args
@@ -8,5 +10,7 @@ module.exports = (...args) => {
         const [defaultVal] = rest
         return defaultVal
     }
-    throw new AttributeError(`'${object.constructor.name}' object has no attribute '${name}'`)
+    throw new AttributeError(
+        `'${object.constructor.name}' object has no attribute '${name}'`
+    )
 }

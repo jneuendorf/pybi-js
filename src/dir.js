@@ -1,3 +1,5 @@
+const isClass = require('./_is-class')
+
 module.exports = object => {
     if (!object) {
         // TODO: There seems to be no way to get the current local scope.
@@ -10,7 +12,7 @@ module.exports = object => {
     let cls, prototype
 
     // 'object' is a class.
-    if (object.prototype && object.prototype.constructor) {
+    if (isClass(object)) {
         cls = object
         // This would be the prototype but we don't want to list the
         // prototype's properties in this case.

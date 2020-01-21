@@ -1,7 +1,17 @@
-class ValueError extends Error {}
+const {ValueError} = require('./_errors')
 
 
 module.exports = (x, base=10) => {
+    if (x.__int__) {
+        return x.__int__()
+    }
+    if (x.__index__) {
+        return x.__index__()
+    }
+    if (x.__trunc__) {
+        return x.__trunc__()
+    }
+
     const error = new ValueError(
         `invalid literal for int() with base ${base}: '${x}'`
     )
