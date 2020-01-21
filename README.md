@@ -94,23 +94,23 @@ install()
     - Addition boolean argument `throwWhenDone` to indicate whether to throw a
       `StopIteration` error if the iterator is done/exhausted (default: `false`).
 - [x] `object()`
-- `oct()`
-- `open()`
+- [x] `oct()`
+- [x] `open()`
 - [x] `ord()`
-- `pow()`
+- [x] `pow()`
 - [x] `print()`
     - `kwargs` can be passed by passing an object with the following shape as
       the last argument, for example:
       `{__kwargs__, end='-------'}`.
       `__kwargs__` is a named export of `pyllute`.
       Note that the `end` keyword argument is prepended to the default line break. This means it behaves differently than in python.
-- `property()`
-- `range()`
-- `repr()`
-- `reversed()`
-- `round()`
-- `set()`
-- `setattr()`
+- [ ] `property()`
+- [x] `range()`
+- [ ] `repr()`
+- [x] `reversed()`
+- [x] `round()`
+- [x] `set()`
+- [x] `setattr()`
 - `slice()`
 - `sorted()`
 - `staticmethod()`
