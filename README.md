@@ -85,11 +85,15 @@ install()
 - [ ] :x: `locals()`
     - There seems to be no way in JavaScript to get the local scope and its variables.
 - [x] `map()`
-- `max()`
-- `memoryview()`
-- `min()`
-- `next()`
-- `object()`
+- [x] `max()` :triangular_flag_on_post:
+    - Without the keyword arguments.
+- [ ] :x: `memoryview()`
+    - I am afraid that's not possible.
+- [x] `min()`
+- [x] `next()` :triangular_flag_on_post:
+    - Addition boolean argument `throwWhenDone` to indicate whether to throw a
+      `StopIteration` error if the iterator is done/exhausted (default: `false`).
+- [x] `object()`
 - `oct()`
 - `open()`
 - [x] `ord()`
