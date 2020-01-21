@@ -74,8 +74,9 @@ install()
 - [ ] :x: `help()`
 - [x] `hex()`
 - [x] `id()`
-- `input()`
-- `int()`
+- [x] `input()` :triangular_flag_on_post:
+    - :exclamation: Asynchronous
+- [x] `int()`
 - `isinstance()`
 - `issubclass()`
 - `iter()`
