@@ -103,7 +103,7 @@ install()
       the last argument, for example:
       `{__kwargs__, end='-------'}`.
       `__kwargs__` is a named export of `pyllute`.
-      Note that the `end` keyword argument is prepended to the default line break. This means it behaves differently than in python.
+      Note that the `end` keyword argument is prepended to the default line break. This means it behaves differently than in Python.
 - [ ] `property()`
 - [x] `range()`
 - [ ] `repr()`
@@ -111,13 +111,23 @@ install()
 - [x] `round()`
 - [x] `set()`
 - [x] `setattr()`
-- `slice()`
-- `sorted()`
+- [x] `slice()`
+    - Returns a custom instance of `Slice` but is currently not really usable,
+      because it can't be used on any built-in functionality of JavaScript.
+      I guess, there could be an `Array` `Proxy` that intercepts the array 
+      accessor (see [this question](https://stackoverflow.com/questions/44097191/))
+      and uses the `Slice` class.
+- [x] `sorted(iterable, key=undefined, reversed=false)`
 - `staticmethod()`
 - [x] `str()`
-- `sum()`
+- [x] `sum()`
 - [ ] :x: `super()` (keyword)
-- `tuple()`
-- `type()`
-- `vars()`
+- [x] `tuple()`
+- [x] `type()`
+    - This lib's implementation should be :ok_hand:.
+      Passing more than 1 base is not supported due to JavaScript's single 
+      inheritance model.
+      Not sure how e.g. the `classmethod` decorator works when using `type` in Python.
+      The created class has t the `__name__`, `__bases__` and `__dict__` attributes like in Python.
+- [x] `vars()`
 - `zip()`

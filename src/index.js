@@ -62,7 +62,11 @@ const install = (namespace, options={}) => {
     }
 
     if (!namespace) {
-        if (typeof(global) !== 'undefined') {
+        // This works since node >= 12.0.0 and in some newer browsers.
+        if (typeof(globalThis) !== 'undefined') {
+            namespace = globalThis
+        }
+        else if (typeof(global) !== 'undefined') {
             namespace = global
         }
         else if (typeof(window) !== 'undefined') {
@@ -84,7 +88,7 @@ const install = (namespace, options={}) => {
         if (namespace.hasOwnProperty(moduleName) && !overrideExisting) {
             continue
         }
-        
+
         const module = require(`./${moduleName}`)
         if (!module) {
             continue

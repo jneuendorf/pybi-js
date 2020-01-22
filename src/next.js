@@ -7,7 +7,7 @@ module.exports = (iterator, defaultValue=NO_DEFAULT, throwWhenDone=false) => {
             return defaultValue
         }
         if (throwWhenDone) {
-            // TODO: message
+            // TODO: error message
             throw new StopIteration('Iterator is done.')
         }
         return value
