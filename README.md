@@ -20,18 +20,31 @@ import {install} from 'pyllute'
 // const {install} = require('pyllute')
 
 
+// The global namespace is polluted by default:
 install()
-// optionally into a certain namespace:
-// install(MyApp)
+// Now you can do something like
+print(list(zip([1,2,3], [4,5,6], [7,8,9,10])))
+
+// Optionally install into a certain namespace:
+install(MyApp)
 
 // or just have all functions in one place:
-// py3funcs = install({})
+py3funcs = install({})
+// Now you could also use the functions without pollution:
+(function({print, list, zip}) {
+    print(list(zip([1,2,3], [4,5,6], [7,8,9,10])))
+})(py3funcs)
+// or shorter:
+(function({print, list, zip}) {
+    print(list(zip([1,2,3], [4,5,6], [7,8,9,10])))
+})(install({}))
 ```
 
 
 ## [Python3 built-in functions](https://docs.python.org/3/library/functions.html)
 
-- `__import__()`
+- [ ] :x: `__import__()`
+    - Nope sorry, not messin' with this kinda stuff.
 - [x] `abs()`
 - [x] `all()`
 - [x] `any()`
@@ -66,7 +79,7 @@ install()
 - [x] `frozenset()`
 - [x] `getattr()`
 - [ ] :x: `globals()`
-    - Just use `window` or `global` please. :wink:
+    - Just use `globalThis` (or `window`/`global` respectively) please. :wink:
 - [x] `hasattr()`
 - [ ] `hash()`
     - Looks like using [`hash-sum`](https://www.npmjs.com/package/hash-sum)
@@ -79,7 +92,10 @@ install()
 - [x] `int()`
 - [x] `isinstance()`
 - [x] `issubclass()`
-- [ ] `iter()`
+- [x] `iter(object, sentinel=undefined, equality=(x, y) => x === y)`  :triangular_flag_on_post:
+    - There is an additional argument `equality` that is used for comparing the
+      `sentinel` to each iteration's value (i.e. `object()`) because equality
+      is not defined as well as in Python.
 - [x] `len()`
 - [x] `list()`
 - [ ] :x: `locals()`
