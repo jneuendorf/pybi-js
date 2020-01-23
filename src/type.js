@@ -1,4 +1,5 @@
 const {ValueError} = require('./_errors')
+const {config: {type_warnArrow}} = require('./_config')
 
 // Object.constructor === Object.constructor.constructor
 const getClass = object => {
@@ -20,10 +21,10 @@ const createClass = (name, bases, dict) => {
         }
         // 'value' is an arrow function.
         // See https://stackoverflow.com/questions/28222228/
-        if (typeof(value) === 'function' && !value.hasOwnProperty('prototype')) {
-            // TODO: Be able to disable this warning.
-            // Maybe some kind of setting that could be exposed from pyllute
-            // via a 'config' function
+        if (typeof(value) === 'function'
+            && !value.hasOwnProperty('prototype')
+            && type_warnArrow
+        ) {
             console.warn(
                 `type() You used an arrow function as value for key '${key}' `
                 + `of the class dict.`

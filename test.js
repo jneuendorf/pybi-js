@@ -1,6 +1,56 @@
+// function property(g, s, d) {
+//   console.log('this:', this)
+//   console.log(arguments.callee.caller)
+//   return {
+//     get: g,
+//     set: s,
+//     deleteProperty: d
+//   }
+// }
+//
+// class A {
+//     x = property(
+//       function() {return this._x},
+//       function(x) {this._x = x}
+//     )
+// 	y = 2
+//
+// 	// x = Object.defineProperty()
+//
+//     m() {
+//         console.log(2)
+//     }
+// }
+
+class A {
+    _x = 2
+
+    get x() {
+        console.log('get')
+        return this._x
+    }
+
+    set x(val) {
+        console.log('set')
+        this._x = val
+    }
+}
+
+// const a = new A()
+// console.log(a.x)
+// a.x = 4
+// console.log(a.x)
+// delete a.x
+// console.log(a.x)
+
+
 const {install} = require('./src/index')
 
 install()
+
+console.log(hash(A))
+console.log(hash(new A()))
+return
 
 // const a = {}
 // const b = {}

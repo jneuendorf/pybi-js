@@ -48,8 +48,8 @@ py3funcs = install({})
 - [x] `abs()`
 - [x] `all()`
 - [x] `any()`
-- [x] `ascii()`
-    - This lib's implementation should be :ok_hand:.
+- [x] :ok_hand: `ascii()`
+    - This lib's implementation should be ok.
 - [x] `bin()`
 - [x] `bool()`
 - [x] `breakpoint()`
@@ -120,9 +120,20 @@ py3funcs = install({})
       `{__kwargs__, end='-------'}`.
       `__kwargs__` is a named export of `pyllute`.
       Note that the `end` keyword argument is prepended to the default line break. This means it behaves differently than in Python.
-- [ ] `property()`
+- [ ] :x: `property()`
+    - I couldn't find a good way to make it nice enough to be actually useful:
+      `Proxy` didn't work the way I wanted and making this function an alias
+      for `Object.defineProperty` is pointless IMHO.
+      The built-in [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
+      and [setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
+      are easy to use and save using `property` as a decorator.
+      The only added value would be reacting to `delete`
+      (which could indeed be accomplished with a `Proxy`).
+      [This](https://babeljs.io/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABABwE52QU1VAngCgHMAaRAZ1IBMBKRAbwChFEIEy4AbTAOg7kPwByKAAsYZAFyDSo8dSYs2nHnwEBDVIRABbTGChluENRy6Z5zVmDJREUDYUy2AvPQC-C1E5CokYTADuiAAK6AAeBPaaTqSMzMyOUBKIJArMZE7JFAwAkJSYXFCYoRjYeMmUxApuFoheUD5IDB4MEBxqZGSIAIL0aYhhiK5opTgE_cygkLAI-LR09Y12YoYA-mFuVfHxU9DwYPhh87Jrg64b_fI5uEOIAEwMuQD0TwO3APIARgBWmNDc-WAMH8JSwYzmj222jmfW22ys7C4vH4-DutWYHhajwRtjUt38QW6EIRymR6m4RwYagptwALK0lEjVPhqUcgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=true&fileSize=false&timeTravel=false&sourceType=unambiguous&lineWrap=true&presets=es2015%2Creact%2Cstage-0%2Cstage-2&prettier=false&targets=&version=7.8.3&externalPlugins=%40babel%2Fplugin-proposal-class-properties%407.8.3) is as far as I got. :wink:
 - [x] `range()`
-- [ ] `repr()`
+- [x] :ok_hand: `repr()`
+    - No memory address but most classes have a good `eval`able representation by their `.toString` method.
+      Otherwise `<${object.constructor.name} object>` is returned.
 - [x] `reversed()`
 - [x] `round()`
 - [x] `set()`
@@ -130,7 +141,7 @@ py3funcs = install({})
 - [x] `slice()`
     - Returns a custom instance of `Slice` but is currently not really usable,
       because it can't be used on any built-in functionality of JavaScript.
-      I guess, there could be an `Array` `Proxy` that intercepts the array 
+      I guess, there could be an `Array` `Proxy` that intercepts the array
       accessor (see [this question](https://stackoverflow.com/questions/44097191/))
       and uses the `Slice` class.
 - [x] `sorted(iterable, key=undefined, reversed=false)`
@@ -139,9 +150,9 @@ py3funcs = install({})
 - [x] `sum()`
 - [ ] :x: `super()` (keyword)
 - [x] `tuple()`
-- [x] `type()`
-    - This lib's implementation should be :ok_hand:.
-      Passing more than 1 base is not supported due to JavaScript's single 
+- [x] :ok_hand: `type()`
+    - This lib's implementation should be ok.
+      Passing more than 1 base is not supported due to JavaScript's single
       inheritance model.
       Not sure how e.g. the `classmethod` decorator works when using `type` in Python.
       The created class has t the `__name__`, `__bases__` and `__dict__` attributes like in Python.
