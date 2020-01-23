@@ -29,7 +29,7 @@ print(list(zip([1,2,3], [4,5,6], [7,8,9,10])))
 install(MyApp)
 
 // or just have all functions in one place:
-py3funcs = install({})
+const py3funcs = install({})
 // Now you could also use the functions without pollution:
 (function({print, list, zip}) {
     print(list(zip([1,2,3], [4,5,6], [7,8,9,10])))
@@ -58,11 +58,14 @@ py3funcs = install({})
 - [x] `callable()`
 - [x] `chr()`
 - [x] `classmethod()`
+    - This is currently equal to `staticmethod` with
+      `config.classmethod_firstArgClass == true` because in JS we usually just
+      use `this` instead of the first argument `cls`.
 - [ ] :stop_sign: `compile()`
     - I guess I could do that using babylon but not for now. :wink:
 - [ ] :x: `complex()`
     - There is no JS built-in equivalent (or something similar) that I am aware of.
-      We don't want to pollute whole libraries (like [math.js](https://mathjs.org/docs/datatypes/complex_numbers.html)) into somewhere. :wink:
+      We don't want to auto inject whole libraries (like [math.js](https://mathjs.org/docs/datatypes/complex_numbers.html)) into somewhere. :wink:
 - [x] `delattr()`
 - [x] `dict()`
 - [x] `dir()`
@@ -145,7 +148,7 @@ py3funcs = install({})
       accessor (see [this question](https://stackoverflow.com/questions/44097191/))
       and uses the `Slice` class.
 - [x] `sorted(iterable, key=undefined, reversed=false)`
-- `staticmethod()`
+- [x] `staticmethod()`
 - [x] `str()`
 - [x] `sum()`
 - [ ] :x: `super()` (keyword)
@@ -157,4 +160,32 @@ py3funcs = install({})
       Not sure how e.g. the `classmethod` decorator works when using `type` in Python.
       The created class has t the `__name__`, `__bases__` and `__dict__` attributes like in Python.
 - [x] `vars()`
-- `zip()`
+- [x] `zip()`
+
+
+## Config
+
+There are some configuration flags for some of the functions.
+`config` is just an object and can be reset using the `reset` function:
+
+```javascript
+const {config, reset} = require('pyllute')
+// or
+import {config, reset} from 'pyllute'
+
+console.log(config) // {
+//     classmethod_firstArgClass: true,
+//     hash_useHashSum: true,
+//     hash_warnNoHashSum: true,
+//     type_warnArrow: true,
+// }
+*/
+
+config.classmethod_firstArgClass = false
+reset('classmethod_firstArgClass')
+console.log(config.classmethod_firstArgClass) // true
+
+// or: reset everything
+reset()
+
+```

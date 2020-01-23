@@ -1,3 +1,6 @@
+const {config, reset} = require('./_config')
+
+
 const all = new Set([
     '__import__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'breakpoint',
     'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile',
@@ -115,6 +118,8 @@ const __kwargs__ = 1
 
 module.exports = {
     install,
+    config,
+    reset,
     __kwargs__,
 }
 

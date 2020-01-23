@@ -1,4 +1,5 @@
 const defaultConfig = {
+    classmethod_firstArgClass: true,
     hash_useHashSum: true,
     hash_warnNoHashSum: true,
     type_warnArrow: true,
