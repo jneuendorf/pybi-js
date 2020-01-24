@@ -6,6 +6,8 @@ const pow = require('../src/pow')
 const round = require('../src/round')
 const sum = require('../src/sum')
 
+const {createTestCase} = require('./_utils')
+
 
 describe('abs', () => {
     test('simple', () => {
@@ -34,31 +36,7 @@ describe('abs', () => {
 })
 
 
-describe('divmod', () => {
-    test('simple', () => {
-        const args = [
-            1,
-            -2,
-            'a',
-            Infinity,
-            -Infinity,
-        ]
-        for (const arg in args) {
-            expect(abs.simple(arg)).toBe(Math.abs(arg))
-        }
-    })
-
-    test('extended', () => {
-        const right = {
-            __abs__() {
-                return 'surprise!'
-            }
-        }
-        const wrong = {__abs__: 'surprise!'}
-        expect(abs.extended(right)).toBe('surprise!')
-        expect(() => abs.extended(wrong)).toThrow()
-    })
-})
+createTestCase('math', 'divmod', divmod)
 
 
 describe('max', () => {
