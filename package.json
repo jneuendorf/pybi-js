@@ -7,12 +7,14 @@
     "author": "Jim Neuendorf <jim.neuendorf@gmx.de>",
     "license": "MIT",
     "scripts": {
-        "test": "node test.js"
+        "playground": "node playground.js",
+        "test": "jest"
     },
     "optionalDependencies": {
         "hash-sum": "^2.0.0"
     },
     "devDependencies": {
-        "hash-sum": "^2.0.0"
+        "hash-sum": "^2.0.0",
+        "jest": "^25.1.0"
     }
 }
