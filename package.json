@@ -9,7 +9,8 @@
     "scripts": {
         "play": "node playground.js",
         "generate_test_data": "python3.8 scripts/generate.py",
-        "test": "jest"
+        "test": "jest",
+        "cov": "jest --coverage"
     },
     "optionalDependencies": {
         "hash-sum": "^2.0.0"

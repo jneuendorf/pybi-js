@@ -1,9 +1,11 @@
+const abs = Math.abs
+
 module.exports = {
-    simple: Math.abs,
+    simple: abs,
     extended: x => {
        if (x.__abs__) {
            return x.__abs__()
        }
-       return Math.abs
+       return abs(x)
    },
 }

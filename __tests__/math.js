@@ -32,6 +32,8 @@ describe('abs', () => {
         const wrong = {__abs__: 'surprise!'}
         expect(abs.extended(right)).toBe('surprise!')
         expect(() => abs.extended(wrong)).toThrow()
+        // For coverage: normal calls too
+        expect(abs.extended(-2)).toBe(Math.abs(-2))
     })
 })
 
