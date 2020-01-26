@@ -1,8 +1,10 @@
 const fs = require('fs')
 const path = require('path')
 
+const errors = require('../src/_errors')
 
-function createTestCase(jsonFilename, testName, func=null,
+
+function createTestCase(jsonFilename, funcName, func=null,
                         {testFunc=test, logIndices=false}={}) {
     const args2dByFunc = eval(`( ${fs.readFileSync(
         path.join(__dirname, `${jsonFilename}.json`)
@@ -11,19 +13,26 @@ function createTestCase(jsonFilename, testName, func=null,
         path.join(__dirname, `${jsonFilename}_expected.json`)
     )} )`)
     if (!func) {
-        func = require(path.join(__dirname, '..', 'src', testName))
+        func = require(path.join(__dirname, '..', 'src', funcName))
     }
 
-    return testFunc(testName, () => {
-        for (const [funcname, args2d] of Object.entries(args2dByFunc)) {
-            let i = 0
-            for (const args of args2d) {
-                if (logIndices) {
-                    console.log('i =', i)
-                }
-                expect(func(...args)).toEqual(expected[funcname][i])
-                i += 1
+    return testFunc(funcName, () => {
+        const args2d = args2dByFunc[funcName]
+        let i = 0
+        for (const args of args2d) {
+            if (logIndices) {
+                console.log('i =', i, funcName)
             }
+            expectedValue = expected[funcName][i]
+            if (expectedValue.__error__) {
+                expect(() => func(...args)).toThrow(
+                    errors[expectedValue.__error__.type]
+                )
+            }
+            else {
+                expect(func(...args)).toEqual(expectedValue)
+            }
+            i += 1
         }
     })
 }

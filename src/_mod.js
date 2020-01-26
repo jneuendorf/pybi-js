@@ -4,6 +4,7 @@ module.exports = (x, y) => {
     if (y === Infinity) {
         return x
     }
+    // For consistency with Python.
     if (y === -Infinity) {
         return -Infinity
     }

@@ -20,13 +20,28 @@ def run(data, namespaces):
         namespace if isinstance(namespace, dict) else vars(namespace)
         for namespace in namespaces
     ]
-    result = {}
+    results = {}
     for funcname, args2d in data.items():
         func_results = []
         for args in args2d:
-            func_results.append(_get_func(funcname, namespace_dicts)(*args))
-        result[funcname] = func_results
-    return result
+            func = _get_func(funcname, namespace_dicts)
+            try:
+                result = func(*args)
+            except Exception as e:
+                result = {
+                    '__error__': {
+                        'type': type(e).__name__,
+                        'message': (
+                            e.message
+                            if hasattr(e, 'message')
+                            else ', '.join(e.args)
+                        ),
+                    },
+                }
+                print('encoded caught error', str(e), 'as', str(result))
+            func_results.append(result)
+        results[funcname] = func_results
+    return results
 
 
 def _get_func(funcname, namespace_dicts):
@@ -40,7 +55,7 @@ def save_json(testname, data):
     json_file = os.path.join(TESTS_DIR, f'{testname}_expected.json')
     # print(json_file)
     with open(json_file, 'w') as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=2)
     return json_file
 
 

@@ -36,7 +36,7 @@ describe('abs', () => {
 })
 
 
-createTestCase('math', 'divmod', divmod)
+createTestCase('math', 'divmod', divmod, {logIndices: false})
 
 
 describe('max', () => {
@@ -109,3 +109,31 @@ describe('pow', () => {
         expect(pow(38, -1, 97)).toBe(23)
     })
 })
+
+
+describe('round', () => {
+    test('without ndigits arg', () => {
+        const args = [
+            [13.2],
+            [13.5],
+            [13.8],
+            [-7.2],
+            [-7.5],
+            [-7.8],
+            [Infinity],
+            [-Infinity]
+        ]
+        for (const arg in args) {
+            expect(round(arg)).toBe(Math.round(arg))
+        }
+    })
+
+    test('with ndigits arg', () => {
+        expect(round(38, -1)).toBe(4)
+        expect(round(38.235, 2)).toBe(38.24)
+        expect(round(-38.235, 2)).toBe(-38.23)
+    })
+})
+
+
+createTestCase('math', 'sum', sum, {logIndices: true})
