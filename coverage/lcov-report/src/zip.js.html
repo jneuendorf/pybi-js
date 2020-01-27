@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/abs.js</title>
+    <title>Code coverage report for src/zip.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> abs.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> zip.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">8.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>1/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -68,27 +68,33 @@
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
 <a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const abs = Math.abs
-&nbsp;
-module.exports = {
-    simple: abs,
-    extended: x =&gt; {
-       if (x.__abs__) {
-           return x.__abs__()
-       }
-       return abs(x)
-   },
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
+module.exports = <span class="fstat-no" title="function not covered" >fu</span>nction* (...iterables) {
+    const iterators = <span class="cstat-no" title="statement not covered" >iterables.map(<span class="fstat-no" title="function not covered" >it</span>erable =&gt; <span class="cstat-no" title="statement not covered" >iterable[Symbol.iterator]())</span></span>
+    // const shortestLength = Math.max(...iterables.map(iterable =&gt;))
+<span class="cstat-no" title="statement not covered" >    while (true) {</span>
+        const nexts = <span class="cstat-no" title="statement not covered" >iterators.map(<span class="fstat-no" title="function not covered" >it</span>erator =&gt; <span class="cstat-no" title="statement not covered" >iterator.next())</span></span>
+<span class="cstat-no" title="statement not covered" >        if (nexts.some(<span class="fstat-no" title="function not covered" >({</span>done}) =&gt; <span class="cstat-no" title="statement not covered" >done)</span>) {</span>
+<span class="cstat-no" title="statement not covered" >            break</span>
+        }
+        const values = <span class="cstat-no" title="statement not covered" >nexts.map(<span class="fstat-no" title="function not covered" >({</span>value}) =&gt; <span class="cstat-no" title="statement not covered" >value)</span></span>
+<span class="cstat-no" title="statement not covered" >        yield values</span>
+    }
 }
 &nbsp;</pre></td></tr></table></pre>
 

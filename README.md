@@ -70,7 +70,8 @@ const py3funcs = install({})
 - [x] `dict()`
 - [x] `dir()`
 - [x] `divmod()`
-- [x] `enumerate()`
+- [x] `enumerate()` :triangular_flag_on_post:
+    - Returns an `Array` instead of an `enumerate` instance.
 - [x] `eval()` :triangular_flag_on_post:
     - There already is a global `eval` function in JS. :earth_africa:
       But this lib's version wraps the passed expression string in parentheses

@@ -1,16 +1,23 @@
-const swap = (a, b) => [b, a]
+const isIterable = require('./_is-iterable')
 
 
-module.exports = iterable => {
-    // Array => [[idx, item], ...]
-    if (Array.isArray(iterable)) {
-        return iterable.map(swap)
+module.exports = (iterable, start=0) => {
+    if (!isIterable(iterable)) {
+        if (iterable && iterable.constructor === Object) {
+            // make 'Object' instances iterable because 'dict's can be iterated in Python.
+            // Subclasses must implement the iterator protocal themselves.
+            iterable = Object.keys(iterable)
+        }
+        else {
+            throw new ValueError(`enumerate() arg 0 needs to be iterable`)
+        }
     }
 
-    // Objects with a .keys() method, e.g. Maps
-    if (iterable.keys) {
-        return [...iterable.keys()].map(swap)
+    let index = start
+    const result = []
+    for (const item of iterable) {
+        result.push([index, item])
+        index += 1
     }
-    // normal Objects => [[idx, key], ...]
-    return Object.keys(iterable).map(swap)
+    return result
 }

@@ -15,18 +15,23 @@ def load_json(testname):
         return json.load(f)
 
 
-def run(data, namespaces):
+def run(data, namespaces, serializers):
     namespace_dicts = [
         namespace if isinstance(namespace, dict) else vars(namespace)
         for namespace in namespaces
     ]
     results = {}
     for funcname, args2d in data.items():
+        print(funcname, '..............')
+        serializer = serializers.get(funcname)
         func_results = []
         for args in args2d:
             func = _get_func(funcname, namespace_dicts)
             try:
                 result = func(*args)
+                if callable(serializer):
+                    # print(serializer)
+                    result = serializer(result)
             except Exception as e:
                 result = {
                     '__error__': {
@@ -59,12 +64,13 @@ def save_json(testname, data):
     return json_file
 
 
-def generate(testname, namespaces):
+def generate(testname, namespaces, serializer):
     filename = save_json(
         testname,
         run(
             load_json(testname),
             namespaces,
+            serializer,
         )
     )
     print('generated', filename)

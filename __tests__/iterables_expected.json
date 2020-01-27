@@ -1,0 +1,102 @@
+{
+  "all": [
+    true,
+    false,
+    false,
+    true,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'bool' object is not iterable"
+      }
+    }
+  ],
+  "any": [
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    true,
+    false,
+    true,
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'bool' object is not iterable"
+      }
+    }
+  ],
+  "enumerate": [
+    [
+      [
+        0,
+        "a"
+      ],
+      [
+        1,
+        "s"
+      ],
+      [
+        2,
+        "d"
+      ],
+      [
+        3,
+        "f"
+      ]
+    ],
+    [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    [
+      [
+        0,
+        "a"
+      ],
+      [
+        1,
+        "b"
+      ]
+    ],
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'bool' object is not iterable"
+      }
+    },
+    [
+      [
+        10,
+        "a"
+      ],
+      [
+        11,
+        "b"
+      ]
+    ]
+  ]
+}

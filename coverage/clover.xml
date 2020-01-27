@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580077071316" clover="3.2.0">
-  <project timestamp="1580077071316" name="All files">
-    <metrics statements="86" coveredstatements="76" conditionals="49" coveredconditionals="34" methods="14" coveredmethods="13" elements="149" coveredelements="123" complexity="0" loc="86" ncloc="86" packages="2" files="11" classes="11"/>
+<coverage generated="1580157706211" clover="3.2.0">
+  <project timestamp="1580157706211" name="All files">
+    <metrics statements="189" coveredstatements="124" conditionals="105" coveredconditionals="51" methods="35" coveredmethods="19" elements="329" coveredelements="194" complexity="0" loc="189" ncloc="189" packages="2" files="24" classes="24"/>
     <package name="__tests__">
-      <metrics statements="19" coveredstatements="17" conditionals="10" coveredconditionals="5" methods="3" coveredmethods="2"/>
+      <metrics statements="19" coveredstatements="18" conditionals="10" coveredconditionals="8" methods="3" coveredmethods="3"/>
       <file name="_utils.js" path="/Users/jimneuendorf/Developer/web/pyllute/__tests__/_utils.js">
-        <metrics statements="19" coveredstatements="17" conditionals="10" coveredconditionals="5" methods="3" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="15" count="2" type="cond" truecount="1" falsecount="1"/>
+        <metrics statements="19" coveredstatements="18" conditionals="10" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="15" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="26" count="8" type="stmt"/>
-        <line num="27" count="8" type="cond" truecount="1" falsecount="1"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="33" count="8" type="stmt"/>
-        <line num="35" count="8" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="35" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="26" count="35" type="stmt"/>
+        <line num="27" count="35" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="33" count="32" type="stmt"/>
+        <line num="35" count="35" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src">
-      <metrics statements="67" coveredstatements="59" conditionals="39" coveredconditionals="29" methods="11" coveredmethods="11"/>
+      <metrics statements="170" coveredstatements="106" conditionals="95" coveredconditionals="43" methods="32" coveredmethods="16"/>
       <file name="_errors.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/_errors.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
       </file>
       <file name="_is-iterable.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/_is-iterable.js">
         <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="17" type="cond" truecount="1" falsecount="1"/>
         <line num="5" count="0" type="stmt"/>
-        <line num="7" count="12" type="stmt"/>
+        <line num="7" count="17" type="stmt"/>
       </file>
       <file name="_mod.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/_mod.js">
         <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
@@ -57,12 +57,103 @@
         <line num="7" count="2" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
       </file>
+      <file name="all.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/all.js">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+      </file>
+      <file name="any.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/any.js">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+      </file>
+      <file name="bool.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/bool.js">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="34" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="7" count="26" type="stmt"/>
+      </file>
+      <file name="callable.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/callable.js">
+        <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
       <file name="divmod.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/divmod.js">
         <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="5" count="12" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="12" type="stmt"/>
+      </file>
+      <file name="enumerate.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/enumerate.js">
+        <metrics statements="12" coveredstatements="12" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="12" type="stmt"/>
+        <line num="23" count="12" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+      </file>
+      <file name="filter.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/filter.js">
+        <metrics statements="5" coveredstatements="2" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+      <file name="iter.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/iter.js">
+        <metrics statements="14" coveredstatements="2" conditionals="7" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+      <file name="len.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/len.js">
+        <metrics statements="9" coveredstatements="4" conditionals="6" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="8" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+      </file>
+      <file name="map.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/map.js">
+        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
       </file>
       <file name="max.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/max.js">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
@@ -79,6 +170,19 @@
         <line num="4" count="6" type="cond" truecount="3" falsecount="1"/>
         <line num="5" count="6" type="stmt"/>
         <line num="8" count="6" type="stmt"/>
+      </file>
+      <file name="next.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/next.js">
+        <metrics statements="10" coveredstatements="2" conditionals="8" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="cond" truecount="0" falsecount="2"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
       </file>
       <file name="pow.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/pow.js">
         <metrics statements="24" coveredstatements="19" conditionals="12" coveredconditionals="7" methods="2" coveredmethods="2"/>
@@ -107,6 +211,25 @@
         <line num="52" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
       </file>
+      <file name="range.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/range.js">
+        <metrics statements="16" coveredstatements="2" conditionals="12" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="6"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+      </file>
       <file name="round.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/round.js">
         <metrics statements="8" coveredstatements="7" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="6" count="12" type="cond" truecount="2" falsecount="0"/>
@@ -118,6 +241,14 @@
         <line num="18" count="2" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
       </file>
+      <file name="sorted.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/sorted.js">
+        <metrics statements="5" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
       <file name="sum.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/sum.js">
         <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -125,6 +256,17 @@
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="21" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
+      </file>
+      <file name="zip.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/zip.js">
+        <metrics statements="8" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
       </file>
     </package>
   </project>
