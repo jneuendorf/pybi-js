@@ -62,3 +62,22 @@ describe('iter', () => {
         expect(() => iter(true, false)).toThrow(TypeError)
     })
 })
+
+describe('len', () => {
+    createTestCase('iterables', 'len', len, {testName: 'simple'})
+
+    test('size, __len__', () => {
+        const map = new Map()
+        expect(len(map)).toBe(0)
+
+        const set = new Set()
+        expect(len(set)).toBe(0)
+
+        const customObject = {
+            __len__() {
+                return 42
+            }
+        }
+        expect(len(customObject)).toBe(42)
+    })
+})

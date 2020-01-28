@@ -1,16 +1,19 @@
+const callable = require('./callable')
 const enumerate = require('./enumerate')
 
 
-module.exports = iterable => {
-    if (typeof(iterable.length) === 'number') {
-        return iterable.length
+module.exports = object => {
+    // E.g. built-in 'Array'
+    if (typeof(object.length) === 'number') {
+        return object.length
     }
-    if (typeof(iterable.size) === 'number') {
-        return iterable.size
+    // E.g. built-in 'Map'
+    if (typeof(object.size) === 'number') {
+        return object.size
     }
-    if (typeof(iterable.size) === 'function') {
-        return iterable.size()
+    if (callable(object.__len__)) {
+        return object.__len__()
     }
     // assume object
-    return enumerate(iterable).length
+    return enumerate(object).length
 }

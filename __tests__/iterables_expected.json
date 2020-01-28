@@ -98,5 +98,22 @@
         "b"
       ]
     ]
+  ],
+  "len": [
+    5,
+    6,
+    2,
+    2,
+    2,
+    0,
+    4,
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "object of type 'bool' has no len()"
+      }
+    },
+    1,
+    1
   ]
 }
