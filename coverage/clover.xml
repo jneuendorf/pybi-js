@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580241289478" clover="3.2.0">
-  <project timestamp="1580241289479" name="All files">
-    <metrics statements="196" coveredstatements="151" conditionals="111" coveredconditionals="73" methods="35" coveredmethods="25" elements="342" coveredelements="249" complexity="0" loc="196" ncloc="196" packages="2" files="24" classes="24"/>
+<coverage generated="1580244270312" clover="3.2.0">
+  <project timestamp="1580244270312" name="All files">
+    <metrics statements="196" coveredstatements="160" conditionals="111" coveredconditionals="75" methods="35" coveredmethods="31" elements="342" coveredelements="266" complexity="0" loc="196" ncloc="196" packages="2" files="24" classes="24"/>
     <package name="__tests__">
       <metrics statements="19" coveredstatements="17" conditionals="13" coveredconditionals="10" methods="3" coveredmethods="3"/>
       <file name="_utils.js" path="/Users/jimneuendorf/Developer/web/pyllute/__tests__/_utils.js">
@@ -28,7 +28,7 @@
       </file>
     </package>
     <package name="src">
-      <metrics statements="177" coveredstatements="134" conditionals="98" coveredconditionals="63" methods="32" coveredmethods="22"/>
+      <metrics statements="177" coveredstatements="143" conditionals="98" coveredconditionals="65" methods="32" coveredmethods="28"/>
       <file name="_errors.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/_errors.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="2" type="stmt"/>
@@ -156,11 +156,11 @@
         <line num="18" count="4" type="stmt"/>
       </file>
       <file name="map.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/map.js">
-        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
       </file>
       <file name="max.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/max.js">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
@@ -265,15 +265,15 @@
         <line num="6" count="2" type="stmt"/>
       </file>
       <file name="zip.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/zip.js">
-        <metrics statements="8" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="18" type="stmt"/>
+        <line num="7" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
       </file>
     </package>
   </project>

@@ -18,6 +18,7 @@ createTestCase('iterables', 'all', all)
 createTestCase('iterables', 'any', any)
 createTestCase('iterables', 'enumerate', enumerate)
 
+
 describe('filter', () => {
     test('without function argument', () => {
         expect([...filter([-1, 0, 1, 2])]).toEqual([-1, 1, 2])
@@ -35,6 +36,7 @@ describe('filter', () => {
         expect(() => [...filter(1, 2 ,3)]).toThrow(TypeError)
     })
 })
+
 
 describe('iter', () => {
     test('without sentinel argument', () => {
@@ -63,6 +65,7 @@ describe('iter', () => {
     })
 })
 
+
 describe('len', () => {
     createTestCase('iterables', 'len', len, {testName: 'simple'})
 
@@ -79,5 +82,31 @@ describe('len', () => {
             }
         }
         expect(len(customObject)).toBe(42)
+    })
+})
+
+
+describe('map', () => {
+    test('with single iterable', () => {
+        expect([...map(x => x + 1, [-1, 0, 1, 2])]).toEqual([0, 1, 2, 3])
+        expect([...map(x => x + '-', 'asdf')]).toEqual(['a-', 's-', 'd-', 'f-'])
+    })
+
+    test('with multiple iterables', () => {
+        function* gen1() {
+            yield 2
+            yield 3
+            yield 4
+        }
+        function* gen2() {
+            yield 1
+            yield* gen1()
+            yield 5
+        }
+        expect([...map((x, y) => [x, y], gen1(), gen2())]).toEqual([
+            [2, 1],
+            [3, 2],
+            [4, 3],
+        ])
     })
 })

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">8.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/12</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -72,28 +72,28 @@
 <a name='L13'></a><a href='#L13'>13</a>
 <a name='L14'></a><a href='#L14'>14</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
-module.exports = <span class="fstat-no" title="function not covered" >fu</span>nction* (...iterables) {
-    const iterators = <span class="cstat-no" title="statement not covered" >iterables.map(<span class="fstat-no" title="function not covered" >it</span>erable =&gt; <span class="cstat-no" title="statement not covered" >iterable[Symbol.iterator]())</span></span>
+module.exports = function* (...iterables) {
+    const iterators = iterables.map(iterable =&gt; iterable[Symbol.iterator]())
     // const shortestLength = Math.max(...iterables.map(iterable =&gt;))
-<span class="cstat-no" title="statement not covered" >    while (true) {</span>
-        const nexts = <span class="cstat-no" title="statement not covered" >iterators.map(<span class="fstat-no" title="function not covered" >it</span>erator =&gt; <span class="cstat-no" title="statement not covered" >iterator.next())</span></span>
-<span class="cstat-no" title="statement not covered" >        if (nexts.some(<span class="fstat-no" title="function not covered" >({</span>done}) =&gt; <span class="cstat-no" title="statement not covered" >done)</span>) {</span>
-<span class="cstat-no" title="statement not covered" >            break</span>
+    while (true) {
+        const nexts = iterators.map(iterator =&gt; iterator.next())
+        if (nexts.some(({done}) =&gt; done)) {
+            break
         }
-        const values = <span class="cstat-no" title="statement not covered" >nexts.map(<span class="fstat-no" title="function not covered" >({</span>value}) =&gt; <span class="cstat-no" title="statement not covered" >value)</span></span>
-<span class="cstat-no" title="statement not covered" >        yield values</span>
+        const values = nexts.map(({value}) =&gt; value)
+        yield values
     }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -103,7 +103,7 @@ module.exports = <span class="fstat-no" title="function not covered" >fu</span>n
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jan 28 2020 20:54:49 GMT+0100 (Central European Standard Time)
+                at Tue Jan 28 2020 21:44:30 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
