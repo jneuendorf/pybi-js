@@ -1,3 +1,7 @@
+![coverage](https://img.shields.io/badge/coverage-73.22-green)
+
+
+
 # pyllute
 
 Pollute a namespace (global, window supported) with JS implementation of (most of) Python's built-in functions
