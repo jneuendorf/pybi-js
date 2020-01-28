@@ -11,6 +11,8 @@ const sorted = require('../src/sorted')
 // sum is tested in math.js
 const zip = require('../src/zip')
 
+const {StopIteration}  = require('../src/_errors')
+
 const {createTestCase} = require('./_utils')
 
 
@@ -110,3 +112,24 @@ describe('map', () => {
         ])
     })
 })
+
+
+describe('next', () => {
+    test('without default', () => {
+        const iterator = iter([1, 2])
+        expect(next(iterator)).toBe(1)
+        expect(next(iterator)).toBe(2)
+        expect(() => next(iterator)).toThrow(StopIteration)
+    })
+
+    test('with default', () => {
+        const iterator = iter([1, 2])
+        const myDefaultValue = []
+        expect(next(iterator, myDefaultValue)).toBe(1)
+        expect(next(iterator, myDefaultValue)).toBe(2)
+        expect(next(iterator, myDefaultValue)).toBe(myDefaultValue)
+    })
+})
+
+
+createTestCase('iterables', 'range', range)

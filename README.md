@@ -4,8 +4,9 @@
 
 # pyllute
 
-Pollute a namespace (global, window supported) with JS implementation of (most of) Python's built-in functions
+Po**llute** a namespace (global, window supported) with JS implementation of (most of) **Py**thon's built-in functions
 
+<!-- Fix Atom's syntax highlighting: *** //-->
 
 ## Install
 
@@ -114,9 +115,7 @@ const py3funcs = install({})
 - [ ] :x: `memoryview()`
     - I am afraid that's not possible.
 - [x] `min()`
-- [x] `next()` :triangular_flag_on_post:
-    - Addition boolean argument `throwWhenDone` to indicate whether to throw a
-      `StopIteration` error if the iterator is done/exhausted (default: `false`).
+- [x] `next()`
 - [x] `object()`
 - [x] `oct()`
 - [ ] `open()`

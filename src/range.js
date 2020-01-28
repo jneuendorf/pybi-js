@@ -3,10 +3,10 @@ const {ValueError} = require('./_errors')
 module.exports = (...args) => {
     let start, stop, step
     if (args.length === 1) {
-        ([stop, start=0, step=1] = args)
+        [stop, start=0, step=1] = args
     }
     else {
-        ([start, stop, step] = args)
+        [start, stop, step=1] = args
     }
 
     if (step === 0) {

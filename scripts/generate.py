@@ -16,6 +16,7 @@ tests = {
     'iterables': Meta([builtins], {
         'enumerate': list,
         'iter': list,
+        'range': list,
     }),
 }
 
