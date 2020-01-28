@@ -5,7 +5,7 @@ const errors = require('../src/_errors')
 
 
 function createTestCase(jsonFilename, funcName, func=null,
-                        {testFunc=test, logIndices=false}={}) {
+                        {testFunc=test, logIndices=false, testName=null}={}) {
     const args2dByFunc = eval(`( ${fs.readFileSync(
         path.join(__dirname, `${jsonFilename}.json`)
     )} )`)
@@ -16,7 +16,7 @@ function createTestCase(jsonFilename, funcName, func=null,
         func = require(path.join(__dirname, '..', 'src', funcName))
     }
 
-    return testFunc(funcName, () => {
+    return testFunc(testName || funcName, () => {
         const args2d = args2dByFunc[funcName]
         let i = 0
         for (const args of args2d) {

@@ -2,7 +2,7 @@ const callable = require('./callable')
 
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
 module.exports = (object, sentinel, equality=(x, y) => x === y) => {
-    if (!sentinel) {
+    if (sentinel == null) {
         try {
             return object[Symbol.iterator]()
         }

@@ -35,3 +35,30 @@ describe('filter', () => {
         expect(() => [...filter(1, 2 ,3)]).toThrow(TypeError)
     })
 })
+
+describe('iter', () => {
+    test('without sentinel argument', () => {
+        let obj = [1, 2, 3]
+        let res = iter(obj)
+        expect([...res]).toEqual(obj)
+
+        obj = 'asdf'
+        res = iter(obj)
+        expect([...res]).toEqual(obj.split(''))
+
+        expect(() => iter(true)).toThrow(TypeError)
+    })
+
+    test('with sentinel argument', () => {
+        let i = 0
+        let res = iter(() => i++, 2)
+        expect([...res]).toEqual([0, 1])
+
+        i = 0
+        let s = 'asdf'
+        res = iter(() => s[i++], 'd')
+        expect([...res]).toEqual('as'.split(''))
+
+        expect(() => iter(true, false)).toThrow(TypeError)
+    })
+})
