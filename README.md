@@ -119,7 +119,7 @@ const py3funcs = install({})
       `StopIteration` error if the iterator is done/exhausted (default: `false`).
 - [x] `object()`
 - [x] `oct()`
-- [x] `open()`
+- [ ] `open()`
 - [x] `ord()`
 - [x] `pow()`
 - [x] `print()`
