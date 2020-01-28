@@ -133,3 +133,35 @@ describe('next', () => {
 
 
 createTestCase('iterables', 'range', range)
+
+
+describe('sorted', () => {
+    createTestCase('iterables', 'sorted', sorted, {testName: 'without key and reversed argument', testFunc: test})
+
+    test('with key argument (incl. stability)', () => {
+        expect(sorted([{k: 4}, {k: 1}, {k: 10}, {k: 1, x: 2}], o => o.k)).toEqual(
+            [{k: 1}, {k: 1, x: 2}, {k: 4}, {k: 10}]
+        )
+    })
+
+    test('with reversed argument', () => {
+        expect(sorted([3, 5, 4, 2, 10, 6, 1], undefined, false)).toEqual(
+            [1, 2, 3, 4, 5, 6, 10]
+        )
+        expect(sorted([3, 5, 4, 2, 10, 6, 1], undefined, true)).toEqual(
+            [10, 6, 5, 4, 3, 2, 1]
+        )
+        expect(sorted(['3', '5', '4', '2', '10', '6', '1'], undefined, false)).toEqual(
+            ['1', '10', '2', '3', '4', '5', '6']
+        )
+        expect(sorted(['3', '5', '4', '2', '10', '6', '1'], undefined, true)).toEqual(
+            ['6', '5', '4', '3', '2', '10', '1']
+        )
+    })
+
+    test('with key and reversed arguments', () => {
+        expect(sorted([{k: 4}, {k: 1}, {k: 10}, {k: 1, x: 2}], o => o.k, true)).toEqual(
+            [{k: 10}, {k: 4}, {k: 1, x: 2}, {k: 1}]
+        )
+    })
+})
