@@ -6,6 +6,8 @@ const pow = require('../src/pow')
 const round = require('../src/round')
 const sum = require('../src/sum')
 
+const {ValueError} = require('../src/_errors')
+
 const {createTestCase} = require('./_utils')
 
 
@@ -18,7 +20,7 @@ describe('abs', () => {
             Infinity,
             -Infinity,
         ]
-        for (const arg in args) {
+        for (const arg of args) {
             expect(abs.simple(arg)).toBe(Math.abs(arg))
         }
     })
@@ -48,7 +50,7 @@ describe('max', () => {
             ['a', 2],
             [Infinity, 2**20],
         ]
-        for (const args in args2d) {
+        for (const args of args2d) {
             expect(max(args)).toBe(Math.max(...args))
         }
     })
@@ -59,7 +61,7 @@ describe('max', () => {
             ['a', 2],
             [Infinity, 2**20],
         ]
-        for (const args in args2d) {
+        for (const args of args2d) {
             expect(max(...args)).toBe(Math.max(...args))
         }
     })
@@ -73,7 +75,7 @@ describe('min', () => {
             ['a', 2],
             [Infinity, 2**20],
         ]
-        for (const args in args2d) {
+        for (const args of args2d) {
             expect(min(args)).toBe(Math.min(...args))
         }
     })
@@ -84,7 +86,7 @@ describe('min', () => {
             ['a', 2],
             [Infinity, 2**20],
         ]
-        for (const args in args2d) {
+        for (const args of args2d) {
             expect(min(...args)).toBe(Math.min(...args))
         }
     })
@@ -101,14 +103,16 @@ describe('pow', () => {
             [Infinity, 2],
             [-Infinity, 2],
         ]
-        for (const args in args2d) {
-            expect(pow(args)).toBe(Math.pow(...args))
+        for (const args of args2d) {
+            expect(pow(...args)).toBe(Math.pow(...args))
         }
     })
 
     test('with mod arg', () => {
         // See example at https://docs.python.org/3/library/functions.html#pow
         expect(pow(38, -1, 97)).toBe(23)
+        expect(() => pow(38, -1, 0)).toThrow(ValueError)
+        expect(() => pow(0, -1, 0)).toThrow(ValueError)
     })
 })
 
@@ -125,7 +129,7 @@ describe('round', () => {
             [Infinity],
             [-Infinity]
         ]
-        for (const arg in args) {
+        for (const arg of args) {
             expect(round(arg)).toBe(Math.round(arg))
         }
     })
@@ -134,6 +138,7 @@ describe('round', () => {
         expect(round(38, -1)).toBe(4)
         expect(round(38.235, 2)).toBe(38.24)
         expect(round(-38.235, 2)).toBe(-38.23)
+        expect(() => round(-38.235, 2.4)).toThrow(TypeError)
     })
 })
 

@@ -1,4 +1,5 @@
 const {config, reset} = require('./_config')
+const errors = require('./_errors')
 
 
 const all = new Set([
@@ -118,6 +119,7 @@ const __kwargs__ = 1
 
 module.exports = {
     install,
+    errors,
     config,
     reset,
     __kwargs__,
