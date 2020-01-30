@@ -1,0 +1,73 @@
+{
+  "bin": [
+    "0b101010",
+    "0b11",
+    "-0b1010",
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'str' object cannot be interpreted as an integer"
+      }
+    }
+  ],
+  "bool": [
+    false,
+    false,
+    false,
+    true,
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    true,
+    false
+  ],
+  "bytearray": [
+    [],
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "string argument without an encoding"
+      }
+    },
+    [
+      195,
+      164,
+      115,
+      100,
+      102
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      5,
+      10
+    ],
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'str' object cannot be interpreted as an integer"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "byte must be in range(0, 256)"
+      }
+    }
+  ]
+}

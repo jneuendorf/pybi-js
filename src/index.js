@@ -13,6 +13,18 @@ const all = new Set([
     'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod',
     'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip',
 ])
+const nodeJsOnly = new Set([
+    // People have tried polyfilling node's 'Buffer' but apparently there were
+     // only partly successful and that was quite a while ago:
+     // https://stackoverflow.com/a/16548689/6928824
+     // https://stackoverflow.com/a/12486045/6928824
+     // If anyone is interested in porting
+     // https://github.com/nodejs/node/blob/master/lib/buffer.js
+     // to browser JS, go ahead! ;)
+    'bytearray',
+    'input',
+])
+
 const intersection = (setA, setB) => {
     const _intersection = new Set()
     for (const elem of setB) {
@@ -63,6 +75,14 @@ const install = (namespace, options={}) => {
         throw new Error(
             `Only either the 'whitelist' or the 'blacklist' option is allowed.`
         )
+    }
+
+    if (typeof(process) === 'undefined') {
+        console.debug(
+            '[pyllute] Not using the following module because assuming '
+            + 'running in a browser'
+        )
+        moduleNames = setMinus(moduleNames, nodeJsOnly)
     }
 
     if (!namespace) {

@@ -40,7 +40,7 @@ describe('abs', () => {
 })
 
 
-createTestCase('math', 'divmod', divmod, {logIndices: false})
+createTestCase('math', 'divmod', divmod)
 
 
 describe('max', () => {

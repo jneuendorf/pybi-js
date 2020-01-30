@@ -1,12 +1,18 @@
+const callable = require('./callable')
+
 module.exports = x => {
-    if (Number.isInteger(x)) {
-        if (x >= 0) {
-            return `0b${x.toString(2)}`
+    if (!Number.isInteger(x)) {
+        if (callable(x.__index__)) {
+            x = x.__index__()
         }
-        return `-0b${(-x).toString(2)}`
+        else {
+            throw new TypeError(
+                `'${x.construtor.name}' object cannot be interpreted as an integer`
+            )
+        }
     }
-    if (x.__index__) {
-        return x.__index__()
+    if (x >= 0) {
+        return `0b${x.toString(2)}`
     }
-    throw new TypeError(`'${x.construtor.name}' object cannot be interpreted as an integer`)
+    return `-0b${(-x).toString(2)}`
 }

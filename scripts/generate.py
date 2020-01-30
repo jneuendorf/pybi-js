@@ -18,6 +18,9 @@ tests = {
         'iter': list,
         'range': list,
     }),
+    'converters': Meta([builtins], {
+        'bytearray': list,
+    }),
 }
 
 for testname, meta in tests.items():

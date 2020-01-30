@@ -58,7 +58,10 @@ const py3funcs = install({})
 - [x] `bin()`
 - [x] `bool()`
 - [x] `breakpoint()`
-- [x] `bytearray()`
+- [x] `bytearray()` :triangular_flag_on_post:
+    - :warning: Only works on Node.js.
+      It will not be installed unless there is a global `process` variable.
+    - There is no (third) `errors` argument.
 - [x] `bytes()`
 - [x] `callable()`
 - [x] `chr()`
@@ -97,6 +100,8 @@ const py3funcs = install({})
 - [x] `hex()`
 - [x] `id()`
 - [x] `input()` :triangular_flag_on_post:
+    - :warning: Only works on Node.js.
+      It will not be installed unless there is a global `process` variable.
     - :exclamation: Asynchronous
 - [x] `int()`
 - [x] `isinstance()`
@@ -126,7 +131,8 @@ const py3funcs = install({})
       the last argument, for example:
       `{__kwargs__, end='-------'}`.
       `__kwargs__` is a named export of `pyllute`.
-      Note that the `end` keyword argument is prepended to the default line break. This means it behaves differently than in Python.
+      Note that the `end` keyword argument is prepended to the default (unavoidable?) line break.
+      This means it behaves differently than in Python.
 - [ ] :x: `property()`
     - I couldn't find a good way to make it nice enough to be actually useful:
       `Proxy` didn't work the way I wanted and making this function an alias
@@ -162,7 +168,7 @@ const py3funcs = install({})
       Passing more than 1 base is not supported due to JavaScript's single
       inheritance model.
       Not sure how e.g. the `classmethod` decorator works when using `type` in Python.
-      The created class has t the `__name__`, `__bases__` and `__dict__` attributes like in Python.
+      The created class has the `__name__`, `__bases__` and `__dict__` attributes like in Python.
 - [x] `vars()`
 - [x] `zip()`
 

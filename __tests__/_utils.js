@@ -3,9 +3,16 @@ const path = require('path')
 
 const errors = require('../src/_errors')
 
+const identity = x => x
+
 
 function createTestCase(jsonFilename, funcName, func=null,
-                        {testFunc=test, logIndices=false, testName=null}={}) {
+                        {
+                            testFunc=test,
+                            logIndices=false,
+                            testName=null,
+                            deserializer=identity,
+                        }={}) {
     const args2dByFunc = eval(`( ${fs.readFileSync(
         path.join(__dirname, `${jsonFilename}.json`)
     )} )`)
@@ -30,7 +37,7 @@ function createTestCase(jsonFilename, funcName, func=null,
                 )
             }
             else {
-                expect(func(...args)).toEqual(expectedValue)
+                expect(func(...args)).toEqual(deserializer(expectedValue))
             }
             i += 1
         }

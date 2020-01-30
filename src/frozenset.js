@@ -4,14 +4,11 @@ class FrozenSet extends Set {
     constructor(iterable) {
         const self = new Set(iterable)
         self.__proto__ = FrozenSet.prototype
+        self.add = undefined
+        self.clear = undefined
+        self.delete = undefined
         return self
     }
-
-    add = undefined
-
-    clear = undefined
-
-    delete = undefined
 }
 
 module.exports = (iterable) => {
