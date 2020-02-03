@@ -119,6 +119,9 @@ describe('bytes', () => {
 })
 
 
+createTestCase('converters', 'chr', chr)
+
+
 describe('a', () => {
     test('b', () => {
 

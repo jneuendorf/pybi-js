@@ -114,5 +114,17 @@
         "message": "bytes must be in range(0, 256)"
       }
     }
+  ],
+  "chr": [
+    "\u0000",
+    "a",
+    "\u20ac",
+    "\udbff\udfff",
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "chr() arg not in range(0x110000)"
+      }
+    }
   ]
 }
