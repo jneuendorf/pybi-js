@@ -12,6 +12,7 @@ function createTestCase(jsonFilename, funcName, func=null,
                             logIndices=false,
                             testName=null,
                             deserializer=identity,
+                            equality='toEqual',
                         }={}) {
     const args2dByFunc = eval(`( ${fs.readFileSync(
         path.join(__dirname, `${jsonFilename}.json`)
@@ -31,13 +32,14 @@ function createTestCase(jsonFilename, funcName, func=null,
                 console.log('i =', i, funcName)
             }
             expectedValue = expected[funcName][i]
+            // console.log(expectedValue)
             if (expectedValue.__error__) {
                 expect(() => func(...args)).toThrow(
                     errors[expectedValue.__error__.type]
                 )
             }
             else {
-                expect(func(...args)).toEqual(deserializer(expectedValue))
+                expect(func(...args))[equality](deserializer(expectedValue))
             }
             i += 1
         }

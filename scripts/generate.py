@@ -20,6 +20,7 @@ tests = {
     }),
     'converters': Meta([builtins], {
         'bytearray': list,
+        'bytes': list,
     }),
 }
 

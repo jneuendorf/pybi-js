@@ -17,7 +17,8 @@ const set = require('../src/set')
 const str = require('../src/str')
 const tuple = require('../src/tuple')
 
-const {ValueError} = require('../src/_errors')
+const {ValueError, NotImplementedError} = require('../src/_errors')
+const Bytes = require('../src/_bytes')
 
 const {createTestCase} = require('./_utils')
 
@@ -73,7 +74,7 @@ describe('bool', () => {
 describe('bytearray', () => {
     createTestCase('converters', 'bytearray', bytearray, {
         testName: 'without buffer interface objects',
-        logIndices: true,
+        // logIndices: true,
         deserializer: obj => Uint8Array.from(obj),
     })
 
@@ -81,6 +82,39 @@ describe('bytearray', () => {
         expect(
             bytearray(Buffer.from('aä', 'utf8'))
         ).toEqual(Uint8Array.from([97, 195, 164]))
+    })
+})
+
+
+describe('bytes', () => {
+    createTestCase('converters', 'bytes', bytes, {
+        testName: 'without buffer interface objects',
+        // logIndices: true,
+        deserializer: obj => Bytes.from(obj),
+    })
+
+    test('with buffer', () => {
+        expect(
+            bytes(Buffer.from('aä', 'utf8'))
+        ).toEqual(Bytes.from([97, 195, 164]))
+    })
+
+    test('immutability', () => {
+        const b = bytes([0, 10])
+        expect(b).toBeInstanceOf(Bytes)
+        expect(b.length).toBe(2)
+        expect(b[0]).toBe(0)
+        b[0] = 42
+        expect(b[0]).toBe(0)
+        b[2] = 1337
+        expect(b.length).toBe(2)
+        expect(delete b[1]).toBe(false)
+
+        expect(() => b.copyWithin(1, 0)).toThrow(NotImplementedError)
+        expect(() => b.fill(3)).toThrow(NotImplementedError)
+        expect(() => b.reverse()).toThrow(NotImplementedError)
+        expect(() => b.set([3, 4])).toThrow(NotImplementedError)
+        expect(() => b.sort()).toThrow(NotImplementedError)
     })
 })
 
