@@ -12,15 +12,16 @@ class Meta:
 
 
 tests = {
-    'math': Meta([builtins]),
+    'converters': Meta([builtins], {}),
     'iterables': Meta([builtins], {
         'enumerate': list,
         'iter': list,
-        'range': list,
     }),
-    'converters': Meta([builtins], {
+    'math': Meta([builtins]),
+    'stdtypes': Meta([builtins], {
         'bytearray': list,
         'bytes': list,
+        'range': list,
     }),
 }
 

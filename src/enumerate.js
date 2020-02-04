@@ -1,4 +1,5 @@
 const isIterable = require('./_is-iterable')
+const {ValueError} = require('./_errors')
 
 
 module.exports = (iterable, start=0) => {

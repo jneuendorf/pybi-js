@@ -6,7 +6,6 @@ const iter = require('../src/iter')
 const len = require('../src/len')
 const map = require('../src/map')
 const next = require('../src/next')
-const range = require('../src/range')
 const sorted = require('../src/sorted')
 // sum is tested in math.js
 const zip = require('../src/zip')
@@ -130,9 +129,6 @@ describe('next', () => {
         expect(next(iterator, myDefaultValue)).toBe(myDefaultValue)
     })
 })
-
-
-createTestCase('iterables', 'range', range)
 
 
 describe('sorted', () => {
