@@ -25,5 +25,9 @@ tests = {
     }),
 }
 
-for testname, meta in tests.items():
-    generate(testname, meta.namespaces, meta.serializers)
+if __name__ == "__main__":
+    try:
+        for testname, meta in tests.items():
+            generate(testname, meta.namespaces, meta.serializers)
+    except Exception as e:
+        raise RuntimeError(f'Error while generating "{testname}"') from e

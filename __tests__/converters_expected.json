@@ -2,6 +2,7 @@
   "bin": [
     "0b101010",
     "0b11",
+    "0b1110100011010100101001010000111111111111",
     "-0b1010",
     {
       "__error__": {
@@ -28,12 +29,30 @@
   "chr": [
     "\u0000",
     "a",
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "chr() arg not in range(0x110000)"
+      }
+    },
     "\u20ac",
     "\udbff\udfff",
     {
       "__error__": {
         "type": "ValueError",
         "message": "chr() arg not in range(0x110000)"
+      }
+    }
+  ],
+  "hex": [
+    "0x2a",
+    "0x3",
+    "0xe8d4a50fff",
+    "-0xa",
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'str' object cannot be interpreted as an integer"
       }
     }
   ]

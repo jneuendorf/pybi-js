@@ -33,6 +33,11 @@ describe('bin', () => {
                 return 42
             }
         })).toBe(bin(42))
+        expect(() => bin({
+            __index__() {
+                return 'adsf'
+            }
+        })).toThrow(TypeError)
     })
 })
 
@@ -61,6 +66,24 @@ describe('bool', () => {
 
 
 createTestCase('converters', 'chr', chr)
+
+
+describe('hex', () => {
+    createTestCase('converters', 'hex', hex, {testName: 'without __index__'})
+
+    test('with __index__', () => {
+        expect(hex({
+            __index__() {
+                return 42
+            }
+        })).toBe(hex(42))
+        expect(() => hex({
+            __index__() {
+                return 'adsf'
+            }
+        })).toThrow(TypeError)
+    })
+})
 
 
 describe('a', () => {

@@ -4,6 +4,11 @@ module.exports = x => {
     if (!Number.isInteger(x)) {
         if (callable(x.__index__)) {
             x = x.__index__()
+            if (!Number.isInteger(x)) {
+                throw new TypeError(
+                    `__index__ returned non-int (type ${x.construtor.name})`
+                )
+            }
         }
         else {
             throw new TypeError(

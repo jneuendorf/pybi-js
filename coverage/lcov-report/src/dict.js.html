@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>36/36</span>
+                <span class='fraction'>35/35</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>36/36</span>
+                <span class='fraction'>35/35</span>
             </div>
         
             
@@ -140,14 +140,7 @@
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -173,24 +166,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -223,7 +210,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -260,25 +246,19 @@ module.exports = (...args) =&gt; {
         )
     }
 &nbsp;
-    // 1. Normalize to iterable of key-value pairs.
-    let iterable
-    // // Check for '.entries' first
-    // if (callable(iterableOrMapping.entries)) {
-    //     iterable = iterableOrMapping.entries()
-    //     console.log(iterableOrMapping, iterable)
-    // }
-    // else
-    if (isIterable((iterableOrMapping))) {
-        iterable = iterableOrMapping
-    }
     // Make an exception for direct instances of 'Object'
     // (as in 'enumerate', for example).
     // All other 'Object's must implement the iterable protocol.
-    else if (iterableOrMapping.constructor === Object) {
-        // Is a shortcut for performance reasons (instead of
-        //  iterable = Object.entries(iterableOrMapping)
-        // )
+    if (iterableOrMapping.constructor === Object) {
+        // Is a shortcut for performance reasons instead of iterating
+        // 'iterableOrMapping' twice by doing:
+        //      iterable = Object.entries(iterableOrMapping)
         return {...iterableOrMapping}
+    }
+&nbsp;
+    let iterable
+    if (isIterable((iterableOrMapping))) {
+        iterable = iterableOrMapping
     }
     else {
         throw new TypeError(
@@ -312,8 +292,7 @@ module.exports = (...args) =&gt; {
         // So we decide to use 'Map' instead.
         // But we have to continue the loop to continue the checking the
         // struture of 'iterable.'
-        if (typeof(key) !== 'string') {
-            console.log(key, typeof(key))
+        if (typeof(key) !== 'string' &amp;&amp; !(key instanceof String)) {
             useObjectForResult = false
         }
         if (useObjectForResult) {
@@ -334,7 +313,7 @@ module.exports = (...args) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Feb 04 2020 09:26:35 GMT+0100 (Central European Standard Time)
+                at Tue Feb 04 2020 09:56:05 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
