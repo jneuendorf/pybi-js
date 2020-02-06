@@ -1,5 +1,7 @@
 import builtins
 from dataclasses import dataclass, field
+import json
+import math
 from typing import Callable, Dict
 
 from _utils import generate
@@ -12,7 +14,9 @@ class Meta:
 
 
 tests = {
-    'converters': Meta([builtins], {}),
+    'converters': Meta([builtins], {
+        'object': lambda o: dict(),
+    }),
     'iterables': Meta([builtins], {
         'enumerate': list,
         'iter': list,
@@ -21,6 +25,11 @@ tests = {
     'stdtypes': Meta([builtins], {
         'bytearray': list,
         'bytes': list,
+        'float': lambda x: (
+            str(x)
+            if math.isinf(x) or math.isnan(x)
+            else x
+        ),
         'range': list,
     }),
 }
@@ -29,5 +38,5 @@ if __name__ == "__main__":
     try:
         for testname, meta in tests.items():
             generate(testname, meta.namespaces, meta.serializers)
-    except Exception as e:
+    except json.decoder.JSONDecodeError as e:
         raise RuntimeError(f'Error while generating "{testname}"') from e

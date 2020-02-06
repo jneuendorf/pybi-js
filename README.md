@@ -121,7 +121,8 @@ const py3funcs = install({})
     - I am afraid that's not possible.
 - [x] `min()`
 - [x] `next()`
-- [x] `object()`
+- [x] `object()` :triangular_flag_on_post:
+    - Assigning properties is not forbidden like in Python.
 - [x] `oct()`
 - [ ] `open()`
 - [x] `ord()`

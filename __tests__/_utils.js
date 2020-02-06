@@ -9,7 +9,8 @@ const identity = x => x
 function createTestCase(jsonFilename, funcName, func=null,
                         {
                             testFunc=test,
-                            logIndices=false,
+                            logMeta=false,
+                            runOnly=-1,
                             testName=null,
                             deserializer=identity,
                             equality='toEqual',
@@ -28,8 +29,13 @@ function createTestCase(jsonFilename, funcName, func=null,
         const args2d = args2dByFunc[funcName]
         let i = 0
         for (const args of args2d) {
-            if (logIndices) {
-                console.log('i =', i, funcName)
+            if (runOnly >= 0 && i !== runOnly) {
+                i++
+                continue
+            }
+
+            if (logMeta) {
+                console.log(funcName, `#${i};`, 'args:', args)
             }
             expectedValue = expected[funcName][i]
             // console.log(expectedValue)
@@ -41,7 +47,8 @@ function createTestCase(jsonFilename, funcName, func=null,
             else {
                 expect(func(...args))[equality](deserializer(expectedValue))
             }
-            i += 1
+
+            i++
         }
     })
 }

@@ -19,7 +19,6 @@ const {createTestCase} = require('./_utils')
 describe('bytearray', () => {
     createTestCase('stdtypes', 'bytearray', bytearray, {
         testName: 'without buffer interface objects',
-        // logIndices: true,
         deserializer: obj => Uint8Array.from(obj),
     })
 
@@ -34,7 +33,6 @@ describe('bytearray', () => {
 describe('bytes', () => {
     createTestCase('stdtypes', 'bytes', bytes, {
         testName: 'without buffer interface objects',
-        // logIndices: true,
         deserializer: obj => Bytes.from(obj),
     })
 
@@ -84,6 +82,44 @@ describe('dict', () => {
         expect(dict([[t1, 10], [t2, 20]])).toEqual(new Map([[t1, 10], [t2, 20]]))
     })
 })
+
+
+createTestCase('stdtypes', 'float', float, {
+    deserializer(obj) {
+        if (typeof(obj) !== 'string') {
+            return obj
+        }
+        const mapping = {
+            nan: NaN,
+            inf: Infinity,
+            '-inf': -Infinity,
+        }
+        return mapping[obj]
+    }
+})
+
+
+describe('frozenset', () => {
+    test('construction', () => {
+        expect(frozenset()).toBeInstanceOf(Set)
+        expect(frozenset().constructor).not.toBe(Set)
+        expect(frozenset().size).toBe(0)
+        expect(frozenset([1, 'a']).size).toBe(2)
+        expect(frozenset([1, 'a']).has('a')).toBe(true)
+        expect(frozenset([1, 'a']).has('b')).toBe(false)
+        expect([...frozenset([1, 'a'])]).toEqual([1, 'a'])
+    })
+
+    test('immutability', () => {
+        const fs = frozenset()
+        expect(() => fs.add(1)).toThrow(TypeError)
+        expect(() => fs.clear()).toThrow(TypeError)
+        expect(() => fs.delete(1)).toThrow(TypeError)
+    })
+})
+
+
+createTestCase('stdtypes', 'int', int)
 
 
 createTestCase('stdtypes', 'range', range)

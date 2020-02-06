@@ -55,5 +55,56 @@
         "message": "'str' object cannot be interpreted as an integer"
       }
     }
+  ],
+  "object": [
+    {},
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "object() takes no arguments"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "object() takes no arguments"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "object() takes no arguments"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "object() takes no arguments"
+      }
+    }
+  ],
+  "oct": [
+    "0o52",
+    "0o3",
+    "0o16432451207777",
+    "-0o12",
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'str' object cannot be interpreted as an integer"
+      }
+    }
+  ],
+  "ord": [
+    0,
+    97,
+    8364,
+    1114111,
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "ord() expected a character, but string of length 0 found"
+      }
+    }
   ]
 }

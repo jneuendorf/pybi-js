@@ -139,6 +139,294 @@
       }
     }
   ],
+  "float": [
+    0.0,
+    0.0,
+    10.0,
+    1.5,
+    1.0,
+    1.0,
+    -1.0,
+    1.0,
+    1.5,
+    1.5,
+    1.5,
+    -1.5,
+    1.5,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "could not convert string to float: '1.5a'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "could not convert string to float: 'asdf'"
+      }
+    },
+    "nan",
+    "nan",
+    "nan",
+    "inf",
+    "inf",
+    "inf",
+    "inf",
+    "inf",
+    "inf",
+    "-inf",
+    "-inf",
+    "-inf",
+    "-inf",
+    "-inf",
+    "-inf",
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "float() argument must be a string or a number, not 'NoneType'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "float() argument must be a string or a number, not 'list'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "float() argument must be a string or a number, not 'dict'"
+      }
+    }
+  ],
+  "int": [
+    0,
+    0,
+    10,
+    1,
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "int() can't convert non-string with explicit base"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "int() can't convert non-string with explicit base"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "int() base must be >= 2 and <= 36, or 0"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "int() base must be >= 2 and <= 36, or 0"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "int() base must be >= 2 and <= 36, or 0"
+      }
+    },
+    1,
+    1,
+    -1,
+    1,
+    1,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '1a'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '1.5a'"
+      }
+    },
+    10,
+    -10,
+    10,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 0: '010'"
+      }
+    },
+    2,
+    8,
+    16,
+    16,
+    16,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '0x010'"
+      }
+    },
+    -16,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 8: '-0x010'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 2: '-0x010'"
+      }
+    },
+    -16,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '-0x010'"
+      }
+    },
+    16,
+    16,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '0X010'"
+      }
+    },
+    -16,
+    -16,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '-0X010'"
+      }
+    },
+    2,
+    2,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '0b010'"
+      }
+    },
+    -2,
+    -2,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '-0b010'"
+      }
+    },
+    2,
+    2,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '0B010'"
+      }
+    },
+    -2,
+    -2,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '-0B010'"
+      }
+    },
+    8,
+    8,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '0o010'"
+      }
+    },
+    -8,
+    -8,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '-0o010'"
+      }
+    },
+    8,
+    8,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '0O010'"
+      }
+    },
+    -8,
+    -8,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '-0O010'"
+      }
+    },
+    11534897,
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: 'asdf'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: 'nan'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: 'inf'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: 'infinity'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '-inf'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '-infinity'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "int() argument must be a string, a bytes-like object or a number, not 'NoneType'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "int() argument must be a string, a bytes-like object or a number, not 'list'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "int() argument must be a string, a bytes-like object or a number, not 'dict'"
+      }
+    }
+  ],
   "range": [
     [
       0,

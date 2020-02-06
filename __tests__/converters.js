@@ -7,8 +7,6 @@ const object = require('../src/object')
 const oct = require('../src/oct')
 const ord = require('../src/ord')
 
-// const {ValueError, NotImplementedError} = require('../src/_errors')
-
 const {createTestCase} = require('./_utils')
 
 
@@ -84,6 +82,32 @@ describe('hex', () => {
         })).toThrow(TypeError)
     })
 })
+
+
+createTestCase('converters', 'object', object)
+
+
+describe('oct', () => {
+    createTestCase('converters', 'oct', oct, {
+        testName: 'without __index__',
+    })
+
+    test('with __index__', () => {
+        expect(oct({
+            __index__() {
+                return 42
+            }
+        })).toBe(oct(42))
+        expect(() => oct({
+            __index__() {
+                return 'adsf'
+            }
+        })).toThrow(TypeError)
+    })
+})
+
+
+createTestCase('converters', 'ord', ord)
 
 
 describe('a', () => {

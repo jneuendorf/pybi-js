@@ -143,4 +143,4 @@ describe('round', () => {
 })
 
 
-createTestCase('math', 'sum', sum, {logIndices: false})
+createTestCase('math', 'sum', sum)

@@ -59,8 +59,12 @@ def _get_func(funcname, namespace_dicts):
 def save_json(testname, data):
     json_file = os.path.join(TESTS_DIR, f'{testname}_expected.json')
     # print(json_file)
-    with open(json_file, 'w') as f:
-        json.dump(data, f, indent=2)
+    try:
+        with open(json_file, 'w') as f:
+            json.dump(data, f, indent=2)
+    except TypeError:
+        print(data)
+        raise
     return json_file
 
 
