@@ -236,6 +236,7 @@
     },
     1,
     1,
+    1,
     -1,
     1,
     1,
@@ -258,6 +259,12 @@
       "__error__": {
         "type": "ValueError",
         "message": "invalid literal for int() with base 0: '010'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 0: '-010'"
       }
     },
     2,
@@ -424,6 +431,24 @@
       "__error__": {
         "type": "TypeError",
         "message": "int() argument must be a string, a bytes-like object or a number, not 'dict'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "int() takes at most 2 arguments (3 given)"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "int() argument must be a string, a bytes-like object or a number, not 'dict'"
+      }
+    },
+    {
+      "__error__": {
+        "type": "ValueError",
+        "message": "invalid literal for int() with base 10: '  '"
       }
     }
   ],

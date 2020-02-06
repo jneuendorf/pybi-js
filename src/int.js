@@ -1,6 +1,6 @@
 const callable = require('./callable')
 const Bytes = require('./_bytes')
-const {ValueError} = require('./_errors')
+const {NotImplementedError, ValueError} = require('./_errors')
 const toPrimitive = require('./_to-primitive')
 
 
@@ -101,16 +101,21 @@ module.exports = (...args) => {
             return numberToInteger(x)
         }
 
+        // Here we know: isNumber == false
         const isBytesLike = (
             x instanceof Uint8Array
             || x instanceof Bytes
         )
-        // Here we know: isNumber == false
-        if (!isString && !isBytesLike) {
+        if (isBytesLike) {
+            // TODO:
+            throw new NotImplementedError('Sorry!')
+        }
+        else if (!isString) {
             throw new TypeError(
                 `int() argument must be a string, a bytes-like object or `
                 + `a number, not '${x.constructor.name}'`
             )
+
         }
     }
     else {
@@ -145,7 +150,7 @@ module.exports = (...args) => {
                 `invalid literal for int() with base ${baseOrig}: '${xOrig}'`
             )
         }
-        x = _x
+        x = _x || _zeroTrimmedX
         // Even if 'base' becomes 'undefined' the 'invalid literal' error
         // will be thrown later during the parseInt-toString check.
         base = _base || 10
