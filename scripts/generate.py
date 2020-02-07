@@ -31,6 +31,7 @@ tests = {
             else x
         ),
         'range': list,
+        'set': list,
     }),
 }
 

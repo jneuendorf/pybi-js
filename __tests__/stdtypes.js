@@ -188,3 +188,8 @@ describe('list', () => {
 
 
 createTestCase('stdtypes', 'range', range)
+
+
+createTestCase('stdtypes', 'set', set, {
+    deserializer: arr => new Set(arr),
+})

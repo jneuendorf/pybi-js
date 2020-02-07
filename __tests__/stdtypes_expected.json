@@ -561,5 +561,54 @@
         "message": "range() arg 3 must not be zero"
       }
     }
+  ],
+  "set": [
+    [],
+    [],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      "a",
+      "f",
+      "s",
+      "d"
+    ],
+    [
+      "a",
+      "f",
+      "s",
+      "d"
+    ],
+    [
+      "a",
+      "b"
+    ],
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "set expected at most 1 argument, got 2"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'NoneType' object is not iterable"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'int' object is not iterable"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "set expected at most 1 argument, got 2"
+      }
+    }
   ]
 }
