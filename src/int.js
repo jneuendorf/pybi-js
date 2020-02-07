@@ -1,5 +1,6 @@
 const callable = require('./callable')
 const Bytes = require('./_bytes')
+const {dunder, NO_PROP} = require('./_dunder')
 const {NotImplementedError, ValueError} = require('./_errors')
 const toPrimitive = require('./_to-primitive')
 
@@ -69,18 +70,18 @@ module.exports = (...args) => {
     }
 
     let [x, base=10] = args
-    // TODO: non-callable __int__ is not allowed.
-    // probably all other dunder methods are treated the same way.
-    if (callable(x.__int__)) {
-        return x.__int__()
+    const __int__ = dunder(x, '__int__', Number.isInteger, 'int')
+    if (__int__ !== NO_PROP) {
+        return __int__
     }
-
-    if (callable(x.__index__)) {
-        return x.__index__()
+    const __index__ = dunder(x, '__index__', Number.isInteger, 'int')
+    if (__index__ !== NO_PROP) {
+        return __index__
     }
-
-    if (callable(x.__trunc__)) {
-        return x.__trunc__()
+    // We don't have 'Integral's so we just use 'int's.
+    const __trunc__ = dunder(x, '__trunc__', Number.isInteger, 'int')
+    if (__trunc__ !== NO_PROP) {
+        return __trunc__
     }
 
     const type = typeof(toPrimitive(x))

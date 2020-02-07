@@ -122,7 +122,69 @@ describe('frozenset', () => {
 createTestCase('stdtypes', 'int', int)
 
 
-createTestCase('stdtypes', 'list', list)
+describe('list', () => {
+    createTestCase('stdtypes', 'list', list, {testName: 'basic'})
+
+    test('__int__', () => {
+        const o = {
+            __int__() {
+                return 2
+            },
+        }
+        const oWrong = {
+            __int__() {
+                return 'asdf'
+            },
+        }
+        const oWrong2 = {__int__: 2}
+        expect(int(o)).toBe(2)
+        expect(() => int(oWrong)).toThrow(TypeError)
+        expect(() => int(oWrong)).toThrow(TypeError)
+        expect(() => int(oWrong)).toThrow('__int__ returned non-int')
+        expect(() => int(oWrong2)).toThrow(TypeError)
+        expect(() => int(oWrong2)).toThrow('is not callable')
+    })
+
+    test('__index__', () => {
+        const o = {
+            __index__() {
+                return 2
+            },
+        }
+        const oWrong = {
+            __index__() {
+                return 'asdf'
+            },
+        }
+        const oWrong2 = {__index__: 2}
+        expect(int(o)).toBe(2)
+        expect(() => int(oWrong)).toThrow(TypeError)
+        expect(() => int(oWrong)).toThrow(TypeError)
+        expect(() => int(oWrong)).toThrow('__index__ returned non-int')
+        expect(() => int(oWrong2)).toThrow(TypeError)
+        expect(() => int(oWrong2)).toThrow('is not callable')
+    })
+
+    test('__trunc__', () => {
+        const o = {
+            __trunc__() {
+                return 2
+            },
+        }
+        const oWrong = {
+            __trunc__() {
+                return 'asdf'
+            },
+        }
+        const oWrong2 = {__trunc__: 2}
+        expect(int(o)).toBe(2)
+        expect(() => int(oWrong)).toThrow(TypeError)
+        expect(() => int(oWrong)).toThrow(TypeError)
+        expect(() => int(oWrong)).toThrow('__trunc__ returned non-int')
+        expect(() => int(oWrong2)).toThrow(TypeError)
+        expect(() => int(oWrong2)).toThrow('is not callable')
+    })
+})
 
 
 createTestCase('stdtypes', 'range', range)
