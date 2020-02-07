@@ -452,6 +452,55 @@
       }
     }
   ],
+  "list": [
+    [],
+    [],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      "a",
+      "s",
+      "d",
+      "f"
+    ],
+    [
+      "a",
+      "s",
+      "d",
+      "f"
+    ],
+    [
+      "a",
+      "b"
+    ],
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "list expected at most 1 argument, got 2"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'NoneType' object is not iterable"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'int' object is not iterable"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "list expected at most 1 argument, got 2"
+      }
+    }
+  ],
   "range": [
     [
       0,

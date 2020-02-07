@@ -122,4 +122,7 @@ describe('frozenset', () => {
 createTestCase('stdtypes', 'int', int)
 
 
+createTestCase('stdtypes', 'list', list)
+
+
 createTestCase('stdtypes', 'range', range)
