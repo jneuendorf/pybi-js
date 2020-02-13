@@ -571,26 +571,26 @@
       3
     ],
     [
-      "s",
       "f",
-      "d",
-      "a"
+      "a",
+      "s",
+      "d"
     ],
     [
-      "s",
       "f",
-      "d",
-      "a"
+      "a",
+      "s",
+      "d"
     ],
     [
-      "s",
       "f",
-      "d",
-      "a"
+      "a",
+      "s",
+      "d"
     ],
     [
-      "b",
-      "a"
+      "a",
+      "b"
     ],
     {
       "__error__": {
@@ -690,5 +690,60 @@
     "['a', 'b']",
     "{}",
     "{'a': 1}"
+  ],
+  "tuple": [
+    [],
+    [],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      "a",
+      "s",
+      "d",
+      "f"
+    ],
+    [
+      "a",
+      "s",
+      "d",
+      "f"
+    ],
+    [
+      "a",
+      "s",
+      "d",
+      "f"
+    ],
+    [
+      "a",
+      "b"
+    ],
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "tuple expected at most 1 argument, got 2"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'NoneType' object is not iterable"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'int' object is not iterable"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "tuple expected at most 1 argument, got 2"
+      }
+    }
   ]
 }

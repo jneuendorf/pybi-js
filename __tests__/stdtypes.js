@@ -253,3 +253,6 @@ describe('str', () => {
         expect(str(bytearray([0x61, 0xc3, 0xbc, 0x61]), 'utf-8')).toBe('aüa')
     })
 })
+
+
+createTestCase('stdtypes', 'tuple', tuple)

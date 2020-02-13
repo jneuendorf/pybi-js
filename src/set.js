@@ -21,5 +21,6 @@ module.exports = (...args) => {
             `'${iterable ? iterable.constructor.name : iterable}' object is not iterable`
         )
     }
+
     return new Set(iterable)
 }
