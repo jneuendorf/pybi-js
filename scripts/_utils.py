@@ -30,7 +30,7 @@ def run(data, namespaces, serializers):
             try:
                 result = func(*args)
                 if callable(serializer):
-                    # print(serializer)
+                    print(result, type(result))
                     result = serializer(result)
             except Exception as e:
                 result = {

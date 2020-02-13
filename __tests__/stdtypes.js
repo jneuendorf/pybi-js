@@ -193,3 +193,20 @@ createTestCase('stdtypes', 'range', range)
 createTestCase('stdtypes', 'set', set, {
     deserializer: arr => new Set(arr),
 })
+
+
+createTestCase('stdtypes', 'str', str, {
+    logMeta: true,
+    deserializer(s) {
+        if (s === 'None') {
+            return 'null'
+        }
+        if (s === 'True') {
+            return 'true'
+        }
+        if (s === 'False') {
+            return 'false'
+        }
+        return s
+    },
+})

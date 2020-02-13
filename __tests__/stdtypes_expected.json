@@ -571,16 +571,22 @@
       3
     ],
     [
-      "a",
-      "f",
       "s",
-      "d"
+      "d",
+      "a",
+      "f"
     ],
     [
-      "a",
-      "f",
       "s",
-      "d"
+      "d",
+      "a",
+      "f"
+    ],
+    [
+      "s",
+      "d",
+      "a",
+      "f"
     ],
     [
       "a",
@@ -610,5 +616,66 @@
         "message": "set expected at most 1 argument, got 2"
       }
     }
+  ],
+  "str": [
+    "",
+    "1",
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "str() argument 2 must be str, not int"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "str() argument 2 must be str, not int"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "str() argument 3 must be str, not int"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "decoding to str: need a bytes-like object, list found"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "str() takes at most 3 arguments (4 given)"
+      }
+    },
+    "None",
+    "True",
+    "False",
+    "",
+    "asdf",
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "decoding str is not supported"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "decoding to str: need a bytes-like object, int found"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "decoding str is not supported"
+      }
+    },
+    "[]",
+    "['a', 'b']",
+    "{}",
+    "{'a': 1}"
   ]
 }

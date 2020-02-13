@@ -2,39 +2,77 @@ const {ValueError} = require('./_errors')
 const toPrimitive = require('./_to-primitive')
 
 module.exports = (...args) => {
-    if (args.length === 0) {
+    const n = args.length
+    if (n === 0) {
         return ''
     }
-
-    let [object, encoding, /*errors*/] = args
-
-    if (object == null) {
-        return `${$object}`
+    // argument 'errors'
+    if (n === 3) {
+        throw new TypeError(
+            `str() argument 3 must be str and is currently not supported`
+        )
+    }
+    if (n > 3) {
+        throw new TypeError(
+            `str() takes at most 3 arguments (${n} given)`
+        )
     }
 
-    if (!encoding) {
+    let [object, encoding] = args
+
+    if (object == null) {
+        return `${object}`
+    }
+
+    let typeOfObject
+    try {
+        typeOfObject = ypeof(toPrimitive(object))
+    }
+    catch (error) {
+        if (error instanceof ValueError) {
+            typeOfObject = null
+        }
+    }
+
+    // 'object' only
+    if (n === 1) {
         // From the Python docs:
         // If neither encoding nor errors is given,
         // str(object) returns object.__str__(). [...]
         // For string objects, this is the string itself.
-        try {
-            if (typeof(toPrimitive(object)) === 'string') {
-                return object
-            }
+        if (typeOfObject === 'string') {
+            return object
         }
-        catch (error) {
-            if (error instanceof ValueError) {
-                if (object.__str__) {
-                    return object.__str__()
-                }
-            }
+        if (object.__str__) {
+            return object.__str__()
         }
+        // Python like behavior:
+        if (Array.isArray(object)) {
+            return `[${object.join(', ')}]`
+        }
+        console.log('>>', object)
+        return object.toString()
     }
+    // 'object' and 'encoding'
     else {
-
+        if (typeof(toPrimitive(encoding)) !== 'string') {
+            throw new TypeError(
+                `str() argument 2 must be str, not ${
+                    encoding ? encoding.constructor.name : encoding
+                }`
+            )
+        }
+        if (!(object instanceof Bytes || object instanceof Uint8Array)) {
+            if (typeOfObject === 'string') {
+                throw new TypeError(
+                    `decoding str is not supported`
+                )
+            }
+            throw new TypeError(
+                `decoding to str: need a bytes-like object, ${object.constructor.name} found`
+            )
+        }
     }
-
-
 
     // No 'new' => primitive string
     // (see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Distinction_between_string_primitives_and_String_objects)

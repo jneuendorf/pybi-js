@@ -32,6 +32,11 @@ tests = {
         ),
         'range': list,
         'set': list,
+        # 'str': lambda x: (
+        #     x
+        #     if x != 'None'
+        #     else '__None__'
+        # ),
     }),
 }
 
