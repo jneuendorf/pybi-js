@@ -10,6 +10,7 @@
         "play": "node playground.js",
         "generate_test_data": "python scripts/generate.py",
         "gen": "npm run generate_test_data",
+        "todo": "python scripts/todo.py",
         "test": "jest",
         "cov": "jest --coverage"
     },

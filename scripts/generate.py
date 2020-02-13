@@ -20,6 +20,7 @@ tests = {
     'iterables': Meta([builtins], {
         'enumerate': list,
         'iter': list,
+        'reversed': list,
     }),
     'math': Meta([builtins]),
     'stdtypes': Meta([builtins], {
@@ -32,11 +33,6 @@ tests = {
         ),
         'range': list,
         'set': list,
-        # 'str': lambda x: (
-        #     x
-        #     if x != 'None'
-        #     else '__None__'
-        # ),
     }),
 }
 

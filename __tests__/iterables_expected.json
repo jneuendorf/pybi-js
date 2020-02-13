@@ -143,5 +143,69 @@
       false,
       true
     ]
+  ],
+  "reversed": [
+    [
+      1,
+      6,
+      10,
+      2,
+      4,
+      5,
+      3
+    ],
+    [
+      "1",
+      "6",
+      "10",
+      "2",
+      "4",
+      "5",
+      "3"
+    ],
+    [
+      false,
+      true
+    ],
+    [
+      true,
+      false
+    ],
+    [
+      "f",
+      "d",
+      "s",
+      "a"
+    ],
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "reversed expected 1 argument, got 0"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'int' object is not reversible"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "reversed expected 1 argument, got 2"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "reversed expected 1 argument, got 2"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "'NoneType' object is not reversible"
+      }
+    }
   ]
 }

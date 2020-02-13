@@ -6,6 +6,7 @@ const iter = require('../src/iter')
 const len = require('../src/len')
 const map = require('../src/map')
 const next = require('../src/next')
+const reversed = require('../src/reversed')
 const sorted = require('../src/sorted')
 // sum is tested in math.js
 const zip = require('../src/zip')
@@ -127,6 +128,35 @@ describe('next', () => {
         expect(next(iterator, myDefaultValue)).toBe(1)
         expect(next(iterator, myDefaultValue)).toBe(2)
         expect(next(iterator, myDefaultValue)).toBe(myDefaultValue)
+    })
+})
+
+
+describe('reversed', () => {
+    createTestCase('iterables', 'reversed', reversed, {
+        testName: 'basic',
+        postProcessor(iterator) {
+            return [...iterator]
+        },
+    })
+
+    test('iterator', () => {
+        const iterator = reversed([1, 2])
+        expect(next(iterator)).toBe(2)
+        expect(next(iterator)).toBe(1)
+        expect(() => next(iterator)).toThrow(StopIteration)
+    })
+
+    test('__getitem__', () => {
+        const seq = {
+            __len__() {
+                return 3
+            },
+            __getitem__(key) {
+                return key
+            }
+        }
+        expect([...reversed(seq)]).toEqual([2, 1, 0])
     })
 })
 

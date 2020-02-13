@@ -57,7 +57,9 @@ const py3funcs = install({})
     - This lib's implementation should be ok.
 - [x] `bin()`
 - [x] `bool()`
-- [x] `breakpoint()`
+- [x] `breakpoint()` :triangular_flag_on_post:
+    - This is just a function calling `debugger`.
+      Thus when used for debugging 1 up-step is necessary.
 - [x] `bytearray()` :triangular_flag_on_post:
     - :warning: Only works on Node.js.
       It will not be installed unless there is a global `process` variable.

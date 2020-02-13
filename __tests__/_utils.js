@@ -13,6 +13,7 @@ function createTestCase(jsonFilename, funcName, func=null,
                             runOnly=-1,
                             testName=null,
                             deserializer=identity,
+                            postProcessor=identity,
                             equality='toEqual',
                         }={}) {
     const args2dByFunc = eval(`( ${fs.readFileSync(
@@ -45,7 +46,9 @@ function createTestCase(jsonFilename, funcName, func=null,
                 )
             }
             else {
-                expect(func(...args))[equality](deserializer(expectedValue))
+                const expectedValue = postProcessor(func(...args))
+                const receivedValue = deserializer(expectedValue)
+                expect(expectedValue)[equality](receivedValue)
             }
 
             i++

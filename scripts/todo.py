@@ -1,3 +1,5 @@
+from pprint import pprint
+
 done = set(['abs','all','any','ascii','bin','bool','bytearray','bytes','callable','chr','dict','divmod','enumerate','filter','float','frozenset','hex','int','iter','len','list','map','max','min','next','object','oct','ord','pow','range','repr','round','set','sorted','str','sum','tuple','zip'])
 
 wont_fix = set(['__import__', 'compile', 'complex', 'globals', 'help', 'locals', 'memoryview', 'property', 'super'])
@@ -15,4 +17,4 @@ all = set([
 ])
 
 print('left funcs:')
-print(all - done - wont_fix)
+pprint(all - done - wont_fix)
