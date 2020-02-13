@@ -163,7 +163,8 @@ const py3funcs = install({})
 - [x] `str()`
 - [x] `sum()`
 - [ ] :x: `super()` (keyword)
-- [x] `tuple()`
+- [x] `tuple()` :triangular_flag_on_post:
+    - It works like in Python but returns an instance of `Array` which is mutable!
 - [x] :ok_hand: `type()`
     - This lib's implementation should be ok.
       Passing more than 1 base is not supported due to JavaScript's single

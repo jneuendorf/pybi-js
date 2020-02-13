@@ -11,7 +11,7 @@ const str = require('../src/str')
 const tuple = require('../src/tuple')
 
 const Bytes = require('../src/_bytes')
-const {ValueError, NotImplementedError} = require('../src/_errors')
+const {NotImplementedError} = require('../src/_errors')
 
 const {createTestCase} = require('./_utils')
 
