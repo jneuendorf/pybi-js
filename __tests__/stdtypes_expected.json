@@ -571,26 +571,26 @@
       3
     ],
     [
-      "s",
+      "f",
       "d",
       "a",
-      "f"
+      "s"
     ],
     [
-      "s",
+      "f",
       "d",
       "a",
-      "f"
+      "s"
     ],
     [
-      "s",
+      "f",
       "d",
       "a",
-      "f"
+      "s"
     ],
     [
-      "a",
-      "b"
+      "b",
+      "a"
     ],
     {
       "__error__": {
@@ -638,6 +638,7 @@
         "message": "str() argument 3 must be str, not int"
       }
     },
+    "[['1'], ['2', 3]]",
     {
       "__error__": {
         "type": "TypeError",

@@ -1,7 +1,9 @@
+const repr = require('./repr')
 const {ValueError} = require('./_errors')
 const toPrimitive = require('./_to-primitive')
 
-module.exports = (...args) => {
+
+function str(...args) {
     const n = args.length
     if (n === 0) {
         return ''
@@ -26,7 +28,7 @@ module.exports = (...args) => {
 
     let typeOfObject
     try {
-        typeOfObject = ypeof(toPrimitive(object))
+        typeOfObject = typeof(toPrimitive(object))
     }
     catch (error) {
         if (error instanceof ValueError) {
@@ -44,14 +46,10 @@ module.exports = (...args) => {
             return object
         }
         if (object.__str__) {
+            // TODO: check return type
             return object.__str__()
         }
-        // Python like behavior:
-        if (Array.isArray(object)) {
-            return `[${object.join(', ')}]`
-        }
-        console.log('>>', object)
-        return object.toString()
+        return repr(object)
     }
     // 'object' and 'encoding'
     else {
@@ -78,3 +76,6 @@ module.exports = (...args) => {
     // (see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Distinction_between_string_primitives_and_String_objects)
     return String(object)
 }
+
+
+module.exports = str

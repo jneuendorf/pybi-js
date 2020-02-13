@@ -196,7 +196,6 @@ createTestCase('stdtypes', 'set', set, {
 
 
 createTestCase('stdtypes', 'str', str, {
-    logMeta: true,
     deserializer(s) {
         if (s === 'None') {
             return 'null'
