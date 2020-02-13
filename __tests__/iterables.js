@@ -147,6 +147,20 @@ describe('reversed', () => {
         expect(() => next(iterator)).toThrow(StopIteration)
     })
 
+    test('__reversed__', () => {
+        const o1 = {
+            __reversed__() {
+                return 2
+            }
+        }
+        expect(reversed(o1)).toBe(2)
+
+        const o2 = {
+            __reversed__: 2
+        }
+        expect(() => reversed(o2)).toThrow(TypeError)
+    })
+
     test('__getitem__', () => {
         const seq = {
             __len__() {
