@@ -1,7 +1,16 @@
 const repr = require('./repr')
-const {ValueError} = require('./_errors')
+const Bytes = require('./_bytes')
 const toPrimitive = require('./_to-primitive')
 
+
+let _TextDecoder
+/* istanbul ignore next */
+if (typeof(TextDecoder) !== 'undefined') {
+    _TextDecoder = TextDecoder
+}
+else {
+    _TextDecoder = require('util').TextDecoder
+}
 
 function str(...args) {
     const n = args.length
@@ -26,15 +35,7 @@ function str(...args) {
         return `${object}`
     }
 
-    let typeOfObject
-    try {
-        typeOfObject = typeof(toPrimitive(object))
-    }
-    catch (error) {
-        if (error instanceof ValueError) {
-            typeOfObject = null
-        }
-    }
+    const typeOfObject = typeof(toPrimitive(object, false))
 
     // 'object' only
     if (n === 1) {
@@ -46,14 +47,19 @@ function str(...args) {
             return object
         }
         if (object.__str__) {
-            // TODO: check return type
-            return object.__str__()
+            const s = object.__str__()
+            if (typeof(toPrimitive(s, false)) !== 'string') {
+                throw new TypeError(
+                    ` __str__ returned non-string (type ${s ? s.constructor.name : s})`
+                )
+            }
+            return s
         }
         return repr(object)
     }
     // 'object' and 'encoding'
     else {
-        if (typeof(toPrimitive(encoding)) !== 'string') {
+        if (typeof(toPrimitive(encoding, false)) !== 'string') {
             throw new TypeError(
                 `str() argument 2 must be str, not ${
                     encoding ? encoding.constructor.name : encoding
@@ -61,20 +67,23 @@ function str(...args) {
             )
         }
         if (!(object instanceof Bytes || object instanceof Uint8Array)) {
+            // For some reason there is special error message in Python for strings.
             if (typeOfObject === 'string') {
                 throw new TypeError(
                     `decoding str is not supported`
                 )
             }
-            throw new TypeError(
-                `decoding to str: need a bytes-like object, ${object.constructor.name} found`
-            )
+            else {
+                throw new TypeError(
+                    `decoding to str: need a bytes-like object, ${object.constructor.name} found`
+                )
+            }
         }
-    }
 
-    // No 'new' => primitive string
-    // (see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Distinction_between_string_primitives_and_String_objects)
-    return String(object)
+        // Compatibility: https://caniuse.com/#feat=mdn-api_textdecoder_decode
+        const decoder = new _TextDecoder(encoding)
+        return decoder.decode(object.buffer)
+    }
 }
 
 

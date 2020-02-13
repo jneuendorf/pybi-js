@@ -16,7 +16,7 @@ module.exports = (...args) => {
     }
 
     // Convert to primitive for following typeof checks.
-    x = toPrimitive(x)
+    x = toPrimitive(x, false)
 
     if (typeof(x) === 'number') {
         return x

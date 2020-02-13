@@ -84,7 +84,7 @@ module.exports = (...args) => {
         return __trunc__
     }
 
-    const type = typeof(toPrimitive(x))
+    const type = typeof(toPrimitive(x, false))
     const isString = type === 'string'
     const explicitBase = numArgs === 2
 

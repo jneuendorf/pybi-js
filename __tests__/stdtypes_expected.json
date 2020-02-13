@@ -571,22 +571,22 @@
       3
     ],
     [
+      "s",
       "f",
       "d",
-      "a",
-      "s"
+      "a"
     ],
     [
+      "s",
       "f",
       "d",
-      "a",
-      "s"
+      "a"
     ],
     [
+      "s",
       "f",
       "d",
-      "a",
-      "s"
+      "a"
     ],
     [
       "b",
@@ -672,6 +672,18 @@
       "__error__": {
         "type": "TypeError",
         "message": "decoding str is not supported"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "str() argument 2 must be str, not None"
+      }
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "str() argument 2 must be str, not int"
       }
     },
     "[]",

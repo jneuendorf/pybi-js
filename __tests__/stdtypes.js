@@ -195,17 +195,61 @@ createTestCase('stdtypes', 'set', set, {
 })
 
 
-createTestCase('stdtypes', 'str', str, {
-    deserializer(s) {
-        if (s === 'None') {
-            return 'null'
+describe('str', () => {
+    createTestCase('stdtypes', 'str', str, {
+        testName: 'basic',
+        deserializer(s) {
+            if (s === 'None') {
+                return 'null'
+            }
+            if (s === 'True') {
+                return 'true'
+            }
+            if (s === 'False') {
+                return 'false'
+            }
+            return s
+        },
+    })
+
+    test('__str__', () => {
+        const o1 = {
+            __str__() {
+                return 'asdf'
+            }
         }
-        if (s === 'True') {
-            return 'true'
+        expect(str(o1)).toBe('asdf')
+
+        const o2 = {
+            __str__() {
+                return 2
+            }
         }
-        if (s === 'False') {
-            return 'false'
+        expect(() => str(o2)).toThrow(TypeError)
+
+        const o3 = {
+            __str__() {
+                return null
+            }
         }
-        return s
-    },
+        expect(() => str(o3)).toThrow(TypeError)
+    })
+
+    test('bytes-like + encoding, erroneous', () => {
+        // TypeError/RangeError/NodeError [ERR_UNKNOWN_ENCODING]: Unknown encoding: asdf
+        expect(() => str(bytes('äsdf', 'utf-8'), 'asdf')).toThrow('encoding')
+        expect(() => str(bytearray(), 'asdf')).toThrow('encoding')
+
+        expect(() => str(bytearray(), 2)).toThrow(TypeError)
+    })
+
+    test('bytes-like + encoding, valid', () => {
+        // > Buffer.from('aüa','utf-8')
+        // <Buffer 61 c3 bc 61>
+        //
+        // > Buffer.from('aüa','utf-8').toString('utf-8')
+        // 'aüa'
+        expect(str(bytes([0x61, 0xc3, 0xbc, 0x61]), 'utf-8')).toBe('aüa')
+        expect(str(bytearray([0x61, 0xc3, 0xbc, 0x61]), 'utf-8')).toBe('aüa')
+    })
 })
