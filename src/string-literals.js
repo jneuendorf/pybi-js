@@ -5,13 +5,7 @@ const ord = require('./ord')
 // Python docs:
 // https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals
 
-/*
 
-Python:
->>> a='\n'
->>> rf'\n{a}'
-'\\n\n'
-*/
 function r(strings, ...expressions) {
     const {raw} = strings
     let result = ''
@@ -38,7 +32,6 @@ function br(strings, ...expressions) {
 function rb(strings, ...expressions) {
     return _b(strings.raw[0], expressions)
 }
-
 
 
 module.exports = {

@@ -46,7 +46,20 @@ const py3funcs = install({})
 ```
 
 
-## [Python3 built-in functions](https://docs.python.org/3/library/functions.html)
+## What's included?
+
+### Literals
+
+The following literals are (or can) be used:
+
+- boolean: `True`, `False`
+- `None`
+- string literals: ``r`\n` ``, f-strings are currently not explicitly supported
+  because you can just use JavaScript's template strings.
+- binary literals: ``b`\a` ``, ``br`\a` ``, ``rb`\a` ``
+
+
+### [Python3 built-in functions](https://docs.python.org/3/library/functions.html)
 
 - [ ] :x: `__import__()`
     - Nope sorry, not messin' with this kinda stuff.
@@ -177,7 +190,7 @@ const py3funcs = install({})
 - [x] `zip()`
 
 
-## Config
+### Config
 
 There are some configuration flags for some of the functions.
 `config` is just an object and can be reset using the `reset` function:
