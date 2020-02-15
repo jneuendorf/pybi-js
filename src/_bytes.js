@@ -3,10 +3,12 @@ const {NotImplementedError} = require('./_errors')
 
 
 // This is a manually implemented proxy in order to avoid 'Proxy'
-// (meaning the Uin8Array interface is implemented).
+// (meaning the Uint8Array interface is implemented).
 // TODO: Thin out the prototype chain by using uint8array's methods directly
 //       instead of wrapping them?
 class Bytes {
+    // _repr = null
+
     constructor(...args) {
         const array = bytearray(...args)
         Object.defineProperty(this, '_array', {
@@ -23,6 +25,8 @@ class Bytes {
                 configurable: false,
             })
         }
+
+        this._repr = null
     }
 
     static from(iterable) {
@@ -32,6 +36,30 @@ class Bytes {
     /* istanbul ignore next */
     static of(...elements) {
         return new Bytes(elements)
+    }
+
+    __repr__() {
+        // TODO: maybe use a config flag to disable caching to save memory?
+        if (this._repr === null) {
+            // NOTE: We can't use 'this.map' because it returns a Uint8Array
+            //       which cannot represent our mapped strings.
+            let repr = ''
+            for (const byte of this._array) {
+                repr += (
+                    // See output from Python: 'bytes(range(256))'
+                    byte <= 0x1f || byte >= 0x7f
+                    ? '\\x' + byte.toString(16)
+                    : String.fromCharCode(byte)
+                )
+            }
+            this._repr = `b\`${repr}\``
+        }
+
+        return this._repr
+    }
+
+    __str__() {
+        return this.__repr__()
     }
 
     /* istanbul ignore next */

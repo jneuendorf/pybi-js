@@ -244,6 +244,7 @@ describe('str', () => {
     })
 
     test('bytes-like + encoding, valid', () => {
+        // Node:
         // > Buffer.from('aüa','utf-8')
         // <Buffer 61 c3 bc 61>
         //
@@ -251,6 +252,17 @@ describe('str', () => {
         // 'aüa'
         expect(str(bytes([0x61, 0xc3, 0xbc, 0x61]), 'utf-8')).toBe('aüa')
         expect(str(bytearray([0x61, 0xc3, 0xbc, 0x61]), 'utf-8')).toBe('aüa')
+    })
+
+    test('bytes-like, no encoding', () => {
+        // >>> str(bytes([97, 98]))
+        // "b'ab'"
+        // >>> str(b'ab')
+        // "b'ab'"
+        expect(str(bytes([97, 98]))).toBe("b`ab`")
+        // >>> str(bytes('ä','utf8'))
+        // "b'\\xc3\\xa4'"
+        expect(str(bytes('ä', 'utf-8'))).toBe("b`\\xc3\\xa4`")
     })
 })
 
