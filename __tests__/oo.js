@@ -20,8 +20,31 @@ describe('classmethod', () => {
 
     test('python-like function decorator', () => {
         const A = require('./oo__classmethod__func')(classmethod)
-        // console.log(A)
-        // console.log(A.clsMethod() == A)
+        const clsMethod = A.clsMethod
+
+        expect(() => clsMethod()).toThrow()
         expect(A.clsMethod()).toBe(A)
+        expect(clsMethod()).toBe(A)
+
+        // Python:
+        // >>> f = classmethod(lambda cls: cls)
+        // >>> class A:
+        // ...   f = f
+        // ...
+        // >>> A.f() is A
+        // True
+        //
+        // We got this? Hell yeah!
+        const detachedClsMethod = classmethod(function(cls) {
+            return cls
+        })
+        A.monkeyPatched = detachedClsMethod
+        expect(() => detachedClsMethod()).toThrow()
+        expect(A.monkeyPatched()).toBe(A)
+        // TODO: This is not allowed in python because:
+        //       TypeError: 'classmethod' object is not callable
+        //       This can probably lead to bugs if the same classmethod-object
+        //       is used with different classes.
+        expect(detachedClsMethod()).toBe(A)
     })
 })

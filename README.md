@@ -216,3 +216,36 @@ console.log(config.classmethod_firstArgClass) // true
 reset()
 
 ```
+
+
+## Caveats
+
+### `classmethod`
+
+When using `classmethod` beware that the returned functions cannot be used with multiple/different classes like you could do in Python.
+This is due to the fact that in JavaScript we cannot determine the class that contains the according method definition (without additional effort like additional class decorators).
+Thus, the 1st class, the method is called on, is cached (in order to support "standalone-calls" (see below)).
+In particular, this means that the following is invalid:
+
+```javascript
+const f = classmethod(cls => cls)
+
+class A {
+    m1 = f
+}
+class B {
+    m2 = f
+}
+// still no errors thrown
+
+A.m1()
+// all good
+const m1 = A.m1
+m1()
+// still all good
+B.m2()
+// THROWING UP!
+```
+
+There is another slight difference to Python:
+`classmethod` returns functions, so `f` can be called but in Python `classmethod` objects are not callable.

@@ -1,6 +1,7 @@
 // @flow
 
 const callable = require('./callable')
+const isClass = require('./_is-class')
 const {config: {classmethod_firstArgClass}} = require('./_config')
 
 /*
@@ -33,28 +34,35 @@ function current({descriptor, key, kind, replacement}) {
     // placement: "prototype"
 }
 
-/*
->>> f = classmethod(lambda cls: cls)
->>> f
-<classmethod object at 0x103b50760>
->>> class A:
-...   f = f
-...
->>> A.f
-<bound method <lambda> of <class '__main__.A'>>
->>> A.f()
-<class '__main__.A'>
->>> A.f() == A
-True
->>> A.f() is A
-True
-*/
+
 function functionDecorator(func) {
-    // Maybe just forward 'this' as 'cls' argument into func..
-    // const cls = 1
+    let cls
     return function(...args) {
-        const cls = this
-        return func(cls, ...args)
+        if (!cls) {
+            if (isClass(this)) {
+                cls = this
+            }
+            else {
+                throw new TypeError(
+                    `Methods decorated with classmethod() must be called on `
+                    `the class at least once before being called without `
+                    `context`
+                )
+            }
+        }
+        // This behavoir is unpythonic but documented.
+        else {
+            if (cls && cls !== this && isClass(this)) {
+                throw new TypeError(
+                    `Can't use an 'instance of classmethod' with multiple `
+                    `classes. See caveats`
+                )
+            }
+        }
+        if (classmethod_firstArgClass) {
+            return func.call(cls, cls, ...args)
+        }
+        return func.call(cls, ...args)
     }
 }
 
