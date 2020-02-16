@@ -22,6 +22,9 @@
         "jest": "^25.1.0"
     },
     "jest": {
-        "testPathIgnorePatterns": ["__tests__/_utils.js"]
+        "testPathIgnorePatterns": [
+            "__tests__/_utils.js",
+            "__tests__/oo__.*.js"
+        ]
     }
 }
