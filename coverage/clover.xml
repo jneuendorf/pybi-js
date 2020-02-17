@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1581982071778" clover="3.2.0">
-  <project timestamp="1581982071779" name="All files">
+<coverage generated="1581982326107" clover="3.2.0">
+  <project timestamp="1581982326108" name="All files">
     <metrics statements="714" coveredstatements="649" conditionals="450" coveredconditionals="403" methods="104" coveredmethods="89" elements="1268" coveredelements="1141" complexity="0" loc="714" ncloc="714" packages="1" files="60" classes="60"/>
     <file name="_bytes.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/_bytes.js">
       <metrics statements="24" coveredstatements="24" conditionals="6" coveredconditionals="5" methods="11" coveredmethods="11"/>
