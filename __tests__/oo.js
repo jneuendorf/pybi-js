@@ -10,13 +10,56 @@ const type = require('../src/type')
 
 
 describe('classmethod', () => {
-    // test('legacy', () => {
-    //
-    // })
-    //
-    // test('current proposal', () => {
-    //
-    // })
+    test('legacy (with static)', () => {
+        const A = require('./oo__classmethod__legacy_static')(classmethod)
+        const clsMethod = A.clsMethod
+
+        // NOTE: In contrary to function decorator!
+        expect(() => clsMethod()).not.toThrow()
+        expect(A.clsMethod()).toBe(A)
+        expect(clsMethod()).toBe(A)
+        expect(new A().clsMethod()).toBe(A)
+        const o = {
+            m: A.clsMethod,
+        }
+        expect(o.m()).toBe(A)
+    })
+
+    test('legacy', () => {
+        const A = require('./oo__classmethod__legacy')(classmethod)
+        const clsMethod = A.clsMethod
+
+        // NOTE: In contrary to function decorator!
+        expect(() => clsMethod()).not.toThrow()
+        expect(A.clsMethod()).toBe(A)
+        expect(clsMethod()).toBe(A)
+
+        expect(new A().clsMethod()).toBe(A)
+        const o = {
+            m: A.clsMethod,
+        }
+        expect(o.m()).toBe(A)
+    })
+
+    test('current proposal', () => {
+        const A = require('./oo__classmethod__current')(classmethod)
+        const clsMethod = A.clsMethod
+
+        expect(() => clsMethod()).toThrow()
+        expect(A.clsMethod()).toBe(A)
+        expect(clsMethod()).toBe(A)
+        expect(A.prototype.hasOwnProperty('clsMethod')).toBe(false)
+    })
+
+    test('current proposal', () => {
+        const A = require('./oo__classmethod__current_static')(classmethod)
+        const clsMethod = A.clsMethod
+
+        expect(() => clsMethod()).toThrow()
+        expect(A.clsMethod()).toBe(A)
+        expect(clsMethod()).toBe(A)
+        expect(A.prototype.hasOwnProperty('clsMethod')).toBe(false)
+    })
 
     test('python-like function decorator', () => {
         const A = require('./oo__classmethod__func')(classmethod)
@@ -46,5 +89,9 @@ describe('classmethod', () => {
         //       This can probably lead to bugs if the same classmethod-object
         //       is used with different classes.
         expect(detachedClsMethod()).toBe(A)
+
+        class B {}
+        B.monkeyPatched = detachedClsMethod
+        expect(() => B.monkeyPatched()).toThrow()
     })
 })

@@ -25,6 +25,10 @@
         "testPathIgnorePatterns": [
             "__tests__/_utils.js",
             "__tests__/oo__.*.js"
+        ],
+        "coveragePathIgnorePatterns": [
+            "/node_modules",
+            "/__tests__"
         ]
     }
 }

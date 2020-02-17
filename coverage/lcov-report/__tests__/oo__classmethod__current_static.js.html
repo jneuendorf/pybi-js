@@ -1,0 +1,332 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for __tests__/oo__classmethod__current_static.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">__tests__</a> oo__classmethod__current_static.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">49.33% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>111/225</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">32.03% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>49/153</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">59.18% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>29/49</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">56% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>14/25</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+&nbsp;
+function <span class="fstat-no" title="function not covered" >_instanceof(</span>left, right) { <span class="cstat-no" title="statement not covered" >if (right != null &amp;&amp; typeof Symbol !== "undefined" &amp;&amp; right[Symbol.hasInstance]) { <span class="cstat-no" title="statement not covered" >return !!right[Symbol.hasInstance](left); </span>} else { <span class="cstat-no" title="statement not covered" >return left instanceof right; </span>} </span>}
+&nbsp;
+function _typeof(obj) { "@babel/helpers - typeof"; <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof Symbol === "function" &amp;&amp; typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { <span class="cstat-no" title="statement not covered" >_typeof = function <span class="fstat-no" title="function not covered" >_typeof(</span>obj) { <span class="cstat-no" title="statement not covered" >return obj &amp;&amp; typeof Symbol === "function" &amp;&amp; obj.constructor === Symbol &amp;&amp; obj !== Symbol.prototype ? "symbol" : typeof obj; </span>}; </span>} return _typeof(obj); }
+&nbsp;
+function <span class="fstat-no" title="function not covered" >_classCallCheck(</span>instance, Constructor) { <span class="cstat-no" title="statement not covered" >if (!_instanceof(instance, Constructor)) { <span class="cstat-no" title="statement not covered" >throw new TypeError("Cannot call a class as a function"); </span>} </span>}
+&nbsp;
+function _decorate(decorators, factory, superClass, mixins) { var api = _getDecoratorsApi(); <span class="missing-if-branch" title="if path not taken" >I</span>if (mixins) { <span class="cstat-no" title="statement not covered" >for (var i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; mixins.length; i++) { <span class="cstat-no" title="statement not covered" >api = mixins[i](api); </span>} </span>} var r = factory(function <span class="fstat-no" title="function not covered" >initialize(</span>O) { <span class="cstat-no" title="statement not covered" >api.initializeInstanceElements(O, decorated.elements); </span>}, superClass); var decorated = api.decorateClass(_coalesceClassElements(r.d.map(_createElementDescriptor)), decorators); api.initializeClassElements(r.F, decorated.elements); return api.runClassFinishers(r.F, decorated.finishers); }
+&nbsp;
+function _getDecoratorsApi() { _getDecoratorsApi = function <span class="fstat-no" title="function not covered" >_getDecoratorsApi(</span>) { <span class="cstat-no" title="statement not covered" >return api; </span>}; var api = { elementsDefinitionOrder: [["method"], ["field"]], initializeInstanceElements: function <span class="fstat-no" title="function not covered" >initializeInstanceElements(</span>O, elements) { <span class="cstat-no" title="statement not covered" >["method", "field"].forEach(<span class="fstat-no" title="function not covered" >fu</span>nction (kind) { <span class="cstat-no" title="statement not covered" >elements.forEach(<span class="fstat-no" title="function not covered" >fu</span>nction (element) { <span class="cstat-no" title="statement not covered" >if (element.kind === kind &amp;&amp; element.placement === "own") { <span class="cstat-no" title="statement not covered" >this.defineClassElement(O, element); </span>} </span>}, this); </span>}, this); </span>}, initializeClassElements: function initializeClassElements(F, elements) { var proto = F.prototype; ["method", "field"].forEach(function (kind) { elements.forEach(function (element) { var placement = element.placement; if (element.kind === kind &amp;&amp; (placement === "static" || placement === "prototype")) { var receiver = placement === "static" ? F : proto; this.defineClassElement(receiver, element); } }, this); }, this); }, defineClassElement: function defineClassElement(receiver, element) { var descriptor = element.descriptor; <span class="missing-if-branch" title="if path not taken" >I</span>if (element.kind === "field") { var initializer = <span class="cstat-no" title="statement not covered" >element.initializer;</span> <span class="cstat-no" title="statement not covered" >descriptor = { enumerable: descriptor.enumerable, writable: descriptor.writable, configurable: descriptor.configurable, value: initializer === void 0 ? void 0 : initializer.call(receiver) }; </span>} Object.defineProperty(receiver, element.key, descriptor); }, decorateClass: function decorateClass(elements, decorators) { var newElements = []; var finishers = []; var placements = { static: [], prototype: [], own: [] }; elements.forEach(function (element) { this.addElementPlacement(element, placements); }, this); elements.forEach(function (element) { if (!_hasDecorators(element)) return newElements.push(element); var elementFinishersExtras = this.decorateElement(element, placements); newElements.push(elementFinishersExtras.element); newElements.push.apply(newElements, elementFinishersExtras.extras); finishers.push.apply(finishers, elementFinishersExtras.finishers); }, this); <span class="missing-if-branch" title="else path not taken" >E</span>if (!decorators) { return { elements: newElements, finishers: finishers }; } var result = <span class="cstat-no" title="statement not covered" >this.decorateConstructor(newElements, decorators);</span> <span class="cstat-no" title="statement not covered" >finishers.push.apply(finishers, result.finishers); <span class="cstat-no" title="statement not covered" ></span>result.finishers = finishers; <span class="cstat-no" title="statement not covered" ></span>return result; </span>}, addElementPlacement: function addElementPlacement(element, placements, silent) { var keys = placements[element.placement]; <span class="missing-if-branch" title="if path not taken" >I</span>if (!silent &amp;&amp; keys.indexOf(element.key) !== -1) { <span class="cstat-no" title="statement not covered" >throw new TypeError("Duplicated element (" + element.key + ")"); </span>} keys.push(element.key); }, decorateElement: function decorateElement(element, placements) { var extras = []; var finishers = []; for (var decorators = element.decorators, i = decorators.length - 1; i &gt;= 0; i--) { var keys = placements[element.placement]; keys.splice(keys.indexOf(element.key), 1); var elementObject = this.fromElementDescriptor(element); var elementFinisherExtras = this.toElementFinisherExtras((0, decorators[i])(elementObject) || <span class="branch-1 cbranch-no" title="branch not covered" >elementObject)</span>; element = elementFinisherExtras.element; this.addElementPlacement(element, placements); <span class="missing-if-branch" title="if path not taken" >I</span>if (elementFinisherExtras.finisher) { <span class="cstat-no" title="statement not covered" >finishers.push(elementFinisherExtras.finisher); </span>} var newExtras = elementFinisherExtras.extras; <span class="missing-if-branch" title="if path not taken" >I</span>if (newExtras) { <span class="cstat-no" title="statement not covered" >for (var j = <span class="cstat-no" title="statement not covered" >0;</span> j &lt; newExtras.length; j++) { <span class="cstat-no" title="statement not covered" >this.addElementPlacement(newExtras[j], placements); </span>} <span class="cstat-no" title="statement not covered" ></span>extras.push.apply(extras, newExtras); </span>} } return { element: element, finishers: finishers, extras: extras }; }, decorateConstructor: function <span class="fstat-no" title="function not covered" >decorateConstructor(</span>elements, decorators) { var finishers = <span class="cstat-no" title="statement not covered" >[];</span> <span class="cstat-no" title="statement not covered" >for (var i = <span class="cstat-no" title="statement not covered" >decorators.length - 1;</span> i &gt;= 0; i--) { var obj = <span class="cstat-no" title="statement not covered" >this.fromClassDescriptor(elements);</span> var elementsAndFinisher = <span class="cstat-no" title="statement not covered" >this.toClassDescriptor((0, decorators[i])(obj) || obj);</span> <span class="cstat-no" title="statement not covered" >if (elementsAndFinisher.finisher !== undefined) { <span class="cstat-no" title="statement not covered" >finishers.push(elementsAndFinisher.finisher); </span>} <span class="cstat-no" title="statement not covered" ></span>if (elementsAndFinisher.elements !== undefined) { <span class="cstat-no" title="statement not covered" >elements = elementsAndFinisher.elements; <span class="cstat-no" title="statement not covered" ></span>for (var j = <span class="cstat-no" title="statement not covered" >0;</span> j &lt; elements.length - 1; j++) { <span class="cstat-no" title="statement not covered" >for (var k = <span class="cstat-no" title="statement not covered" >j + 1;</span> k &lt; elements.length; k++) { <span class="cstat-no" title="statement not covered" >if (elements[j].key === elements[k].key &amp;&amp; elements[j].placement === elements[k].placement) { <span class="cstat-no" title="statement not covered" >throw new TypeError("Duplicated element (" + elements[j].key + ")"); </span>} </span>} </span>} </span>} </span>} <span class="cstat-no" title="statement not covered" ></span>return { elements: elements, finishers: finishers }; </span>}, fromElementDescriptor: function fromElementDescriptor(element) { var obj = { kind: element.kind, key: element.key, placement: element.placement, descriptor: element.descriptor }; var desc = { value: "Descriptor", configurable: true }; Object.defineProperty(obj, Symbol.toStringTag, desc); <span class="missing-if-branch" title="if path not taken" >I</span>if (element.kind === "field") <span class="cstat-no" title="statement not covered" >obj.initializer = element.initializer; </span>return obj; }, toElementDescriptors: function toElementDescriptors(elementObjects) { <span class="missing-if-branch" title="else path not taken" >E</span>if (elementObjects === undefined) return; <span class="cstat-no" title="statement not covered" >return _toArray(elementObjects).map(<span class="fstat-no" title="function not covered" >fu</span>nction (elementObject) { var element = <span class="cstat-no" title="statement not covered" >this.toElementDescriptor(elementObject);</span> <span class="cstat-no" title="statement not covered" >this.disallowProperty(elementObject, "finisher", "An element descriptor"); <span class="cstat-no" title="statement not covered" ></span>this.disallowProperty(elementObject, "extras", "An element descriptor"); <span class="cstat-no" title="statement not covered" ></span>return element; </span>}, this); </span>}, toElementDescriptor: function toElementDescriptor(elementObject) { var kind = String(elementObject.kind); <span class="missing-if-branch" title="if path not taken" >I</span>if (kind !== "method" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >kind !== "field")</span> { <span class="cstat-no" title="statement not covered" >throw new TypeError('An element descriptor\'s .kind property must be either "method" or' + ' "field", but a decorator created an element descriptor with' + ' .kind "' + kind + '"'); </span>} var key = _toPropertyKey(elementObject.key); var placement = String(elementObject.placement); <span class="missing-if-branch" title="if path not taken" >I</span>if (placement !== "static" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >placement !== "prototype" </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >placement !== "own")</span> { <span class="cstat-no" title="statement not covered" >throw new TypeError('An element descriptor\'s .placement property must be one of "static",' + ' "prototype" or "own", but a decorator created an element descriptor' + ' with .placement "' + placement + '"'); </span>} var descriptor = elementObject.descriptor; this.disallowProperty(elementObject, "elements", "An element descriptor"); var element = { kind: kind, key: key, placement: placement, descriptor: Object.assign({}, descriptor) }; <span class="missing-if-branch" title="else path not taken" >E</span>if (kind !== "field") { this.disallowProperty(elementObject, "initializer", "A method descriptor"); } else { <span class="cstat-no" title="statement not covered" >this.disallowProperty(descriptor, "get", "The property descriptor of a field descriptor"); <span class="cstat-no" title="statement not covered" ></span>this.disallowProperty(descriptor, "set", "The property descriptor of a field descriptor"); <span class="cstat-no" title="statement not covered" ></span>this.disallowProperty(descriptor, "value", "The property descriptor of a field descriptor"); <span class="cstat-no" title="statement not covered" ></span>element.initializer = elementObject.initializer; </span>} return element; }, toElementFinisherExtras: function toElementFinisherExtras(elementObject) { var element = this.toElementDescriptor(elementObject); var finisher = _optionalCallableProperty(elementObject, "finisher"); var extras = this.toElementDescriptors(elementObject.extras); return { element: element, finisher: finisher, extras: extras }; }, fromClassDescriptor: function <span class="fstat-no" title="function not covered" >fromClassDescriptor(</span>elements) { var obj = <span class="cstat-no" title="statement not covered" >{ kind: "class", elements: elements.map(this.fromElementDescriptor, this) };</span> var desc = <span class="cstat-no" title="statement not covered" >{ value: "Descriptor", configurable: true };</span> <span class="cstat-no" title="statement not covered" >Object.defineProperty(obj, Symbol.toStringTag, desc); <span class="cstat-no" title="statement not covered" ></span>return obj; </span>}, toClassDescriptor: function <span class="fstat-no" title="function not covered" >toClassDescriptor(</span>obj) { var kind = <span class="cstat-no" title="statement not covered" >String(obj.kind);</span> <span class="cstat-no" title="statement not covered" >if (kind !== "class") { <span class="cstat-no" title="statement not covered" >throw new TypeError('A class descriptor\'s .kind property must be "class", but a decorator' + ' created a class descriptor with .kind "' + kind + '"'); </span>} <span class="cstat-no" title="statement not covered" ></span>this.disallowProperty(obj, "key", "A class descriptor"); <span class="cstat-no" title="statement not covered" ></span>this.disallowProperty(obj, "placement", "A class descriptor"); <span class="cstat-no" title="statement not covered" ></span>this.disallowProperty(obj, "descriptor", "A class descriptor"); <span class="cstat-no" title="statement not covered" ></span>this.disallowProperty(obj, "initializer", "A class descriptor"); <span class="cstat-no" title="statement not covered" ></span>this.disallowProperty(obj, "extras", "A class descriptor"); </span>var finisher = <span class="cstat-no" title="statement not covered" >_optionalCallableProperty(obj, "finisher");</span> var elements = <span class="cstat-no" title="statement not covered" >this.toElementDescriptors(obj.elements);</span> <span class="cstat-no" title="statement not covered" >return { elements: elements, finisher: finisher }; </span>}, runClassFinishers: function runClassFinishers(constructor, finishers) { for (var i = 0; i &lt; finishers.length; i++) { var newConstructor = <span class="cstat-no" title="statement not covered" >(0, finishers[i])(constructor);</span> <span class="cstat-no" title="statement not covered" >if (newConstructor !== undefined) { <span class="cstat-no" title="statement not covered" >if (typeof newConstructor !== "function") { <span class="cstat-no" title="statement not covered" >throw new TypeError("Finishers must return a constructor."); </span>} <span class="cstat-no" title="statement not covered" ></span>constructor = newConstructor; </span>} </span>} return constructor; }, disallowProperty: function disallowProperty(obj, name, objectType) { <span class="missing-if-branch" title="if path not taken" >I</span>if (obj[name] !== undefined) { <span class="cstat-no" title="statement not covered" >throw new TypeError(objectType + " can't have a ." + name + " property."); </span>} } }; return api; }
+&nbsp;
+function _createElementDescriptor(def) { var key = _toPropertyKey(def.key); var descriptor; <span class="missing-if-branch" title="else path not taken" >E</span>if (def.kind === "method") { descriptor = { value: def.value, writable: true, configurable: true, enumerable: false }; } else <span class="cstat-no" title="statement not covered" >if (def.kind === "get") { <span class="cstat-no" title="statement not covered" >descriptor = { get: def.value, configurable: true, enumerable: false }; </span>} else <span class="cstat-no" title="statement not covered" >if (def.kind === "set") { <span class="cstat-no" title="statement not covered" >descriptor = { set: def.value, configurable: true, enumerable: false }; </span>} else <span class="cstat-no" title="statement not covered" >if (def.kind === "field") { <span class="cstat-no" title="statement not covered" >descriptor = { configurable: true, writable: true, enumerable: true }; </span>} </span></span></span>var element = { kind: def.kind === "field" ? <span class="branch-0 cbranch-no" title="branch not covered" >"field" </span>: "method", key: key, placement: def.static ? "static" : def.kind === "field" ? <span class="branch-0 cbranch-no" title="branch not covered" >"own" </span>: "prototype", descriptor: descriptor }; if (def.decorators) element.decorators = def.decorators; <span class="missing-if-branch" title="if path not taken" >I</span>if (def.kind === "field") <span class="cstat-no" title="statement not covered" >element.initializer = def.value; </span>return element; }
+&nbsp;
+function <span class="fstat-no" title="function not covered" >_coalesceGetterSetter(</span>element, other) { <span class="cstat-no" title="statement not covered" >if (element.descriptor.get !== undefined) { <span class="cstat-no" title="statement not covered" >other.descriptor.get = element.descriptor.get; </span>} else { <span class="cstat-no" title="statement not covered" >other.descriptor.set = element.descriptor.set; </span>} </span>}
+&nbsp;
+function _coalesceClassElements(elements) { var newElements = []; var isSameElement = function isSameElement(other) { return other.kind === "method" &amp;&amp; other.key === element.key &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >other.placement === element.placement;</span> }; for (var i = 0; i &lt; elements.length; i++) { var element = elements[i]; var other; <span class="missing-if-branch" title="if path not taken" >I</span>if (element.kind === "method" &amp;&amp; (other = newElements.find(isSameElement))) { <span class="cstat-no" title="statement not covered" >if (_isDataDescriptor(element.descriptor) || _isDataDescriptor(other.descriptor)) { <span class="cstat-no" title="statement not covered" >if (_hasDecorators(element) || _hasDecorators(other)) { <span class="cstat-no" title="statement not covered" >throw new ReferenceError("Duplicated methods (" + element.key + ") can't be decorated."); </span>} <span class="cstat-no" title="statement not covered" ></span>other.descriptor = element.descriptor; </span>} else { <span class="cstat-no" title="statement not covered" >if (_hasDecorators(element)) { <span class="cstat-no" title="statement not covered" >if (_hasDecorators(other)) { <span class="cstat-no" title="statement not covered" >throw new ReferenceError("Decorators can't be placed on different accessors with for " + "the same property (" + element.key + ")."); </span>} <span class="cstat-no" title="statement not covered" ></span>other.decorators = element.decorators; </span>} <span class="cstat-no" title="statement not covered" ></span>_coalesceGetterSetter(element, other); </span>} </span>} else { newElements.push(element); } } return newElements; }
+&nbsp;
+function _hasDecorators(element) { return element.decorators &amp;&amp; element.decorators.length; }
+&nbsp;
+function <span class="fstat-no" title="function not covered" >_isDataDescriptor(</span>desc) { <span class="cstat-no" title="statement not covered" >return desc !== undefined &amp;&amp; !(desc.value === undefined &amp;&amp; desc.writable === undefined); </span>}
+&nbsp;
+function _optionalCallableProperty(obj, name) { var value = obj[name]; <span class="missing-if-branch" title="if path not taken" >I</span>if (value !== undefined &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >typeof value !== "function")</span> { <span class="cstat-no" title="statement not covered" >throw new TypeError("Expected '" + name + "' to be a function"); </span>} return value; }
+&nbsp;
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? <span class="branch-0 cbranch-no" title="branch not covered" >key </span>: String(key); }
+&nbsp;
+function _toPrimitive(input, hint) { <span class="missing-if-branch" title="else path not taken" >E</span>if (_typeof(input) !== "object" || <span class="branch-1 cbranch-no" title="branch not covered" >input === null)</span> return input; var prim = <span class="cstat-no" title="statement not covered" >input[Symbol.toPrimitive];</span> <span class="cstat-no" title="statement not covered" >if (prim !== undefined) { var res = <span class="cstat-no" title="statement not covered" >prim.call(input, hint || "default");</span> <span class="cstat-no" title="statement not covered" >if (_typeof(res) !== "object") <span class="cstat-no" title="statement not covered" >return res; <span class="cstat-no" title="statement not covered" ></span></span>throw new TypeError("@@toPrimitive must return a primitive value."); </span>} <span class="cstat-no" title="statement not covered" ></span>return (hint === "string" ? String : Number)(input); </span>}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >_toArray(</span>arr) { <span class="cstat-no" title="statement not covered" >return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest(); </span>}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >_nonIterableRest(</span>) { <span class="cstat-no" title="statement not covered" >throw new TypeError("Invalid attempt to destructure non-iterable instance"); </span>}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >_iterableToArray(</span>iter) { <span class="cstat-no" title="statement not covered" >if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") <span class="cstat-no" title="statement not covered" >return Array.from(iter); </span></span>}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >_arrayWithHoles(</span>arr) { <span class="cstat-no" title="statement not covered" >if (Array.isArray(arr)) <span class="cstat-no" title="statement not covered" >return arr; </span></span>}
+&nbsp;
+module.exports = function (classmethod) {
+  return _decorate(null, function (_initialize) {
+    var _class = function <span class="fstat-no" title="function not covered" >_class(</span>) {
+<span class="cstat-no" title="statement not covered" >      _classCallCheck(this, _class);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      _initialize(this);</span>
+    };
+&nbsp;
+    return {
+      F: _class,
+      d: [{
+        kind: "method",
+        decorators: [classmethod],
+        static: true,
+        key: "clsMethod",
+        value: function clsMethod(cls) {
+          return cls;
+        }
+      }, {
+        kind: "method",
+        key: "instanceMethod",
+        value: function <span class="fstat-no" title="function not covered" >instanceMethod(</span>) {
+<span class="cstat-no" title="statement not covered" >          return this;</span>
+        }
+      }]
+    };
+  });
+};
+&nbsp;
+/*
+babel 7.8.4
+&nbsp;
+module.exports = function(classmethod) {
+    return class {
+        @classmethod
+        static clsMethod(cls) {
+            return cls
+        }
+&nbsp;
+        instanceMethod() {
+            return this
+        }
+    }
+}
+&nbsp;
+&nbsp;
+https://babeljs.io/repl#?browsers=&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=LYewJgrgNgpgdDAHgBxAJwC4GcAEBeHAMwgDsBjDASxBIAoyoBDLLYGDAC3AEocBvAFABINOwhoSOBs1yCc8hfIAC0lm07hhQrBkZUyUqFgCy7LmHpHegobdEZxkhlgGKhAXwFbKJHY3IwphoW1loiYhI4nJQutp4eAp4CQA&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=true&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=es2015%2Cstage-0&amp;prettier=false&amp;targets=&amp;version=7.8.4&amp;externalPlugins=
+*/
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+                at Tue Feb 18 2020 00:19:42 GMT+0100 (Central European Standard Time)
+            </div>
+        </div>
+        <script src="../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
+    </body>
+</html>
+    

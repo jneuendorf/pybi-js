@@ -81,9 +81,8 @@ The following literals are (or can) be used:
 - [x] `callable()`
 - [x] `chr()`
 - [x] `classmethod()`
-    - This is currently equal to `staticmethod` with
-      `config.classmethod_firstArgClass == true` because in JS we usually just
-      use `this` instead of the first argument `cls`.
+    - There are 3 different behavoirs depending on the usage and environment.
+      See section `Caveats` for details.
 - [ ] :stop_sign: `compile()`
     - I guess I could do that using babylon but not for now. :wink:
 - [ ] :x: `complex()`
@@ -220,7 +219,35 @@ reset()
 
 ## Caveats
 
-### `classmethod`
+### `classmethod` 
+
+There are 3 different ways to use this function and 3 according behaviors which can be slightly different.
+
+#### TL;DR
+
+Since you're probably using babel (for either `babel-plugin-proposal-class-properties` or `babel-plugin-proposal-decorators`) the most powerful and most pythonic way is using actual decorators in legacy mode, because
+
+- it's pythonic to write decorators using the `@` syntax,
+- the class is bound to the method immediately so it can be called without dot notation,
+- it allows calls on different classes, and
+- it allows calls on the prototype.
+
+
+
+#### as decorator according to the legacy proposal
+
+
+This is the most robust and flexible implementation:
+It behaves like in Python (I think :wink:).
+
+
+#### as decorator according to the current proposal
+
+Internally, the same function as for `as wrapper function` (below) is used,
+thus see that section.
+
+
+#### as wrapper function
 
 When using `classmethod` beware that the returned functions cannot be used with multiple/different classes like you could do in Python.
 This is due to the fact that in JavaScript we cannot determine the class that contains the according method definition (without additional effort like additional class decorators).
@@ -231,10 +258,10 @@ In particular, this means that the following is invalid:
 const f = classmethod(cls => cls)
 
 class A {
-    m1 = f
+    static m1 = f
 }
 class B {
-    m2 = f
+    static m2 = f
 }
 // still no errors thrown
 
@@ -246,6 +273,11 @@ m1()
 B.m2()
 // THROWING UP!
 ```
+
+Additionally, decorators in JavaScript can only result in a single descriptor 
+which means, that the classmethod can only be defined either on the class or in 
+the prototype with a single call/assignment (unlike in Python where 
+classmethods can also be accessed called from instances).
 
 There is another slight difference to Python:
 `classmethod` returns functions, so `f` can be called but in Python `classmethod` objects are not callable.
