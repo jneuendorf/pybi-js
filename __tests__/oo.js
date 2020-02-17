@@ -94,4 +94,8 @@ describe('classmethod', () => {
         B.monkeyPatched = detachedClsMethod
         expect(() => B.monkeyPatched()).toThrow()
     })
+
+    test('junk', () => {
+        expect(() => classmethod(1,2)).toThrow()
+    })
 })
