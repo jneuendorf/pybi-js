@@ -99,3 +99,41 @@ describe('classmethod', () => {
         expect(() => classmethod(1,2)).toThrow()
     })
 })
+
+
+describe('hasattr', () => {
+    test('basic', () => {
+        const o = {a : 1, b: undefined}
+        expect(hasattr(o, 'a')).toBe(true)
+        expect(hasattr(o, 'b')).toBe(true)
+        expect(hasattr(o, 'c')).toBe(false)
+    })
+
+    test('inheritance', () => {
+        class A {
+            constructor() {
+                this.a = 1
+                this.u = undefined
+            }
+        }
+
+        class B extends A {
+            constructor() {
+                super()
+                this.b = 2
+            }
+        }
+
+        const a = new A()
+        const b = new B()
+        expect(hasattr(a, 'a')).toBe(true)
+        expect(hasattr(a, 'u')).toBe(true)
+        expect(hasattr(a, 'constructor')).toBe(true)
+        expect(hasattr(b, 'b')).toBe(true)
+        expect(hasattr(b, 'constructor')).toBe(true)
+        expect(hasattr(b, 'constructor.prototype')).toBe(false)
+
+        expect(hasattr(b, 'a')).toBe(true)
+        expect(hasattr(b, 'u')).toBe(true)
+    })
+})

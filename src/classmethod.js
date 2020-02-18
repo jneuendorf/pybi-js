@@ -39,6 +39,7 @@ function legacy(target, name, descriptor) {
     if (classmethod_firstArgClass) {
         boundMethod = descriptor.value.bind(cls, cls)
     }
+    /* istanbul ignore next */
     else {
         boundMethod = descriptor.value.bind(cls)
     }
@@ -60,26 +61,16 @@ function legacy(target, name, descriptor) {
 
 function current(element) {
     const {descriptor, key, kind, placement} = element
-    // E.g.
-    // Prototype:
-    //     descriptor:
-    //         configurable: true
-    //         enumerable: false
-    //         value: ƒ method()
-    //         writable: true
-    //     key: "method"
-    //     kind: "method" / "field"
-    //     placement: "prototype"
-    // Static:
-    //     kind: 'method',
-    //     key: 'clsMethod',
-    //     placement: 'static',
-    //     descriptor: {
-    //         value: [Function: clsMethod],
-    //         writable: true,
-    //         configurable: true,
-    //         enumerable: false
-    //     }
+    // descriptor:
+    //     configurable: true
+    //     enumerable: false
+    //     value: ƒ method()
+    //     writable: true
+    // key: "method"
+    // kind: "method" / "field"
+    // placement: "prototype" / "static"
+
+    /* istanbul ignore next */
     if(!['static', 'prototype'].includes(placement)) {
         throw new ValueError(`Unexpected placement '${placement}'`)
     }
@@ -122,19 +113,23 @@ function functionDecorator(func) {
         if (classmethod_firstArgClass) {
             return func.call(cls, cls, ...args)
         }
+        /* istanbul ignore next */
         return func.call(cls, ...args)
     }
 }
 
 module.exports = (...args) => {
     if (args.length === 3) {
+        // console.log('legacy')
         return legacy(...args)
     }
     if (args.length === 1) {
         const [arg] = args
         if (callable(arg)) {
+            // console.log('func')
             return functionDecorator(arg)
         }
+        // console.log('current')
         return current(arg)
     }
     throw new TypeError('Invalid arguments')
