@@ -8,6 +8,8 @@ const setattr = require('../src/setattr')
 const staticmethod = require('../src/staticmethod')
 const type = require('../src/type')
 
+const {AttributeError} = require('../src/_errors')
+
 
 describe('classmethod', () => {
     test('legacy (with static)', () => {
@@ -97,6 +99,69 @@ describe('classmethod', () => {
 
     test('junk', () => {
         expect(() => classmethod(1,2)).toThrow()
+    })
+})
+
+
+describe.only('delattr', () => {
+    test('basic', () => {
+        const o = {a: 1, b: 2}
+        delattr(o, 'a')
+        expect(o.hasOwnProperty('a')).toBe(false)
+        expect(() => delattr(o, 'a')).toThrow(AttributeError)
+
+        expect(() => delattr(null, 'a')).toThrow(AttributeError)
+        expect(() => delattr(undefined, 'a')).toThrow(AttributeError)
+    })
+
+    test('inheritance', () => {
+        class A {
+            constructor() {
+                this.a = 1
+                this.u = undefined
+            }
+
+            method() {
+
+            }
+        }
+
+        class B extends A {
+            constructor() {
+                super()
+                this.b = 2
+            }
+        }
+
+        a = new A()
+        b = new B()
+        expect(b.hasOwnProperty('a')).toBe(true)
+        delattr(b, 'a')
+        expect(b.hasOwnProperty('a')).toBe(false)
+
+        expect(() => delattr(a, 'method')).toThrow(AttributeError)
+        expect(() => delattr(b, 'method')).toThrow(AttributeError)
+    })
+
+    test('__delattr__', () => {
+        const o1 = {
+            props: {
+                a: 1,
+                b: 2,
+            },
+            __delattr__(name) {
+                delattr(this.props, name)
+            },
+        }
+        expect(() => delattr(o1, 'c')).toThrow(AttributeError)
+        expect(o1.props.hasOwnProperty('a')).toBe(true)
+        delattr(o1, 'a')
+        expect(o1.props.hasOwnProperty('a')).toBe(false)
+
+        const o2 = {
+            __delattr__: 1,
+        }
+        expect(() => delattr(o2, 'a')).toThrow(TypeError)
     })
 })
 

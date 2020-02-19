@@ -15,7 +15,6 @@ module.exports = (object, name) => {
             return true
         }
         const newProto = Object.getPrototypeOf(proto.constructor.prototype)
-        console.log('newproto', newProto)
         if (newProto && newProto !== proto) {
             proto = newProto
         }
