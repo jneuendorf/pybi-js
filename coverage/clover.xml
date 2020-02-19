@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1581982541532" clover="3.2.0">
-  <project timestamp="1581982541533" name="All files">
-    <metrics statements="710" coveredstatements="649" conditionals="448" coveredconditionals="403" methods="104" coveredmethods="89" elements="1262" coveredelements="1141" complexity="0" loc="710" ncloc="710" packages="1" files="60" classes="60"/>
+<coverage generated="1582107040171" clover="3.2.0">
+  <project timestamp="1582107040171" name="All files">
+    <metrics statements="728" coveredstatements="669" conditionals="466" coveredconditionals="421" methods="104" coveredmethods="91" elements="1298" coveredelements="1181" complexity="0" loc="728" ncloc="728" packages="1" files="60" classes="60"/>
     <file name="_bytes.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/_bytes.js">
       <metrics statements="24" coveredstatements="24" conditionals="6" coveredconditionals="5" methods="11" coveredmethods="11"/>
       <line num="1" count="2" type="stmt"/>
@@ -214,7 +214,7 @@
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <line num="1" count="4" type="stmt"/>
       <line num="3" count="4" type="stmt"/>
-      <line num="4" count="294" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="297" type="cond" truecount="2" falsecount="0"/>
     </file>
     <file name="chr.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/chr.js">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -225,7 +225,7 @@
       <line num="10" count="2" type="stmt"/>
     </file>
     <file name="classmethod.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/classmethod.js">
-      <metrics statements="37" coveredstatements="37" conditionals="22" coveredconditionals="20" methods="5" coveredmethods="5"/>
+      <metrics statements="34" coveredstatements="34" conditionals="22" coveredconditionals="20" methods="5" coveredmethods="5"/>
       <line num="3" count="1" type="stmt"/>
       <line num="5" count="1" type="stmt"/>
       <line num="6" count="1" type="stmt"/>
@@ -252,22 +252,30 @@
       <line num="113" count="8" type="cond" truecount="1" falsecount="1"/>
       <line num="114" count="8" type="stmt"/>
       <line num="121" count="1" type="stmt"/>
-      <line num="123" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="122" count="7" type="cond" truecount="2" falsecount="0"/>
       <line num="124" count="2" type="stmt"/>
-      <line num="125" count="2" type="stmt"/>
-      <line num="127" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="128" count="4" type="stmt"/>
-      <line num="129" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="126" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="127" count="4" type="stmt"/>
+      <line num="128" count="4" type="cond" truecount="2" falsecount="0"/>
       <line num="130" count="2" type="stmt"/>
-      <line num="131" count="2" type="stmt"/>
       <line num="133" count="2" type="stmt"/>
-      <line num="134" count="2" type="stmt"/>
-      <line num="136" count="1" type="stmt"/>
+      <line num="135" count="1" type="stmt"/>
     </file>
     <file name="delattr.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/delattr.js">
-      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
-      <line num="2" count="0" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="12" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="9" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="20" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="4" type="stmt"/>
+      <line num="26" count="3" type="stmt"/>
     </file>
     <file name="dict.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/dict.js">
       <metrics statements="35" coveredstatements="35" conditionals="22" coveredconditionals="22" methods="1" coveredmethods="1"/>
@@ -395,9 +403,19 @@
       <line num="13" count="0" type="stmt"/>
     </file>
     <file name="hasattr.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/hasattr.js">
-      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="12" coveredstatements="12" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
-      <line num="2" count="0" type="stmt"/>
+      <line num="2" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="11" type="stmt"/>
+      <line num="12" count="4" type="stmt"/>
+      <line num="13" count="4" type="stmt"/>
+      <line num="14" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="17" count="5" type="stmt"/>
+      <line num="18" count="5" type="cond" truecount="4" falsecount="0"/>
+      <line num="19" count="3" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="25" count="2" type="stmt"/>
     </file>
     <file name="hex.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/hex.js">
       <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>

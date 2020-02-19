@@ -103,7 +103,7 @@ describe('classmethod', () => {
 })
 
 
-describe.only('delattr', () => {
+describe('delattr', () => {
     test('basic', () => {
         const o = {a: 1, b: 2}
         delattr(o, 'a')
@@ -180,13 +180,18 @@ describe('hasattr', () => {
                 this.a = 1
                 this.u = undefined
             }
+
+            methodA() {}
         }
+        A.prototype.none = undefined
 
         class B extends A {
             constructor() {
                 super()
                 this.b = 2
             }
+
+            methodB() {}
         }
 
         const a = new A()
@@ -194,9 +199,13 @@ describe('hasattr', () => {
         expect(hasattr(a, 'a')).toBe(true)
         expect(hasattr(a, 'u')).toBe(true)
         expect(hasattr(a, 'constructor')).toBe(true)
+        expect(hasattr(a, 'methodA')).toBe(true)
+        expect(hasattr(a, 'none')).toBe(true)
         expect(hasattr(b, 'b')).toBe(true)
         expect(hasattr(b, 'constructor')).toBe(true)
         expect(hasattr(b, 'constructor.prototype')).toBe(false)
+        expect(hasattr(b, 'methodB')).toBe(true)
+        expect(hasattr(b, 'none')).toBe(true)
 
         expect(hasattr(b, 'a')).toBe(true)
         expect(hasattr(b, 'u')).toBe(true)
