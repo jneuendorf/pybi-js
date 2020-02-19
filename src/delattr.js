@@ -12,7 +12,9 @@ module.exports = (object, name) => {
             return
         }
         else {
-            throw new TypeError(`'${object.constructor.name}' object is not callable`)
+            throw new TypeError(
+                `'${object.__delattr__.constructor.name}' object is not callable`
+            )
         }
     }
 

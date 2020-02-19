@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1582107040171" clover="3.2.0">
-  <project timestamp="1582107040171" name="All files">
-    <metrics statements="728" coveredstatements="669" conditionals="466" coveredconditionals="421" methods="104" coveredmethods="91" elements="1298" coveredelements="1181" complexity="0" loc="728" ncloc="728" packages="1" files="60" classes="60"/>
+<coverage generated="1582152365265" clover="3.2.0">
+  <project timestamp="1582152365265" name="All files">
+    <metrics statements="742" coveredstatements="690" conditionals="478" coveredconditionals="437" methods="104" coveredmethods="92" elements="1324" coveredelements="1219" complexity="0" loc="742" ncloc="742" packages="1" files="60" classes="60"/>
     <file name="_bytes.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/_bytes.js">
       <metrics statements="24" coveredstatements="24" conditionals="6" coveredconditionals="5" methods="11" coveredmethods="11"/>
       <line num="1" count="2" type="stmt"/>
@@ -214,7 +214,7 @@
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <line num="1" count="4" type="stmt"/>
       <line num="3" count="4" type="stmt"/>
-      <line num="4" count="297" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="302" type="cond" truecount="2" falsecount="0"/>
     </file>
     <file name="chr.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/chr.js">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -273,9 +273,9 @@
       <line num="11" count="2" type="stmt"/>
       <line num="12" count="1" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
-      <line num="20" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="21" count="4" type="stmt"/>
-      <line num="26" count="3" type="stmt"/>
+      <line num="22" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="4" type="stmt"/>
+      <line num="28" count="3" type="stmt"/>
     </file>
     <file name="dict.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/dict.js">
       <metrics statements="35" coveredstatements="35" conditionals="22" coveredconditionals="22" methods="1" coveredmethods="1"/>
@@ -391,31 +391,45 @@
       <line num="37" count="8" type="stmt"/>
     </file>
     <file name="getattr.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/getattr.js">
-      <metrics statements="9" coveredstatements="2" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="23" coveredstatements="23" conditionals="16" coveredconditionals="16" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
-      <line num="5" count="0" type="stmt"/>
-      <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="7" count="0" type="stmt"/>
-      <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="10" count="0" type="stmt"/>
-      <line num="11" count="0" type="stmt"/>
-      <line num="13" count="0" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="22" type="stmt"/>
+      <line num="7" count="22" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="4" type="stmt"/>
+      <line num="10" count="18" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="14" count="17" type="stmt"/>
+      <line num="16" count="17" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="20" count="15" type="stmt"/>
+      <line num="21" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="22" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="3" type="stmt"/>
+      <line num="26" count="2" type="stmt"/>
+      <line num="32" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="33" count="8" type="stmt"/>
+      <line num="36" count="2" type="stmt"/>
+      <line num="42" count="5" type="cond" truecount="4" falsecount="0"/>
+      <line num="43" count="1" type="stmt"/>
+      <line num="45" count="4" type="stmt"/>
     </file>
     <file name="hasattr.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/hasattr.js">
       <metrics statements="12" coveredstatements="12" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
-      <line num="2" count="15" type="cond" truecount="2" falsecount="0"/>
-      <line num="7" count="11" type="stmt"/>
-      <line num="12" count="4" type="stmt"/>
-      <line num="13" count="4" type="stmt"/>
-      <line num="14" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="15" count="2" type="stmt"/>
-      <line num="17" count="5" type="stmt"/>
-      <line num="18" count="5" type="cond" truecount="4" falsecount="0"/>
-      <line num="19" count="3" type="stmt"/>
-      <line num="22" count="2" type="stmt"/>
-      <line num="25" count="2" type="stmt"/>
+      <line num="2" count="25" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="18" type="stmt"/>
+      <line num="12" count="7" type="stmt"/>
+      <line num="13" count="7" type="stmt"/>
+      <line num="14" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="3" type="stmt"/>
+      <line num="17" count="8" type="stmt"/>
+      <line num="18" count="8" type="cond" truecount="4" falsecount="0"/>
+      <line num="19" count="4" type="stmt"/>
+      <line num="22" count="4" type="stmt"/>
+      <line num="25" count="4" type="stmt"/>
     </file>
     <file name="hex.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/hex.js">
       <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>

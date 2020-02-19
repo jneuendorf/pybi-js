@@ -166,6 +166,75 @@ describe('delattr', () => {
 })
 
 
+describe('getattr', () => {
+    test('basic', () => {
+        const o = {a: 1}
+        expect(() => getattr()).toThrow(TypeError)
+        expect(() => getattr(o)).toThrow(TypeError)
+        expect(() => getattr(o, 'a', 1, 2)).toThrow(TypeError)
+        expect(() => getattr(null, 'a')).toThrow(AttributeError)
+        expect(() => getattr(undefined, 'a')).toThrow(AttributeError)
+
+        expect(getattr(o, 'a')).toBe(o.a)
+        expect(() => getattr(o, 'b')).toThrow(AttributeError)
+        expect(getattr(o, 'b', 42)).toBe(42)
+    })
+
+    test('inheritance', () => {
+        class A {
+            constructor() {
+                this.a = 1
+                this.u = undefined
+            }
+
+            methodA() {}
+        }
+        A.prototype.none = undefined
+
+        class B extends A {
+            constructor() {
+                super()
+                this.b = 2
+            }
+
+            methodB() {}
+        }
+
+        expect(getattr(A.prototype, 'none')).toBe(undefined)
+
+        expect(getattr(new B(), 'a')).toBe(new B().a)
+        expect(getattr(new B(), 'b')).toBe(new B().b)
+        expect(getattr(new B(), 'u')).toBe(new B().u)
+        expect(getattr(new B(), 'none')).toBe(new B().none)
+        expect(getattr(new B(), 'methodA')).toBe(A.prototype.methodA)
+        expect(getattr(new B(), 'methodB')).toBe(B.prototype.methodB)
+    })
+
+    test('__getattr__', () => {
+        const o1 = {
+            props: {
+                a: 1,
+                b: 2,
+            },
+            __getattr__(name) {
+                if (this.props.hasOwnProperty(name)) {
+                    return this.props[name]
+                }
+                throw new AttributeError(`'o1' has no attribute '${name}'`)
+            },
+        }
+        expect(getattr(o1, 'a')).toBe(o1.props.a)
+        expect(getattr(o1, 'b')).toBe(o1.props.b)
+        expect(() => getattr(o1, 'c')).toThrow(AttributeError)
+
+        const o2 = {__getattr__: 2}
+        expect(() => getattr(o2, 'a')).toThrow(TypeError)
+        expect(() => getattr(o2, 'a')).toThrow('not callable')
+        expect(() => getattr(o2)).toThrow(TypeError)
+        expect(() => getattr(o2)).toThrow('arguments')
+    })
+})
+
 describe('hasattr', () => {
     test('basic', () => {
         const o = {a : 1, b: undefined}
