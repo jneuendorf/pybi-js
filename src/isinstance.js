@@ -1,8 +1,12 @@
-const isClass = require('./_is-class')
 const normalizeClassinfo = require('./_classinfo')
 const toObject = require('./_to-object')
 
-module.exports = (object, classinfo) => {
+module.exports = (...args) => {
+    const n = args.length
+    if (n !== 2) {
+        throw new TypeError(`isinstance expected 2 arguments, got ${n}`)
+    }
+    let [object, classinfo] = args
     const normalizedClassinfo = normalizeClassinfo(classinfo, 'isinstance')
     object = toObject(object)
     for (const cls of normalizedClassinfo) {

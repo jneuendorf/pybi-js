@@ -303,7 +303,7 @@ describe('isinstance', () => {
         expect(isinstance(true, Boolean)).toBe(true)
         expect(isinstance(Symbol('asdf'), Symbol)).toBe(true)
         expect(isinstance(BigInt(12), BigInt)).toBe(true)
-        expect(isinstance(12n, BigInt)).toBe(true)
+        // expect(isinstance(12n, BigInt)).toBe(true)
     })
 
     test('tuple classinfo', () => {
@@ -331,6 +331,9 @@ describe('isinstance', () => {
     })
 
     test('invalid', () => {
+        expect(() => isinstance(a)).toThrow(TypeError)
+        expect(() => isinstance(a, B, 1)).toThrow(TypeError)
+
         expect(() => isinstance(a, null)).toThrow(TypeError)
         expect(() => isinstance(a, 1)).toThrow(TypeError)
         expect(() => isinstance(a, 'asdf')).toThrow(TypeError)
@@ -338,5 +341,56 @@ describe('isinstance', () => {
         expect(() => isinstance(a, ['asdf', A])).toThrow(TypeError)
         expect(() => isinstance(a, [A, 'asdf', B])).toThrow(TypeError)
         expect(() => isinstance(a, [B, 'asdf', A])).toThrow(TypeError)
+    })
+})
+
+
+describe('issubclass', () => {
+    class A {}
+    class B extends A {}
+    class C extends B {}
+    class D extends C {}
+
+    test('non-tuple classinfo', () => {
+        expect(issubclass(A, A)).toBe(true)
+        expect(issubclass(A, B)).toBe(false)
+        expect(issubclass(A, C)).toBe(false)
+        expect(issubclass(A, D)).toBe(false)
+
+        expect(issubclass(B, A)).toBe(true)
+        expect(issubclass(B, B)).toBe(true)
+        expect(issubclass(B, C)).toBe(false)
+
+        expect(issubclass(C, A)).toBe(true)
+        expect(issubclass(C, B)).toBe(true)
+        expect(issubclass(C, C)).toBe(true)
+        expect(issubclass(C, D)).toBe(false)
+    })
+
+    test('tuple classinfo', () => {
+        expect(issubclass(B, [A])).toBe(true)
+        expect(issubclass(B, [B])).toBe(true)
+        expect(issubclass(B, [C])).toBe(false)
+        expect(issubclass(B, [D])).toBe(false)
+        expect(issubclass(B, [A, B])).toBe(true)
+        expect(issubclass(B, [A, C, D])).toBe(true)
+        expect(issubclass(B, [A, D])).toBe(true)
+        expect(issubclass(B, [C, D])).toBe(false)
+    })
+
+    test('invalid', () => {
+        expect(() => issubclass(A)).toThrow(TypeError)
+        expect(() => issubclass(A, B, 1)).toThrow(TypeError)
+
+        expect(() => issubclass(1, B)).toThrow(TypeError)
+        expect(() => issubclass(null, B)).toThrow(TypeError)
+
+        expect(() => issubclass(A, null)).toThrow(TypeError)
+        expect(() => issubclass(A, 1)).toThrow(TypeError)
+        expect(() => issubclass(A, 'asdf')).toThrow(TypeError)
+        expect(() => issubclass(A, ['asdf', 1])).toThrow(TypeError)
+        expect(() => issubclass(A, ['asdf', A])).toThrow(TypeError)
+        expect(() => issubclass(A, [A, 'asdf', B])).toThrow(TypeError)
+        expect(() => issubclass(A, [B, 'asdf', A])).toThrow(TypeError)
     })
 })

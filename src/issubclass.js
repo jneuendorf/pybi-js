@@ -6,12 +6,20 @@ const issubclass = (sub, sup) => {
     return sub.prototype instanceof sup || sub === sup
 }
 
-module.exports = (cls, classinfo) => {
+module.exports = (...args) => {
+    const n = args.length
+    if (n !== 2) {
+        throw new TypeError(`issubclass expected 2 arguments, got ${n}`)
+    }
+    const [cls, classinfo] = args
+    if (!cls || !cls.prototype) {
+        throw new TypeError(`issubclass() arg 1 must be a class`)
+    }
     const normalizedClassinfo = normalizeClassinfo(classinfo, 'issubclass')
     for (const supercls of normalizedClassinfo) {
         if (issubclass(cls, supercls)) {
-            return True
+            return true
         }
     }
-    return False
+    return false
 }
