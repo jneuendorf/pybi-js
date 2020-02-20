@@ -1,3 +1,5 @@
+const isClass = require('./_is-class')
+
 module.exports = (classinfo, funcName) => {
     if (Array.isArray(classinfo)) {
         classinfo = classinfo.flat(Infinity)

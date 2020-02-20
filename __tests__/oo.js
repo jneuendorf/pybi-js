@@ -235,6 +235,7 @@ describe('getattr', () => {
     })
 })
 
+
 describe('hasattr', () => {
     test('basic', () => {
         const o = {a : 1, b: undefined}
@@ -278,5 +279,64 @@ describe('hasattr', () => {
 
         expect(hasattr(b, 'a')).toBe(true)
         expect(hasattr(b, 'u')).toBe(true)
+    })
+})
+
+
+describe('isinstance', () => {
+    class A {}
+    class B extends A {}
+    class C extends B {}
+
+    const a = new A()
+    const b = new B()
+    const c = new C()
+
+    test('non-tuple classinfo', () => {
+        expect(isinstance(a, A)).toBe(true)
+        expect(isinstance(a, B)).toBe(false)
+        expect(isinstance(b, B)).toBe(true)
+        expect(isinstance(b, A)).toBe(true)
+
+        expect(isinstance(1, Number)).toBe(true)
+        expect(isinstance('asdf', String)).toBe(true)
+        expect(isinstance(true, Boolean)).toBe(true)
+        expect(isinstance(Symbol('asdf'), Symbol)).toBe(true)
+        expect(isinstance(BigInt(12), BigInt)).toBe(true)
+        expect(isinstance(12n, BigInt)).toBe(true)
+    })
+
+    test('tuple classinfo', () => {
+        expect(isinstance(a, [A])).toBe(true)
+        expect(isinstance(a, [A, B])).toBe(true)
+        expect(isinstance(a, [A, B, C])).toBe(true)
+        expect(isinstance(a, [B, C])).toBe(false)
+        expect(isinstance(a, [B])).toBe(false)
+        expect(isinstance(a, [C])).toBe(false)
+        expect(isinstance(b, [A])).toBe(true)
+        expect(isinstance(b, [A, B])).toBe(true)
+        expect(isinstance(b, [A, B, C])).toBe(true)
+        expect(isinstance(b, [B, C])).toBe(true)
+        expect(isinstance(b, [C])).toBe(false)
+        expect(isinstance(c, [A])).toBe(true)
+        expect(isinstance(c, [A, B])).toBe(true)
+        expect(isinstance(c, [A, B, C])).toBe(true)
+        expect(isinstance(c, [B, C])).toBe(true)
+        expect(isinstance(c, [C])).toBe(true)
+
+        expect(isinstance(a, [A, [B, C]])).toBe(true)
+        expect(isinstance(a, [[A, B], C])).toBe(true)
+        expect(isinstance(a, [[B], C])).toBe(false)
+        expect(isinstance(a, [B, [C]])).toBe(false)
+    })
+
+    test('invalid', () => {
+        expect(() => isinstance(a, null)).toThrow(TypeError)
+        expect(() => isinstance(a, 1)).toThrow(TypeError)
+        expect(() => isinstance(a, 'asdf')).toThrow(TypeError)
+        expect(() => isinstance(a, ['asdf', 1])).toThrow(TypeError)
+        expect(() => isinstance(a, ['asdf', A])).toThrow(TypeError)
+        expect(() => isinstance(a, [A, 'asdf', B])).toThrow(TypeError)
+        expect(() => isinstance(a, [B, 'asdf', A])).toThrow(TypeError)
     })
 })
