@@ -5,11 +5,11 @@ const NO_PROP = {}
 
 module.exports = {
     NO_PROP,
-    dunder(obj, method, validReturnType, returnTypeStr) {
+    dunder(obj, method, validReturnType, returnTypeStr, args=[]) {
         const prop = obj[method]
         if (prop) {
             if (callable(prop)) {
-                const result = obj[method]()
+                const result = obj[method](...args)
                 if (validReturnType(result)) {
                     return result
                 }

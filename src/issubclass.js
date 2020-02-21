@@ -11,6 +11,7 @@ module.exports = (...args) => {
     if (n !== 2) {
         throw new TypeError(`issubclass expected 2 arguments, got ${n}`)
     }
+
     const [cls, classinfo] = args
     if (!cls || !cls.prototype) {
         throw new TypeError(`issubclass() arg 1 must be a class`)

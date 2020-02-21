@@ -106,9 +106,10 @@ describe('classmethod', () => {
 describe('delattr', () => {
     test('basic', () => {
         const o = {a: 1, b: 2}
+        expect(() => delattr(o)).toThrow(TypeError)
+        expect(() => delattr(o, 'a', 'b')).toThrow(TypeError)
         delattr(o, 'a')
         expect(o.hasOwnProperty('a')).toBe(false)
-        expect(() => delattr(o, 'a')).toThrow(AttributeError)
 
         expect(() => delattr(null, 'a')).toThrow(AttributeError)
         expect(() => delattr(undefined, 'a')).toThrow(AttributeError)
@@ -239,6 +240,8 @@ describe('getattr', () => {
 describe('hasattr', () => {
     test('basic', () => {
         const o = {a : 1, b: undefined}
+        expect(() => hasattr(o)).toThrow(TypeError)
+        expect(() => hasattr(o, 'a', 'b')).toThrow(TypeError)
         expect(hasattr(o, 'a')).toBe(true)
         expect(hasattr(o, 'b')).toBe(true)
         expect(hasattr(o, 'c')).toBe(false)
@@ -392,5 +395,37 @@ describe('issubclass', () => {
         expect(() => issubclass(A, ['asdf', A])).toThrow(TypeError)
         expect(() => issubclass(A, [A, 'asdf', B])).toThrow(TypeError)
         expect(() => issubclass(A, [B, 'asdf', A])).toThrow(TypeError)
+    })
+})
+
+
+describe('setattr', () => {
+    test('basic', () => {
+        expect(() => setattr(null, 'a', 1)).toThrow(AttributeError)
+        expect(() => setattr(null)).toThrow(TypeError)
+        expect(() => setattr(null, 'a')).toThrow(TypeError)
+        expect(() => setattr(null, 'a', 1, 2)).toThrow(TypeError)
+        const o = {}
+        setattr(o, 'a', 1)
+        expect(o.a).toBe(1)
+        expect(o.hasOwnProperty('a')).toBe(true)
+    })
+
+    test('__setattr__', () => {
+        const o1 = {
+            props: {},
+            __setattr__(name, value) {
+                this.props[name] = value
+            },
+        }
+        setattr(o1, 'a', 1)
+        expect(o1.props.a).toBe(1)
+        expect(o1.props.hasOwnProperty('a')).toBe(true)
+
+        const o2 = {
+            props: {},
+            __setattr__: 2,
+        }
+        expect(() => setattr(o2, 'a', 1)).toThrow(TypeError)
     })
 })

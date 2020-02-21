@@ -1,4 +1,10 @@
-module.exports = (object, name) => {
+module.exports = (...args) => {
+    const n = args.length
+    if (n !== 2) {
+        throw new TypeError(`hasattr expected 2 arguments, got ${n}`)
+    }
+
+    const [object, name] = args
     if (
         object.hasOwnProperty(name)
         // Implicit inheritance lookup for non-undefined (for performance).
