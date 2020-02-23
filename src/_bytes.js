@@ -7,7 +7,6 @@ const {NotImplementedError} = require('./_errors')
 // TODO: Thin out the prototype chain by using uint8array's methods directly
 //       instead of wrapping them?
 class Bytes {
-    // _repr = null
 
     constructor(...args) {
         const array = bytearray(...args)

@@ -43,6 +43,7 @@ function legacy(target, name, descriptor) {
     else {
         boundMethod = descriptor.value.bind(cls)
     }
+    boundMethod.__classmethod__ = true
 
     // Make the method available on both the class in its prototype.
     if (isStatic) {
@@ -88,7 +89,7 @@ function current(element) {
 
 function functionDecorator(func) {
     let cls
-    return function(...args) {
+    function wrapper(...args) {
         if (!cls) {
             if (isClass(this)) {
                 cls = this
@@ -116,9 +117,11 @@ function functionDecorator(func) {
         /* istanbul ignore next */
         return func.call(cls, ...args)
     }
+    wrapper.__classmethod__ = true
+    return wrapper
 }
 
-module.exports = (...args) => {
+const classmethod = (...args) => {
     if (args.length === 3) {
         // console.log('legacy')
         return legacy(...args)
@@ -134,3 +137,6 @@ module.exports = (...args) => {
     }
     throw new TypeError('Invalid arguments')
 }
+
+
+module.exports = classmethod

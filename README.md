@@ -183,6 +183,7 @@ The following literals are (or can) be used:
     - This lib's implementation should be ok.
       Passing more than 1 base is not supported due to JavaScript's single
       inheritance model.
+      But passing a single base without wrapping it in a tuple is supported, because it is a very likely case.
       Not sure how e.g. the `classmethod` decorator works when using `type` in Python.
       The created class has the `__name__`, `__bases__` and `__dict__` attributes like in Python.
 - [x] `vars()`

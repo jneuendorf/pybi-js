@@ -1,14 +1,34 @@
-const {ValueError} = require('./_errors')
+const callable = require('./callable')
+const isClass = require('./_is-class')
+const toObject = require('./_to-object')
 const {config: {type_warnArrow}} = require('./_config')
+const {ValueError} = require('./_errors')
+
 
 // Object.constructor === Object.constructor.constructor
 const getClass = object => {
-    return object.constructor
+    return toObject(object).constructor
 }
+
 const createClass = (name, bases, dict) => {
+    let base
+    if (Array.isArray(bases)) {
+        if (bases.length > 1) {
+            throw new ValueError('Only a single base is supported')
+        }
+        base = bases[0]
+    }
+    else {
+        base = bases
+    }
+    if (base && !isClass(base)) {
+        throw new TypeError('base is not a class')
+    }
+
     const _extends = (
-        bases.length > 0
-        ? `extends ${bases[0]}`
+        base
+        // ? `extends ${bases[0]}`
+        ? `extends base`
         : ''
     )
     const cls = eval(`(class ${name} ${_extends} {})`)
@@ -21,6 +41,7 @@ const createClass = (name, bases, dict) => {
         }
         // 'value' is an arrow function.
         // See https://stackoverflow.com/questions/28222228/
+        /* istanbul ignore next */
         if (typeof(value) === 'function'
             && !value.hasOwnProperty('prototype')
             && type_warnArrow
@@ -30,10 +51,25 @@ const createClass = (name, bases, dict) => {
                 + `of the class dict.`
             )
         }
+        if (callable(value)) {
+            if (
+                value.hasOwnProperty('__classmethod__')
+                && value.__classmethod__ === true
+            ) {
+                cls[key] = value
+            }
+        }
+        // Non-callables are accessible from the class and the instance:
+        // class A:
+        //     a = 1
+        else {
+            cls[key] = value
+        }
         cls.prototype[key] = value
     }
     return cls
 }
+
 
 module.exports = (...args) => {
     if (args.length === 1) {
@@ -43,6 +79,6 @@ module.exports = (...args) => {
         return createClass(...args)
     }
     else {
-        throw new TypeError('Invalid number of arguments.')
+        throw new TypeError('type() takes 1 or 3 arguments')
     }
 }

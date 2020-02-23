@@ -8,7 +8,7 @@ const setattr = require('../src/setattr')
 const staticmethod = require('../src/staticmethod')
 const type = require('../src/type')
 
-const {AttributeError} = require('../src/_errors')
+const {AttributeError, ValueError} = require('../src/_errors')
 
 
 describe('classmethod', () => {
@@ -509,5 +509,81 @@ describe('staticmethod', () => {
 
     test('junk', () => {
         expect(() => staticmethod(1,2)).toThrow()
+    })
+})
+
+
+describe('type', () => {
+    test('invalid args', () => {
+        expect(() => type()).toThrow(TypeError)
+        expect(() => type(1, 2)).toThrow(TypeError)
+        expect(() => type(1, 2, 3, 4)).toThrow(TypeError)
+    })
+
+    test('1 arg', () => {
+        // Primitives
+        expect(type('asdf')).toBe(String)
+        expect(type(true)).toBe(Boolean)
+        expect(type(1)).toBe(Number)
+        expect(type(Symbol('asdf'))).toBe(Symbol)
+        expect(type(BigInt(1))).toBe(BigInt)
+
+        expect(type(new String('asdf'))).toBe(String)
+        expect(type(new Boolean(true))).toBe(Boolean)
+        expect(type(new Number(1))).toBe(Number)
+
+        class A {}
+        class B extends A {}
+        expect(type(new A())).toBe(A)
+        expect(type(new B())).toBe(B)
+    })
+
+    test('3 args', () => {
+        // Python:
+        // >>> A = type('A', (), {'c': classmethod(lambda cls: cls), 'm': lambda self: self, 'n': 42})
+        // >>> A.c() is A
+        // True
+        // >>> isinstance(A().m(), A)
+        // True
+        // >>> A().n
+        // 42
+        // >>> A.n
+        // 42
+        // >>> A.m()
+        // TypeError: <lambda>() missing 1 required positional argument: 'self'
+        const A = type('A', [], {
+            c: classmethod(function(cls) {
+                return cls
+            }),
+            m: function() {
+                return this
+            },
+            n: 42,
+        })
+        const a  = new A
+
+        expect(A.c()).toBe(A)
+        expect(a.c()).toBe(A)
+        expect(a.m()).toBe(a)
+        expect(() => A.m()).toThrow()
+        expect(A.n).toBe(42)
+        expect(a.n).toBe(42)
+    })
+
+    test('inheritance', () => {
+        class A {}
+        const B = type('B', A, {})
+        expect(new B()).toBeInstanceOf(B)
+        expect(new B()).toBeInstanceOf(A)
+
+        const C = type('C', [A], {})
+        expect(new C()).toBeInstanceOf(C)
+        expect(new C()).toBeInstanceOf(A)
+
+        expect(() => type('C', [A, B], {})).toThrow(ValueError)
+        expect(() => type('D', [1], {})).toThrow(TypeError)
+        expect(() => type('D', [A], {
+            constructor() {},
+        })).toThrow(TypeError)
     })
 })
