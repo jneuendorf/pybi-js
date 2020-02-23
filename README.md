@@ -101,7 +101,7 @@ The following literals are (or can) be used:
 - [x] `exec()`
 - [x] `filter()`
 - [x] `float()`
-- `format()`
+- [ ] `format()`
 - [x] `frozenset()`
 - [x] `getattr()`
 - [ ] :x: `globals()`
