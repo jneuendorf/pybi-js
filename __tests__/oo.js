@@ -584,6 +584,6 @@ describe('type', () => {
         expect(() => type('D', [1], {})).toThrow(TypeError)
         expect(() => type('D', [A], {
             constructor() {},
-        })).toThrow(TypeError)
+        })).toThrow(ValueError)
     })
 })

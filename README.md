@@ -107,9 +107,9 @@ The following literals are (or can) be used:
 - [ ] :x: `globals()`
     - Just use `globalThis` (or `window`/`global` respectively) please. :wink:
 - [x] `hasattr()`
-- [ ] `hash()`
-    - Looks like using [`hash-sum`](https://www.npmjs.com/package/hash-sum)
-      may be a better idea than an own implementation.
+- [x] `hash()`
+    - Using [`hash-sum`](https://www.npmjs.com/package/hash-sum)
+      if the dependant project has it installed.
 - [ ] :x: `help()`
 - [x] `hex()`
 - [x] `id()`
@@ -186,7 +186,9 @@ The following literals are (or can) be used:
       But passing a single base without wrapping it in a tuple is supported, because it is a very likely case.
       Not sure how e.g. the `classmethod` decorator works when using `type` in Python.
       The created class has the `__name__`, `__bases__` and `__dict__` attributes like in Python.
-- [x] `vars()`
+- [x] `vars()` :triangular_flag_on_post:
+    - This libs implementation only works if an argument is passed 
+      and returns this arg's `__dict__`.
 - [x] `zip()`
 
 

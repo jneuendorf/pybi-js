@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for repr.js</title>
+    <title>Code coverage report for print.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> repr.js</h1>
+        <h1><a href="index.html">All files</a> print.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.35% </span>
+                <span class="strong">15.79% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/17</span>
+                <span class='fraction'>3/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">6.25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/12</span>
+                <span class='fraction'>1/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.25% </span>
+                <span class="strong">15.79% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/16</span>
+                <span class='fraction'>3/19</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -93,26 +93,17 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,51 +111,90 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function repr(object) {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (object == null) {
-<span class="cstat-no" title="statement not covered" >        return `${object}`</span>
-    }
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Console = console.Console
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (object.__repr__) {
-<span class="cstat-no" title="statement not covered" >        return object.__repr__()</span>
-    }
-&nbsp;
-    if (typeof(object) === 'string') {
-        return `'${object}'`
-    }
-&nbsp;
-    if (Array.isArray(object)) {
-        return `[${object.map(item =&gt; repr(item)).join(', ')}]`
-    }
-&nbsp;
-    if (object.constructor === Object) {
-        return `{${
-            Object.entries(object)
-            .map(([key, value]) =&gt; {
-                return `${repr(key)}: ${value}`
-            })
-            .join(',')
-        }}`
-    }
-&nbsp;
-    const s = object.toString()
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (s === '[object Object]') {
-<span class="cstat-no" title="statement not covered" >        return `&lt;${object.constructor.name} object&gt;`</span>
-    }
-    return s
+const defaultKwargs = {
+    sep: ' ',
+    end: '',
+    file: (
+        typeof(process) !== 'undefined'
+        ? process.stdout
+        : <span class="branch-1 cbranch-no" title="branch not covered" >undefined</span>
+    ),
+    // 'flush' is standard in NodeJS: https://stackoverflow.com/a/12510946/6928824
+    flush: false,
 }
 &nbsp;
+module.exports = {
+    simple: console.log,
+    extended: <span class="fstat-no" title="function not covered" >(.</span>..args) =&gt; {
+        let kwargs = <span class="cstat-no" title="statement not covered" >defaultKwargs</span>
+<span class="cstat-no" title="statement not covered" >        if (args.length &gt; 0) {</span>
+            const lastArg = <span class="cstat-no" title="statement not covered" >args.slice(-1)[0]</span>
+<span class="cstat-no" title="statement not covered" >            if (lastArg &amp;&amp; lastArg.hasOwnProperty('__kwargs__')) {</span>
+<span class="cstat-no" title="statement not covered" >                delete lastArg.__kwargs__</span>
+<span class="cstat-no" title="statement not covered" >                kwargs = Object.assign({}, kwargs, lastArg)</span>
+<span class="cstat-no" title="statement not covered" >                args = args.slice(0, -1)</span>
+            }
+        }
 &nbsp;
-module.exports = repr
+        let c = <span class="cstat-no" title="statement not covered" >console</span>
+<span class="cstat-no" title="statement not covered" >        if (Console) {</span>
+<span class="cstat-no" title="statement not covered" >            c = new Console({stdout: defaultKwargs.file})</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        args.push(kwargs.end)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (kwargs.sep !== defaultKwargs.sep) {</span>
+            // NOTE: Wrapping in Array to prevent the String being used as
+            // iterable so that all chars are logging separately.
+<span class="cstat-no" title="statement not covered" >            args = [args.join(kwargs.sep)]</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (kwargs.flush &amp;&amp; c.clear) {</span>
+<span class="cstat-no" title="statement not covered" >            c.clear()</span>
+        }
+<span class="cstat-no" title="statement not covered" >        c.log(...args)</span>
+    }
+}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
