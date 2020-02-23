@@ -1,4 +1,4 @@
-![coverage](https://img.shields.io/badge/coverage-95.50-brightgreen)
+![coverage](https://img.shields.io/badge/coverage-96.22-brightgreen)
 
 
 

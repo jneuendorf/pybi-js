@@ -53,7 +53,7 @@ describe('classmethod', () => {
         expect(A.prototype.hasOwnProperty('clsMethod')).toBe(false)
     })
 
-    test('current proposal', () => {
+    test('current proposal (with static)', () => {
         const A = require('./oo__classmethod__current_static')(classmethod)
         const clsMethod = A.clsMethod
 
@@ -427,5 +427,87 @@ describe('setattr', () => {
             __setattr__: 2,
         }
         expect(() => setattr(o2, 'a', 1)).toThrow(TypeError)
+    })
+})
+
+
+describe('staticmethod', () => {
+    test('legacy (with static)', () => {
+        const A = require('./oo__staticmethod__legacy_static')(staticmethod)
+        const staticMethod = A.staticMethod
+
+        // NOTE: In contrary to function decorator!
+        expect(() => staticMethod()).not.toThrow()
+        expect(A.staticMethod()).toBe(undefined)
+        expect(staticMethod()).toBe(undefined)
+        expect(new A().staticMethod()).toBe(undefined)
+        const o = {
+            m: A.staticMethod,
+        }
+        expect(o.m()).toBe(undefined)
+    })
+
+    test('legacy', () => {
+        const A = require('./oo__staticmethod__legacy')(staticmethod)
+        const staticMethod = A.staticMethod
+
+        // NOTE: In contrary to function decorator!
+        expect(() => staticMethod()).not.toThrow()
+        expect(A.staticMethod()).toBe(undefined)
+        expect(staticMethod()).toBe(undefined)
+
+        expect(new A().staticMethod()).toBe(undefined)
+        const o = {
+            m: A.staticMethod,
+        }
+        expect(o.m()).toBe(undefined)
+    })
+
+    test('current proposal', () => {
+        const A = require('./oo__staticmethod__current')(staticmethod)
+        const staticMethod = A.staticMethod
+
+        expect(staticMethod()).toBe(undefined)
+        expect(A.staticMethod()).toBe(undefined)
+        expect(staticMethod()).toBe(undefined)
+        expect(A.prototype.hasOwnProperty('staticMethod')).toBe(false)
+    })
+
+    test('current proposal (with static)', () => {
+        const A = require('./oo__staticmethod__current_static')(staticmethod)
+        const staticMethod = A.staticMethod
+
+        expect(staticMethod()).toBe(undefined)
+        expect(A.staticMethod()).toBe(undefined)
+        expect(staticMethod()).toBe(undefined)
+        expect(A.prototype.hasOwnProperty('staticMethod')).toBe(false)
+    })
+
+    test('python-like function decorator', () => {
+        const A = require('./oo__staticmethod__func')(staticmethod)
+        const staticMethod = A.staticMethod
+
+        expect(staticMethod()).toBe(undefined)
+        expect(A.staticMethod()).toBe(undefined)
+        expect(staticMethod()).toBe(undefined)
+
+        const detachedStaticMethod = staticmethod(function(cls) {
+            return cls
+        })
+        A.monkeyPatched = detachedStaticMethod
+        // TODO: This is not allowed in python because:
+        //       TypeError: 'staticmethod' object is not callable
+        //       This can probably lead to bugs if the same staticmethod-object
+        //       is used with different classes.
+        expect(detachedStaticMethod()).toBe(undefined)
+        expect(A.monkeyPatched()).toBe(undefined)
+
+        class B {}
+        B.monkeyPatched = detachedStaticMethod
+        expect(B.monkeyPatched()).toBe(undefined)
+    })
+
+    test('junk', () => {
+        expect(() => staticmethod(1,2)).toThrow()
     })
 })
