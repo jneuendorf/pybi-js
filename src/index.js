@@ -1,5 +1,6 @@
 const {config, reset} = require('./_config')
 const errors = require('./_errors')
+const setMinus = require('./_set-minus')
 
 
 const all = new Set([
@@ -34,21 +35,6 @@ const intersection = (setA, setB) => {
     }
     return _intersection
 }
-const setMinus = (setA, setB) => {
-    const _difference = new Set(setA)
-    for (const elem of setB) {
-        _difference.delete(elem)
-    }
-    return _difference
-}
-const union = (setA, setB) => {
-    let _union = new Set(setA)
-    for (let elem of setB) {
-        _union.add(elem)
-    }
-    return _union
-}
-
 
 
 const install = (namespace, options={}) => {

@@ -1,33 +1,78 @@
+const {dunder, NO_PROP} = require('./_dunder')
+const {NotImplementedError} = require('./_errors')
 const isClass = require('./_is-class')
+const isIterable = require('./_is-iterable')
+const setMinus = require('./_set-minus')
+const toObject = require('./_to-object')
+
+
+const skipNames = new Set(['arguments', 'caller', 'prototype'])
+
 
 module.exports = object => {
-    if (!object) {
-        // TODO: There seems to be no way to get the current local scope.
-        return []
+    if (object == null) {
+        throw new NotImplementedError(
+            'Calling dir() without arguments is not supported'
+        )
     }
-    if (object.__dir__) {
-        return object.__dir__()
-    }
-    const attrs = []
-    let cls, prototype
 
-    // 'object' is a class.
+    const __dir__ = dunder(object, '__dir__', x => isIterable(x), 'dir')
+    if (__dir__ !== NO_PROP) {
+        return __dir__
+    }
+
+    let attrs = []
+    let cls
+    let prototype
+    object = toObject(object)
     if (isClass(object)) {
         cls = object
         // This would be the prototype but we don't want to list the
         // prototype's properties in this case.
-        // prototype = cls.prototype
+        prototype = cls.prototype
     }
-    // 'object' is some class'es instance.
     else {
+        attrs = attrs.concat(
+            Object.getOwnPropertyNames(object),
+            Object.getOwnPropertySymbols(object),
+        )
         prototype = Object.getPrototypeOf(object)
         cls = prototype.constructor
     }
 
-    // TODO: This is currently non-recursive.
-    attrs.push(...Object.keys(cls))
-    if (prototype) {
-        attrs.push(...Object.keysprototypecls)
+    while (true) {
+        attrs = attrs.concat(
+            Object.getOwnPropertyNames(cls),
+            Object.getOwnPropertySymbols(cls),
+            Object.getOwnPropertyNames(prototype),
+            Object.getOwnPropertySymbols(prototype),
+        )
+
+        // Well...e.g. subclasses of 'Function' will result in cls.constructor
+        // never being 'Object' oO
+        if (cls === Object || cls === Function) {
+            break
+        }
+
+        prototype = Object.getPrototypeOf(prototype)
+        console.log('upward', cls.name, '->', prototype.constructor.name)
+        cls = prototype.constructor
     }
-    return attrs
+    const unique_attrs = new Set(attrs)
+    return Array.from(setMinus(unique_attrs, skipNames)).sort(function(a, b) {
+        if (typeof(a) === 'symbol') {
+            return 1
+        }
+        if (typeof(b) === 'symbol') {
+            return -1
+        }
+        // String sorting
+        if (a < b) {
+            return -1
+        }
+        if (a > b) {
+            return 1
+        }
+        return 0
+    })
 }
