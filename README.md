@@ -90,7 +90,9 @@ The following literals are (or can) be used:
       We don't want to auto inject whole libraries (like [math.js](https://mathjs.org/docs/datatypes/complex_numbers.html)) into somewhere. :wink:
 - [x] `delattr()`
 - [x] `dict()`
-- [x] `dir()`
+- [x] `dir()` :triangular_flag_on_post:
+    - Calling this function without arguments is not supported (and throws a
+      `NotImplementedError`).
 - [x] `divmod()`
 - [x] `enumerate()` :triangular_flag_on_post:
     - Returns an `Array` instead of an `enumerate` instance.
