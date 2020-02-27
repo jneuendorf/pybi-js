@@ -154,6 +154,65 @@ describe('format', () => {
 })
 
 
+describe('hash', () => {
+    describe('without hash-sum', () => {
+        config.hash_useHashSum = false
+
+        test('basic', () => {
+            console.warn = jest.fn()
+            expect(hash('asdf')).toBe(0)
+            expect(console.warn).toHaveBeenCalled()
+
+            config.hash_warnNoHashSum = false
+            console.warn = jest.fn()
+            expect(hash('asdf')).toBe(0)
+            expect(console.warn).not.toHaveBeenCalled()
+        })
+
+        test('invalid args', () => {
+            expect(() => hash()).toThrow(TypeError)
+            expect(() => hash('asdf', undefined)).toThrow(TypeError)
+            expect(() => hash('asdf', 1)).toThrow(TypeError)
+            expect(() => hash('asdf', [])).toThrow(TypeError)
+            expect(() => hash('asdf', {})).toThrow(TypeError)
+            expect(() => hash('asdf', true)).toThrow(TypeError)
+            expect(() => hash('asdf', 'x', 1)).toThrow(TypeError)
+        })
+
+        test('__hash__ on instance', () => {
+            const o1 = {
+                __hash__() {
+                    return 2
+                }
+            }
+            const o2 = {
+                __hash__() {
+                    return 'asdf'
+                }
+            }
+            const o3 = {__hash__: 2}
+
+            expect(hash(o1)).toBe(2)
+            expect(() => hash(o2)).toThrow(TypeError)
+            expect(() => hash(o3)).toThrow(TypeError)
+        })
+    })
+
+    test('with hash-sum', () => {
+        config.hash_useHashSum = true
+        const _hashSum = require('hash-sum')
+        const hashSum = o => parseInt(_hashSum(o), 16)
+        expect(hash(false)).toBe(hashSum(false))
+        expect(hash('asdf')).toBe(hashSum('asdf'))
+        expect(hash(Math.PI)).toBe(hashSum(Math.PI))
+        expect(hash([1, {}])).toBe(hashSum([1, {}]))
+        expect(hash({})).toBe(hashSum({}))
+        expect(hash(null)).toBe(hashSum(null))
+        expect(hash(undefined)).toBe(hashSum(undefined))
+    })
+})
+
+
 test('id', () => {
     const objects = [
         1,
