@@ -7,7 +7,11 @@ const {ValueError} = require('./_errors')
 
 // Object.constructor === Object.constructor.constructor
 const getClass = object => {
-    return toObject(object).constructor
+    return (
+        object != null
+        ? toObject(object).constructor
+        : undefined
+    )
 }
 
 const createClass = (name, bases, dict) => {

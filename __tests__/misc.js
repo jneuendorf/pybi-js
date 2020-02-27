@@ -6,6 +6,7 @@ const slice = require('../src/slice')
 const vars = require('../src/vars')
 
 const {NotImplementedError} = require('../src/_errors')
+const {config} = require('../src/_config')
 
 
 describe('dir', () => {
@@ -69,6 +70,86 @@ describe('dir', () => {
             __dir__: 2,
         }
         expect(() => dir(o3)).toThrow(TypeError)
+    })
+})
+
+
+describe('format', () => {
+    describe('without sprintf-js', () => {
+        config.format_useSprintf = false
+
+        test('basic', () => {
+            console.warn = jest.fn()
+            expect(format('asdf', '??')).toBe('')
+            expect(console.warn).toHaveBeenCalled()
+
+            config.format_warnNoSprintf = false
+            console.warn = jest.fn()
+            expect(format('asdf', '??')).toBe('')
+            expect(console.warn).not.toHaveBeenCalled()
+        })
+
+        test('invalid args', () => {
+            expect(() => format()).toThrow(TypeError)
+            expect(() => format('asdf', undefined)).toThrow(TypeError)
+            expect(() => format('asdf', 1)).toThrow(TypeError)
+            expect(() => format('asdf', [])).toThrow(TypeError)
+            expect(() => format('asdf', {})).toThrow(TypeError)
+            expect(() => format('asdf', true)).toThrow(TypeError)
+            expect(() => format('asdf', 'x', 1)).toThrow(TypeError)
+        })
+
+        test('__format__ on class', () => {
+            function A() {}
+            A.__format__ = function(value, format_spec) {
+                return 'asdf'
+            }
+            expect(format(new A, 'x')).toBe('asdf')
+
+            function B() {}
+            B.__format__ = function(value, format_spec) {
+                return 2
+            }
+            expect(() => format(new B, 'x')).toThrow(TypeError)
+
+            function C() {}
+            C.__format__ = 2
+            expect(() => format(new C, 'x')).toThrow(TypeError)
+        })
+
+        test('__format__ on instance', () => {
+            const o1 = {
+                __format__(format_spec) {
+                    return 'asdf'
+                }
+            }
+            const o2 = {
+                __format__(format_spec) {
+                    return 2
+                }
+            }
+            const o3 = {__format__: 2}
+
+            expect(format(o1, 'asdf')).toBe('asdf')
+            expect(() => format(o2, 'asdf')).toThrow(TypeError)
+            expect(() => format(o3, 'asdf')).toThrow(TypeError)
+        })
+
+        test('empty format_spec', () => {
+            expect(format('asdf')).toBe('asdf')
+            expect(format(1)).toBe('1')
+            expect(format(1.5)).toBe('1.5')
+            expect(format(true)).toBe('true')
+            expect(format(null)).toBe('null')
+        })
+    })
+
+    test('with sprintf-js', () => {
+        config.format_useSprintf = true
+        const {sprintf} = require('sprintf-js')
+        expect(format(false, '%t')).toBe(sprintf('%t', false))
+        expect(format('asdf', '%s')).toBe(sprintf('%s', 'asdf'))
+        expect(format(Math.PI, '%f')).toBe(sprintf('%f', Math.PI))
     })
 })
 

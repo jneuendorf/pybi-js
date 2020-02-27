@@ -11,10 +11,8 @@ module.exports = object => {
     }
     else {
         if (hash_warnNoHashSum) {
-            console.warn(`hash() was called without having  'hash-sum' installed`)
+            console.warn(`hash() was called without having 'hash-sum' installed`)
         }
-        else {
-            return 0
-        }
+        return 0
     }
 }

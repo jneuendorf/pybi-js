@@ -15,11 +15,13 @@
         "cov": "jest --coverage"
     },
     "optionalDependencies": {
-        "hash-sum": "^2.0.0"
+        "hash-sum": "^2.0.0",
+        "sprintf-js": "^1.1.2"
     },
     "devDependencies": {
         "hash-sum": "^2.0.0",
-        "jest": "^25.1.0"
+        "jest": "^25.1.0",
+        "sprintf-js": "^1.1.2"
     },
     "jest": {
         "testPathIgnorePatterns": [

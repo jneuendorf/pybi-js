@@ -2,6 +2,8 @@ const defaultConfig = {
     classmethod_firstArgClass: true,
     hash_useHashSum: true,
     hash_warnNoHashSum: true,
+    format_useSprintf: true,
+    format_warnNoSprintf: true,
     type_warnArrow: true,
 }
 

@@ -55,11 +55,11 @@ module.exports = object => {
         }
 
         prototype = Object.getPrototypeOf(prototype)
-        console.log('upward', cls.name, '->', prototype.constructor.name)
         cls = prototype.constructor
     }
     const unique_attrs = new Set(attrs)
     return Array.from(setMinus(unique_attrs, skipNames)).sort(function(a, b) {
+        // Sort symbols to the end
         if (typeof(a) === 'symbol') {
             return 1
         }
