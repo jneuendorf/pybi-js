@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1582835111764" clover="3.2.0">
-  <project timestamp="1582835111764" name="All files">
-    <metrics statements="990" coveredstatements="935" conditionals="610" coveredconditionals="568" methods="130" coveredmethods="119" elements="1730" coveredelements="1622" complexity="0" loc="990" ncloc="990" packages="1" files="73" classes="73"/>
+<coverage generated="1582836262483" clover="3.2.0">
+  <project timestamp="1582836262483" name="All files">
+    <metrics statements="991" coveredstatements="944" conditionals="614" coveredconditionals="574" methods="129" coveredmethods="120" elements="1734" coveredelements="1638" complexity="0" loc="991" ncloc="991" packages="1" files="73" classes="73"/>
     <file name="_bytes.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/_bytes.js">
       <metrics statements="24" coveredstatements="24" conditionals="6" coveredconditionals="5" methods="11" coveredmethods="11"/>
       <line num="1" count="3" type="stmt"/>
@@ -1020,16 +1020,17 @@
       <line num="22" count="1" type="stmt"/>
     </file>
     <file name="slice.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/slice.js">
-      <metrics statements="9" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <line num="3" count="0" type="stmt"/>
-      <line num="4" count="0" type="stmt"/>
-      <line num="5" count="0" type="stmt"/>
-      <line num="6" count="0" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="13" count="0" type="stmt"/>
-      <line num="16" count="0" type="stmt"/>
-      <line num="18" count="0" type="stmt"/>
+      <metrics statements="10" coveredstatements="10" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="8" type="stmt"/>
+      <line num="3" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="6" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="11" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="5" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="17" count="6" type="stmt"/>
     </file>
     <file name="sorted.js" path="/Users/jimneuendorf/Developer/web/pyllute/src/sorted.js">
       <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>

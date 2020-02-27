@@ -23,6 +23,9 @@ tests = {
         'reversed': list,
     }),
     'math': Meta([builtins]),
+    'misc': Meta([builtins], {
+        'slice': lambda s: {'start': s.start, 'stop': s.stop, 'step': s.step}
+    }),
     'stdtypes': Meta([builtins], {
         'bytearray': list,
         'bytes': list,

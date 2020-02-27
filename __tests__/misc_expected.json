@@ -1,0 +1,46 @@
+{
+  "slice": [
+    {
+      "start": null,
+      "stop": 10,
+      "step": null
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "slice expected at least 1 argument, got 0"
+      }
+    },
+    {
+      "start": 1,
+      "stop": 10,
+      "step": 1
+    },
+    {
+      "__error__": {
+        "type": "TypeError",
+        "message": "slice expected at most 3 arguments, got 4"
+      }
+    },
+    {
+      "start": null,
+      "stop": "asdf",
+      "step": null
+    },
+    {
+      "start": null,
+      "stop": true,
+      "step": null
+    },
+    {
+      "start": null,
+      "stop": [],
+      "step": null
+    },
+    {
+      "start": null,
+      "stop": {},
+      "step": null
+    }
+  ]
+}

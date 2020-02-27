@@ -8,6 +8,8 @@ const vars = require('../src/vars')
 const {NotImplementedError} = require('../src/_errors')
 const {config} = require('../src/_config')
 
+const {createTestCase} = require('./_utils')
+
 
 describe('dir', () => {
     test('basic', () => {
@@ -238,3 +240,6 @@ test('id', () => {
         expect(ids[idx]).toBe(oid)
     }
 })
+
+
+createTestCase('misc', 'slice', slice)
