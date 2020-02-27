@@ -243,3 +243,17 @@ test('id', () => {
 
 
 createTestCase('misc', 'slice', slice)
+
+
+test('vars', () => {
+    expect(() => vars()).toThrow(NotImplementedError)
+    expect(() => vars({})).toThrow(TypeError)
+
+    const o = {
+        __dict__: {
+            a: 1,
+            b: 2,
+        },
+    }
+    expect(vars(o)).toEqual({a: 1, b: 2})
+})
