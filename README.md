@@ -103,7 +103,10 @@ The following literals are (or can) be used:
 - [x] `exec()`
 - [x] `filter()`
 - [x] `float()`
-- [ ] `format()`
+- [x] `format()` :triangular_flag_on_post:
+    - :warning: The [format specification mini-language](https://docs.python.org/3/library/string.html#format-specification-mini-language) is not supported.
+      The implementation supports the basic behavoir and optionally uses [sprintf-js](https://github.com/alexei/sprintf.js) under the hood.
+      Thus the format specification of sprintf-js must be used instead of Python's.
 - [x] `frozenset()`
 - [x] `getattr()`
 - [ ] :x: `globals()`
