@@ -1,6 +1,7 @@
 const isinstance = require('./isinstance')
 const type = require('./type')
 const Bytes = require('./_bytes')
+const decode = require('./_decode')
 const toObject = require('./_to-object')
 
 
@@ -16,7 +17,7 @@ module.exports = (...args) => {
 
     const [expression, globals={}, locals={}] = args
 
-    if (!isinstance(toObject(expression), [String, Bytes])) {
+    if (!isinstance(toObject(expression), [String, Bytes, Uint8Array])) {
         throw new TypeError(`eval() arg 1 must be a string or bytes object`)
     }
     if (type(globals) !== Object) {
@@ -30,7 +31,11 @@ module.exports = (...args) => {
     const context = {...globals, ...locals}
     const func = new Function(
         `{${Object.keys(context).join(',')}}`,
-        `return eval('(${expression})')`
+        `return eval('(${(
+            isinstance(toObject(expression), [Bytes, Uint8Array])
+            ? decode(expression, 'utf-8')
+            : expression
+        )})')`
     )
     return func(context)
 }

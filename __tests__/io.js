@@ -4,6 +4,8 @@ const input = require('../src/input')
 const open = require('../src/open')
 const print = require('../src/print')
 
+const {b} = require('../src/string-literals')
+
 
 test('eval', () => {
     expect(evaluate('1')).toBe(1)
@@ -24,6 +26,7 @@ test('eval', () => {
     expect(evaluate('x', globals, locals)).toBe(locals.x)
     expect(evaluate('x', globals)).toBe(globals.x)
     expect(evaluate('y', globals, locals)).toBe(locals.y)
+    expect(evaluate(b`y`, globals, locals)).toBe(locals.y)
 
     expect(() => evaluate()).toThrow(TypeError)
     expect(() => evaluate(1)).toThrow(TypeError)

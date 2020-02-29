@@ -1,16 +1,8 @@
 const repr = require('./repr')
 const Bytes = require('./_bytes')
+const decode = require('./_decode')
 const toPrimitive = require('./_to-primitive')
 
-
-let _TextDecoder
-/* istanbul ignore next */
-if (typeof(TextDecoder) !== 'undefined') {
-    _TextDecoder = TextDecoder
-}
-else {
-    _TextDecoder = require('util').TextDecoder
-}
 
 function str(...args) {
     const n = args.length
@@ -79,10 +71,7 @@ function str(...args) {
                 )
             }
         }
-
-        // Compatibility: https://caniuse.com/#feat=mdn-api_textdecoder_decode
-        const decoder = new _TextDecoder(encoding)
-        return decoder.decode(object.buffer)
+        return decode(object, encoding)
     }
 }
 
