@@ -39,3 +39,24 @@ test('eval', () => {
     expect(() => evaluate('1', '1', '1')).toThrow(TypeError)
     expect(() => evaluate('1', {}, '1')).toThrow(TypeError)
 })
+
+
+test('exec', () => {
+    expect(() => evaluate()).toThrow(TypeError)
+    expect(() => evaluate(1)).toThrow(TypeError)
+    expect(() => evaluate(true)).toThrow(TypeError)
+    expect(() => evaluate(1, {})).toThrow(TypeError)
+    expect(() => evaluate(1, {}, {})).toThrow(TypeError)
+    expect(() => evaluate(1, {}, {}, 1)).toThrow(TypeError)
+    expect(() => evaluate('1', {}, {}, 1)).toThrow(TypeError)
+    expect(() => evaluate('1', '1')).toThrow(TypeError)
+    expect(() => evaluate('1', '1', '1')).toThrow(TypeError)
+    expect(() => evaluate('1', {}, '1')).toThrow(TypeError)
+
+    const locals = {
+        dict: {a: 1}
+    }
+    exec('dict.a += 1; dict.b = 42', {}, locals)
+    expect(locals.dict.a).toBe(2)
+    expect(locals.dict.b).toBe(42)
+})
