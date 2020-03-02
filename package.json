@@ -16,7 +16,8 @@
     },
     "optionalDependencies": {
         "hash-sum": "^2.0.0",
-        "sprintf-js": "^1.1.2"
+        "sprintf-js": "^1.1.2",
+        "system-sleep": "^1.3.6"
     },
     "devDependencies": {
         "hash-sum": "^2.0.0",

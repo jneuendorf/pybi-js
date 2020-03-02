@@ -60,3 +60,12 @@ test('exec', () => {
     expect(locals.dict.a).toBe(2)
     expect(locals.dict.b).toBe(42)
 })
+
+
+test.skip('input', () => {
+    // NOTE: See /input-test.js
+    // const mockStdIn = require('mock-stdin').stdin()
+    // process.nextTick(() => mockStdIn.send('hello\n'))
+    process.nextTick(() => process.stdin.write('hello\n'))
+    expect(input('asdf', false)).toBe('hello')
+})

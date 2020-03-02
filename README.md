@@ -121,7 +121,9 @@ The following literals are (or can) be used:
 - [x] `input()` :triangular_flag_on_post:
     - :warning: Only works on Node.js.
       It will not be installed unless there is a global `process` variable.
-    - :exclamation: Asynchronous
+    - :exclamation: Asynchronous by default. 
+      There is a 2nd argument `async` (default `true`).
+      If `false`, busy waiting is used but [`system-sleep`](https://www.npmjs.com/package/system-sleep) can be used to relax the busy waiting.
 - [x] `int()`
 - [x] `isinstance()`
 - [x] `issubclass()`
