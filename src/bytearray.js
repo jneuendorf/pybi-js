@@ -29,6 +29,7 @@ module.exports = (source=0, encoding, /*errors*/) => {
             }
             sourceCopy.push(byte)
         }
+        source = sourceCopy
     }
     return new Uint8Array(source)
 }

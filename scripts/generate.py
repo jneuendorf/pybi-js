@@ -2,9 +2,13 @@ import builtins
 from dataclasses import dataclass, field
 import json
 import math
+import sys
 from typing import Callable, Dict
 
 from _utils import generate
+
+
+assert sys.version_info.major >= 3 and sys.version_info.minor >= 8
 
 
 @dataclass

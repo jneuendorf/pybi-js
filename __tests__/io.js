@@ -1,3 +1,6 @@
+const os = require('os')
+const path = require('path')
+
 const evaluate = require('../src/eval')
 const exec = require('../src/exec')
 const input = require('../src/input')
@@ -64,8 +67,17 @@ test('exec', () => {
 
 test.skip('input', () => {
     // NOTE: See /input-test.js
+    // See https://github.com/facebook/jest/issues/7030
     // const mockStdIn = require('mock-stdin').stdin()
     // process.nextTick(() => mockStdIn.send('hello\n'))
     process.nextTick(() => process.stdin.write('hello\n'))
     expect(input('asdf', false)).toBe('hello')
+})
+
+
+describe.only('open', () => {
+    test.only('basic', () => {
+        const tmpdir = os.tmpdir()
+        const newFile = open(path.join(tmpdir, 'open1.txt'), 'wt')
+    })
 })

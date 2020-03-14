@@ -146,6 +146,16 @@ The following literals are (or can) be used:
     - Assigning properties is not forbidden like in Python.
 - [x] `oct()`
 - [ ] `open()`
+    - Arguments are interpreted in a special way:
+      If the last argument is an object it is interpreted as keyword arguments.
+      Those keyword arguments have precedence over positional arguments (but 
+      should not overlap them for clarity).
+      For example, the following 2 calls are equivalent:
+      `open('/path', 'rb', {encoding: 'utf8'})` and 
+      `open('/path', 'rb', undefined, 'utf8')`
+    - `mode` allows more than in Python.
+      That way it may be more convenient for people used to the `fs.open` interface.
+      E.g. `'ax'` is not allowed in Python but it is in `fs`.
 - [x] `ord()`
 - [x] `pow()`
 - [x] `print()`
