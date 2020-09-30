@@ -1,9 +1,9 @@
 {
-    "name": "pyllute",
+    "name": "pybi",
     "version": "0.0.1",
-    "description": "Pollute a namespace (global, window supported) with JS implementation of (most of) Python's built-in functions",
+    "description": "An implementation of most of Python's built-in functions in JavaScript.",
     "main": "src/index.js",
-    "repository": "https://github.com/jneuendorf/pyllute.git",
+    "repository": "https://github.com/jneuendorf/pybi-js.git",
     "author": "Jim Neuendorf <jim.neuendorf@gmx.de>",
     "license": "MIT",
     "scripts": {
