@@ -75,9 +75,9 @@ test.skip('input', () => {
 })
 
 
-describe.only('open', () => {
-    test.only('basic', () => {
-        const tmpdir = os.tmpdir()
-        const newFile = open(path.join(tmpdir, 'open1.txt'), 'wt')
-    })
-})
+// describe.only('open', () => {
+//     test.only('basic', () => {
+//         const tmpdir = os.tmpdir()
+//         const newFile = open(path.join(tmpdir, 'open1.txt'), 'wt')
+//     })
+// })
