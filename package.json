@@ -1,6 +1,6 @@
 {
     "name": "pybi",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "An implementation of most of Python's built-in functions in JavaScript.",
     "main": "src/index.js",
     "repository": "https://github.com/jneuendorf/pybi-js.git",
