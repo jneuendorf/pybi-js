@@ -2,27 +2,29 @@
 
 
 
-# pyllute
+# pybi
 
-Po**llute** a namespace (global, window supported) with JS implementation of (most of) **Py**thon's built-in functions
+An implementation of most of Python's built-in functions in JavaScript.
+
+These functions can be attached to a certain namespace -- including the global namespace (`globalThis`, `global` / `window`).
 
 <!-- Fix Atom's syntax highlighting: *** //-->
 
 ## Install
 
 ```bash
-npm install --save pyllute
+npm install --save pybi
 # or
-yarn add pyllute
+yarn add pybi
 ```
 
 
 ## Usage
 
 ```javascript
-import {install} from 'pyllute'
+import {install} from 'pybi'
 // or
-// const {install} = require('pyllute')
+// const {install} = require('pybi')
 
 
 // The global namespace is polluted by default:
@@ -121,7 +123,7 @@ The following literals are (or can) be used:
 - [x] `input()` :triangular_flag_on_post:
     - :warning: Only works on Node.js.
       It will not be installed unless there is a global `process` variable.
-    - :exclamation: Asynchronous by default. 
+    - :exclamation: Asynchronous by default.
       There is a 2nd argument `async` (default `true`).
       If `false`, busy waiting is used but [`system-sleep`](https://www.npmjs.com/package/system-sleep) can be used to relax the busy waiting.
 - [x] `int()`
@@ -148,10 +150,10 @@ The following literals are (or can) be used:
 - [ ] `open()`
     - Arguments are interpreted in a special way:
       If the last argument is an object it is interpreted as keyword arguments.
-      Those keyword arguments have precedence over positional arguments (but 
+      Those keyword arguments have precedence over positional arguments (but
       should not overlap them for clarity).
       For example, the following 2 calls are equivalent:
-      `open('/path', 'rb', {encoding: 'utf8'})` and 
+      `open('/path', 'rb', {encoding: 'utf8'})` and
       `open('/path', 'rb', undefined, 'utf8')`
     - `mode` allows more than in Python.
       That way it may be more convenient for people used to the `fs.open` interface.
@@ -162,7 +164,7 @@ The following literals are (or can) be used:
     - `kwargs` can be passed by passing an object with the following shape as
       the last argument, for example:
       `{__kwargs__, end='-------'}`.
-      `__kwargs__` is a named export of `pyllute`.
+      `__kwargs__` is a named export of `pybi`.
       Note that the `end` keyword argument is prepended to the default (unavoidable?) line break.
       This means it behaves differently than in Python.
 - [ ] :x: `property()`
@@ -204,7 +206,7 @@ The following literals are (or can) be used:
       Not sure how e.g. the `classmethod` decorator works when using `type` in Python.
       The created class has the `__name__`, `__bases__` and `__dict__` attributes like in Python.
 - [x] `vars()` :triangular_flag_on_post:
-    - This libs implementation only works if an argument is passed 
+    - This libs implementation only works if an argument is passed
       and returns this arg's `__dict__`.
 - [x] `zip()`
 
@@ -215,9 +217,9 @@ There are some configuration flags for some of the functions.
 `config` is just an object and can be reset using the `reset` function:
 
 ```javascript
-const {config, reset} = require('pyllute')
+const {config, reset} = require('pybi')
 // or
-import {config, reset} from 'pyllute'
+import {config, reset} from 'pybi'
 
 console.log(config) // {
 //     classmethod_firstArgClass: true,
@@ -239,7 +241,7 @@ reset()
 
 ## Caveats
 
-### `classmethod` 
+### `classmethod`
 
 There are 3 different ways to use this function and 3 according behaviors which can be slightly different.
 
@@ -294,9 +296,9 @@ B.m2()
 // THROWING UP!
 ```
 
-Additionally, decorators in JavaScript can only result in a single descriptor 
-which means, that the classmethod can only be defined either on the class or in 
-the prototype with a single call/assignment (unlike in Python where 
+Additionally, decorators in JavaScript can only result in a single descriptor
+which means, that the classmethod can only be defined either on the class or in
+the prototype with a single call/assignment (unlike in Python where
 classmethods can also be accessed called from instances).
 
 There is another slight difference to Python:
