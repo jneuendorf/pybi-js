@@ -100,6 +100,7 @@ const intersection = (setA, setB) => {
 const install = (namespace, options={}) => {
     const {
         literals=true,
+        stringLiterals=true,
         extended=true,
         whitelist=[],
         blacklist=[],
@@ -152,6 +153,10 @@ const install = (namespace, options={}) => {
 
     if (literals) {
         Object.assign(injections, require('./literals'))
+    }
+
+    if (stringLiterals) {
+        Object.assign(injections, require('./string-literals'))
     }
 
     for (const moduleName of moduleNames) {
